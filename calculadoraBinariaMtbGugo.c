@@ -2,49 +2,58 @@
 #include <string.h>
 #include <stdlib.h>
 
-    int *dados;
-    int topo;
-    int capacidade;
-} Pilha;
+ typedef struct no {
+    char data[40]; //Numero de bits ta em 40, mas da pra redefinir
+    struct no *proximo;
+} No;
 
-Pilha *startPilha(int capacidade_inicial) {
-    Pilha *p = (Pilha*)malloc(sizeof(Pilha));
-    p->dados = (int*)malloc(capacidade_inicial * sizeof(int));
-    p->topo = 0;
-    p->capacidade = capacidade_inicial;
-    return p;
+typedef struct stack {
+    No *top;
+} Stack;
+
+void initStack(Stack *stack) {
+    stack->top = NULL;
 }
 
-Pilha *Empilhar(int dado, Pilha *p) {
-    if (p->topo == p->capacidade) {
-        p->capacidade *= 2;
-        p->dados = (int*)realloc(p->dados, p->capacidade * sizeof(int));
+void push(Stack *stack, char valor[]){
+    No *novoNo = malloc(sizeof(No));
+
+    if(novoNo == NULL){
+        printf("Erro na hora de alocar a memoria\n");
+        return;
     }
-    p->dados[p->topo++] = dado;
-    return p;
+
+    strcpy(novoNo->data, valor);
+    novoNo->proximo = stack->top;
+    stack->top = novoNo;
 }
 
-Pilha *Desempilhar(Pilha *p) {
-    if (p->topo == 0) {
-        printf("Pilha vazia...\n");
-    } else {
-        p->topo--;
+char* pop(Stack *stack){
+    if(stack->top == NULL) {
+        printf("A pilha está vazia\n");
+        return NULL;
     }
-    return p;
+
+    No *temp = stack->top;
+    char *valor = malloc(10 * sizeof(char)); 
+    strcpy(valor, temp->data);
+    stack->top = stack->top->proximo;
+    free(temp);
+
+    return valor;
 }
 
-    if (p->topo == 0) {
-        printf("Pilha vazia...\n");
+void printStack(Stack *stack){
+    if(stack->top == NULL) {
+        printf("A pilha está vazia\n");
+        return;
     }
-    for (int i = p->topo - 1; i >= 0; i--) {
-        printf("%d ", p->dados[i]);
-    }
-    printf("\n");
-}
 
-void freePilha(Pilha *p) {
-    free(p->dados);
-    free(p);
+    No *noTemp = stack->top;
+    while(noTemp != NULL){
+        printf("%s\n", noTemp->data);
+        noTemp = noTemp->proximo;
+    }
 }
 
 char* somaBinaria(const char *a, const char *b) {
