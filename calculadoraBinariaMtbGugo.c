@@ -89,12 +89,15 @@ char* somaBinaria(const char *a, const char *b) {
 }
 
 int main() {
-    char a[10] = "11001";
-    char b[10] = "11001";
+    Stack *stackBin = malloc(sizeof(Stack));
+    initStack(stackBin);
+    Stack *stackOperator = malloc(sizeof(Stack));
+    initStack(stackOperator);
 
-    char *resultado = somaBinaria(a, b);
-    printf("%s\n", resultado);
+    //so chamar o push com o construtor, ex:
+    push(stackBin, "01010101");
 
-    free(resultado - (strlen(resultado) > 1)); 
+    free(stackBin);
+    free(stackOperator);
     return 0;
 }
