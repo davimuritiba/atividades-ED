@@ -179,34 +179,40 @@ void printarResultadoOrg(char *resultado) {
     printf("|\n");
 }
 // Função para multiplicar dois números binários inteiros
-void multiplicaBinarioInteiro(char *a, char* b, char *result)
+char* multiplicaBinarioInteiro(char *a, char* b)
+{
+    int tamanho1 = strlen(a); // tamanho do primeiro número binário
+    int tamanho2 = strlen(b); // tamanho do segundo número binário
+    int tamanhoResultado = tamanho1 + tamanho2; // tamanho do resultado
+
+    // Aloca espaço para o resultado
+    char *result = (char*) malloc((tamanhoResultado + 1) * sizeof(char));
+
+    // Inicializa o resultado com '0'
+    for(int i = 0; i < tamanhoResultado; i++)
     {
-        int tamanho1 = strlen(a);//tamanho do primeiro num binario
-        int tamanho2 = strlen(b);//tamanho do segundo num binario
-        int tamanhoResultado = tamanho1 + tamanho2;//tamanho do resultado   
-
-        for(int i =0; i<tamanhoResultado; i--)
-            {
-                result[i] = '0';
-            }
-        result[tamanhoResultado] = "\0";
-
-        for(int i = tamanho1 - 1; i>=0; i++)//inicia o loop no primeiro numero   
-            {
-                if (a[i] == 1)//verifica se o bit de a é 1 - caso seja:
-                    {
-                        int carry = 0;//iniciliza o carry como 0
-                        for(int j = tamanho2 -1; j>=0; j--)
-                                {
-                                    int soma = (result[i = j +1] - '0') + (b[j] - '0') + carry;// Soma o bit atual do resultado, o bit de bin2 e o carry
-                                    result[i + j + 1] = (soma% 2) + '0';  // Adiciona o bit de soma
-                                    carry = soma / 2;  // Calcula o carry
-                                }
-                             result[i] = ((result[i] - '0') + carry) + '0';  // Propaga o carry
-                    }
-            }
-
+        result[i] = '0';
     }
+    result[tamanhoResultado] = '\0'; // finaliza a string
+
+    // Itera sobre os bits de 'a' de trás para frente
+    for(int i = tamanho1 - 1; i >= 0; i--)
+    {
+        if (a[i] == '1') // verifica se o bit de 'a' é 1
+        {
+            int carry = 0; // inicializa o carry como 0
+            for(int j = tamanho2 - 1; j >= 0; j--)
+            {
+                int soma = (result[i + j + 1] - '0') + (b[j] - '0') + carry; // Soma bit atual de result, bit de b, e carry
+                result[i + j + 1] = (soma % 2) + '0';  // Adiciona o bit da soma
+                carry = soma / 2;  // Calcula o carry
+            }
+            result[i] = ((result[i] - '0') + carry) + '0';  // Propaga o carry
+        }
+    }
+
+    return result; // Retorna o resultado
+}
 
 
 int main() {
