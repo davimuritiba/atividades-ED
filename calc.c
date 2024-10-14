@@ -1,4 +1,4 @@
-#include "calcGray.h"
+#include "calcLib.h"
 
 // Funções de pilha
 void initStack(Stack *stack) {
@@ -43,13 +43,7 @@ void printStack(Stack *stack) {
     }
 }
 
-//Começo das funções da calculadora
-void inverterBits(char *binario) {
-    for (int i = 0; binario[i] != '\0'; i++) {
-        binario[i] = (binario[i] == '1') ? '0' : '1';
-    }
-}
-
+//Função de binario para decimal completo
 int binParaDecimal(char *binario) {
     int decimal = 0;
     int len = strlen(binario);
@@ -61,6 +55,7 @@ int binParaDecimal(char *binario) {
     return decimal;
 }
 
+//Função de binario para decimal so para comparar o inteiro
 int binParaDecimalInteiro(char *binario) {
     int parteInteira = 0;
     int len = 10;
@@ -72,6 +67,7 @@ int binParaDecimalInteiro(char *binario) {
     return parteInteira;
 }
 
+//Soma parte fracionaria do numero
 char* somaBinariosDecimais(char *a, char *b, int *carry) {
     int tamanhoMax = 8; // parte decimal tem 8 bits
     char* result = malloc(tamanhoMax + 1);
@@ -103,6 +99,7 @@ char* somaBinariosDecimais(char *a, char *b, int *carry) {
     return result;
 }
 
+//Soma a parte dos inteiros
 char* somaBinariosInteiros(char *a, char *b, int carry) {
     int tamanhoMax = 11; // sinal + 10 bits de parte inteira
     char* result = malloc(tamanhoMax + 1);
@@ -133,10 +130,14 @@ char* somaBinarios(char *a, char *b) {
         if(a[0] == '1' && b[0] == '0'){
             // A é negativo, B é positivo
             resultado[0] = (valorA > valorB) ? '1' : '0'; // Se A > B, resultado é negativo
+            resultado = subtrairBinarios(a, b);
+            return resultado;
         } 
         else if (a[0] == '0' && b[0] == '1'){
             // A é positivo, B é negativo
             resultado[0] = (valorB > valorA) ? '1' : '0'; // Se B > A, resultado é negativo
+            resultado = subtrairBinarios(a, b);
+            return resultado;
         }
 
         free(resultado);
@@ -157,18 +158,62 @@ char* somaBinarios(char *a, char *b) {
     return resultado;
 }
 
-//função para subtrair binários usando complemento de dois
+// Função ajustada para subtrair binários sem complemento de dois quando o resultado é positivo
 char* subtrairBinarios(char* a, char* b) {
-    char *b_copia = malloc(tamanhoBits * sizeof(char)); 
-    strcpy(b_copia, b); 
+    int max_len = 19; // 11 bits parte inteira + 8 bits parte decimal
 
-    inverterBits(b_copia);  // faz o complemento de 1
-    char* complementoDois = somaBinarios(b_copia, "0000000000000000001");  // soma 1 para obter o complemento de dois
-    char* resultado = somaBinarios(a, complementoDois);
+    char* result = (char*)malloc(max_len + 1); // +1 para o '\0'
+    result[max_len] = '\0';
 
-    free(b_copia); 
-    free(complementoDois); 
-    return resultado;
+    int borrow = 0;
+
+    // Subtração da parte decimal (últimos 8 bits)
+    for (int i = max_len - 1; i >= 11; i--) {
+        int bitA = a[i] - '0';
+        int bitB = b[i] - '0';
+
+        if (bitA - borrow < bitB) {
+            result[i] = (bitA + 2 - borrow - bitB) + '0';
+            borrow = 1;
+        } else {
+            result[i] = (bitA - borrow - bitB) + '0';
+            borrow = 0;
+        }
+    }
+
+    // Subtração da parte inteira (primeiros 10 bits, incluindo sinal)
+    for (int i = 10; i >= 1; i--) {
+        int bitA = a[i] - '0';
+        int bitB = b[i] - '0';
+
+        if (bitA - borrow < bitB) {
+            result[i] = (bitA + 2 - borrow - bitB) + '0';
+            borrow = 1;
+        } else {
+            result[i] = (bitA - borrow - bitB) + '0';
+            borrow = 0;
+        }
+    }
+
+    // Verificar se o resultado é negativo
+    if (a[0] == '1' && b[0] == '0') {
+        // Caso onde A é negativo e B é positivo, o resultado é negativo
+        result[0] = '1';  // Ajusta o sinal para negativo
+    } 
+    else if (a[0] == '0' && b[0] == '1') {
+        // Caso onde A é positivo e B é negativo, o resultado é positivo
+        result[0] = '0';
+    } 
+    else if (borrow == 1) {
+        // Caso onde A é positivo e B é maior que A, o resultado é negativo
+        result[0] = '1';  // Ajusta o sinal para negativo
+    } 
+    else {
+        // Caso onde o resultado é positivo
+        result[0] = '0';  // Sinal positivo
+    }
+
+    return result;
 }
 
 void printarResultadoOrg(char *resultado) {
@@ -180,6 +225,7 @@ void printarResultadoOrg(char *resultado) {
         printf("%c", resultado[i]);
     printf("|\n");
 }
+
 // Função para multiplicar dois números binários inteiros
 char* multiplicaBinarioInteiro(char *a, char* b)
 {
@@ -216,13 +262,18 @@ char* multiplicaBinarioInteiro(char *a, char* b)
     return result; // Retorna o resultado
 }
 
-
 int main() {
     Stack *stackBin = malloc(sizeof(Stack));
     initStack(stackBin);
+    Stack *stackOperator = malloc(sizeof(Stack));
+    initStack(stackOperator);
 
-    push(stackBin, "0000000101000110010"); 
-    push(stackBin, "0000000101000110010"); 
+    char *expressao[10000] = {"0000000101000110010 + 0000000101000110010 - 0000000101000110010 * 0000000101000110010"};
+
+    //0000000101000110010 5,5
+    //0000000101000110010 10, 
+    push(stackBin, "0000000010100110010"); //10 resultado vai para o B
+    push(stackBin, "0000000101000110010"); //5 esse resultado vai para o A
 
     char *a = pop(stackBin);
     char *b = pop(stackBin);
@@ -235,11 +286,14 @@ int main() {
     char *resultadoSoma = somaBinarios(a, b);
     printf("Soma: ");
     printarResultadoOrg(resultadoSoma);
+    char *resultadoSub = subtrairBinarios(a, b);
+    printf("Subtracao: ");
+    printarResultadoOrg(resultadoSub);
 
     free(stackBin);
     free(a); 
     free(b); 
-    free(resultadoSoma);
+    // free(resultadoSoma);
 
     return 0;
 }
