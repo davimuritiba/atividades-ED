@@ -1,5 +1,3 @@
-#include "calcGray.h"
-
 // Funções de pilha
 void initStack(Stack *stack) {
     stack->top = NULL;
@@ -149,40 +147,37 @@ void printarResultadoOrg(char *resultado) {
         printf("%c", resultado[i]);
     printf("|\n");
 }
-// Função para multiplicar dois números binários com ponto fixo
-void multiplicarBinarios(char *bin1, char *bin2, char *result) {
-    int len1 = strlen(bin1);  // Tamanho do binário de entrada (18 bits)
-    int len2 = strlen(bin2);  // Tamanho do binário de entrada (18 bits)
-    int resultLen = len1 + len2;  // Resultado pode ter até 36 bits
+// Função para multiplicar dois números binários inteiros
+void multiplicaBinarioInteiro(char *a, char* b, char *result)
+    {
+        int tamanho1 = strlen(a);//tamanho do primeiro num binario
+        int tamanho2 = strlen(b);//tamanho do segundo num binario
+        int tamanhoResultado = tamanho1 + tamanho2;//tamanho do resultado   
 
-    // Inicializa o resultado como 0
-    for (int i = 0; i < resultLen; i++) {
-        result[i] = '0';
-    }
-    result[resultLen] = '\0';
-
-    // Algoritmo de multiplicação binária
-    for (int i = len1 - 1; i >= 0; i--) {
-        if (bin1[i] == '1') {
-            int carry = 0;
-            for (int j = len2 - 1; j >= 0; j--) {
-                int sum = (result[i + j + 1] - '0') + (bin2[j] - '0') + carry;
-                result[i + j + 1] = (sum % 2) + '0';
-                carry = sum / 2;
+        for(int i =0; i<tamanhoResultado; i--)
+            {
+                result[i] = '0';
             }
-            result[i] = ((result[i] - '0') + carry) + '0';
-        }
+        result[tamanhoResultado] = "\0";
+
+        for(int i = tamanho1 - 1; i>=0; i++)//inicia o loop no primeiro numero   
+            {
+                if (a[i] == 1)//verifica se o bit de a é 1 - caso seja:
+                    {
+                        int carry = 0;//iniciliza o carry como 0
+                        for(int j = tamanho2 -1; j>=0; j--)
+                                {
+                                    int soma = (result[i = j +1] - '0') + (b[j] - '0') + carry;// Soma o bit atual do resultado, o bit de bin2 e o carry
+                                    result[i + j + 1] = (soma% 2) + '0';  // Adiciona o bit de soma
+                                    carry = soma / 2;  // Calcula o carry
+                                }
+                             result[i] = ((result[i] - '0') + carry) + '0';  // Propaga o carry
+                    }
+            }
+
     }
 
-    // Ajusta a vírgula binária (ponto fixo)
-    // Desloca o resultado 8 posições à direita para ajustar a parte fracionária
-    for (int i = resultLen - 1; i >= 8; i--) {
-        result[i] = result[i - 8];
-    }
-    for (int i = 0; i < 8; i++) {
-        result[i] = '0';
-    }
-}
+
 int main() {
     Stack *stackBin = malloc(sizeof(Stack));
     initStack(stackBin);
