@@ -59,6 +59,17 @@ int binParaDecimal(char *binario) {
     return decimal;
 }
 
+int binParaDecimalInteiro(char *binario) {
+    int parteInteira = 0;
+    int len = 10;
+    for (int i = 1; i < len; i++) {
+        if (binario[i] == '1') {
+            parteInteira += pow(2, len - i - 1);
+        }
+    }
+    return parteInteira;
+}
+
 char* somaBinariosDecimais(char *a, char *b, int *carry) {
     int tamanhoMax = 8; // parte decimal tem 8 bits
     char* result = malloc(tamanhoMax + 1);
@@ -110,11 +121,31 @@ char* somaBinariosInteiros(char *a, char *b, int carry) {
 //essa função soma os inteiros, decimais e concatena
 char* somaBinarios(char *a, char *b) {
     int carry = 0;
+    
+    char *resultado = malloc(tamanhoBits + 1);
+    if(a[0] == '1' && b[0] == '0' || a[0] == '0' && b[0] == '1'){
+        int valorA = binParaDecimalInteiro(a + 1); // Desconsidera o sinal
+        int valorB = binParaDecimalInteiro(b + 1); // Desconsidera o sinal
 
+        printf("valor de a: %d, valor de b: %d\n", valorA, valorB);
+        if(a[0] == '1' && b[0] == '0'){
+            // A é negativo, B é positivo
+            resultado[0] = (valorA > valorB) ? '1' : '0'; // Se A > B, resultado é negativo
+        } 
+        else if (a[0] == '0' && b[0] == '1'){
+            // A é positivo, B é negativo
+            resultado[0] = (valorB > valorA) ? '1' : '0'; // Se B > A, resultado é negativo
+        }
+
+        free(resultado);
+        resultado = subtrairBinarios(a, b);
+        return resultado;
+    }
+
+    
     char *parteDecimal = somaBinariosDecimais(a + 11, b + 11, &carry);
     char *parteInteira = somaBinariosInteiros(a, b, carry);
 
-    char *resultado = malloc(tamanhoBits + 1);
     strcpy(resultado, parteInteira);
     strcat(resultado, parteDecimal);
 
