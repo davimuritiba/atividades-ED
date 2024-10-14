@@ -1,3 +1,5 @@
+#include "calcGray.h"
+
 // Funções de pilha
 void initStack(Stack *stack) {
     stack->top = NULL;
