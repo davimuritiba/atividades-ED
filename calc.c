@@ -55,7 +55,7 @@ int binParaDecimal(char *binario, int len) {
 }
 
 void printarResultadoOrg(char *resultado) {
-    printf("resultado final: |%c|", resultado[0]);
+    printf("Resultado final: |%c|", resultado[0]);
     for (int i = 1; i <= 10; i++)
         printf("%c", resultado[i]);
     printf("|");
@@ -154,6 +154,7 @@ char* somaBinarios(char *a, char *b) {
 
     return resultado;
 }
+
 
 // Função ajustada para subtrair binários sem complemento de dois quando o resultado é positivo
 char* subtrairBinarios(char* a, char* b) {
@@ -313,21 +314,6 @@ char *multiplicarBinarioDecimal(char *a, char* b){
         }
     }
 
-    printf("Resultado multiplicacao: %s\n", result);
-    int resultMult = binParaDecimal(result, 16);
-    printf("Result Mult em decimal: %d\n", resultMult);
-    if(resultMult > 99){
-        int carry = 1;  
-        resultMult = resultMult % 100; // Mantém apenas as duas casas
-        // Atualiza o resultado com o novo valor
-        for (int i = 0; i < 8; i++) {
-            result[i] = '0';
-        }
-        sprintf(result + 6, "%02d", resultMult); // Preenche com os últimos 2 dígitos
-
-        result = somaBinarios(result, "0000000000000000001");
-    } 
-
     funcaoRetirarBits(result, 9);
     return result; // Retorna o resultado
 }
@@ -337,6 +323,8 @@ char *multiplicarBinario(char *a, char *b){
 
     if(a[0] == '1' && b[0] == '0' || a[0] == '0' && b[0] == '1')
         result[0] = '1';
+    if(a[0] == '1' && b[0] == '1')
+        result[0] = '0';
 
     char *parteDecimal = multiplicarBinarioDecimal(a + 11, b + 11);
     char *parteInteira = multiplicaBinarioInteiro(a, b);
@@ -349,8 +337,100 @@ char *multiplicarBinario(char *a, char *b){
     return result;
 }
 
+char* decimalParaBinarioInteiro(int valor) {
+    char* binario = (char*)malloc(20);  // 19 bits + '\0'
+
+    // Tratamento do sinal
+    if (valor < 0) {
+        binario[0] = '1';
+        valor = -valor;
+    } else {
+        binario[0] = '0';
+    }
+
+    // Parte inteira
+    for (int i = 10; i > 0; i--) {
+        binario[i] = (valor % 2) + '0';
+        valor /= 2;
+    }
+
+    // Preencher parte decimal com zeros
+    for (int i = 11; i < 19; i++) {
+        binario[i] = '0';
+    }
+
+    binario[19] = '\0';
+    return binario;
+}
+
+// Função para converter binário (parte inteira) para decimal
+int binarioParaInteiro(char *binario, int numBits) {
+    int decimal = 0;
+    for (int i = 0; i < numBits; i++) {
+        if (binario[i] == '1') {
+            decimal += pow(2, numBits - i - 1);
+        }
+    }
+    return decimal;
+}
+
+// Função para converter um número binário de 19 bits para um valor decimal (apenas parte inteira)
+int binarioParaDecimalParteInteira(char *binario19Bits) {
+    char sinal = binario19Bits[0];
+    char parteInteiraBin[11];  // 10 bits para a parte inteira
+
+    // Separando a parte inteira
+    strncpy(parteInteiraBin, binario19Bits + 1, 10);
+    parteInteiraBin[10] = '\0';
+
+    // Convertendo a parte inteira para decimal
+    int parteInteira = binarioParaInteiro(parteInteiraBin, 10);
+
+    // Aplicar o sinal negativo, se necessário
+    if (sinal == '1') {
+        parteInteira = -parteInteira;
+    }
+
+    return parteInteira;
+}
+
+char* dividirBinariosInteiros(char* binario1, char* binario2) {
+    // Converter os binários para valores decimais (parte inteira)
+    int valor1 = binarioParaDecimalParteInteira(binario1);
+    int valor2 = binarioParaDecimalParteInteira(binario2);
+
+    // Realizar a divisão
+    if (valor2 == 0) {
+        printf("Erro: divisão por zero.\n");
+        return NULL;
+    }
+    int resultadoDecimal = valor1 / valor2;
+
+    // Converter o resultado decimal de volta para binário de 19 bits (somente parte inteira)
+    char* resultadoBinario = decimalParaBinarioInteiro(resultadoDecimal);
+
+    return resultadoBinario;
+}
+
+// Função que executa a operação binária correspondente
+char* executarOperacao(char *operando1, char *operando2, char *operador) {
+    if (strcmp(operador, "+") == 0) {
+        return somaBinarios(operando1, operando2);
+    }
+    else if (strcmp(operador, "-") == 0) {
+        return subtrairBinarios(operando1, operando2);
+    } 
+    else if (strcmp(operador, "*") == 0) {
+        return multiplicarBinario(operando1, operando2);
+    }
+    else if(strcmp(operador, "/")){
+        dividirBinariosInteiros(operando1, operando2);
+    }
+    return NULL;
+}
+
 int isOperator(char *token) {
-    return (strcmp(token, "+") == 0 || strcmp(token, "-") == 0 || strcmp(token, "*") == 0 || strcmp(token, "/"));
+    return (strcmp(token, "+") == 0 || strcmp(token, "-") == 0 || strcmp(token, "*") == 0 || strcmp(token, "/") == 0);
 }
 
 int main() {
@@ -358,40 +438,50 @@ int main() {
     initStack(stackBin);
     Stack *stackOperator = malloc(sizeof(Stack));
     initStack(stackOperator);
+
+    char expressao[256];
+
+    // Continue o código principal
+    printf("Digite a expressao binaria: (1 para o sinal, 10 para o inteiro, 8 para o decimal)\n");
+    fgets(expressao, 256, stdin);  // Leitura da expressão do usuário
     
+    // Dividindo a expressão em tokens (assumindo que a entrada está separada por espaços)
+    char *token = strtok(expressao, " ");
+    
+    // Processar cada token
+    while (token != NULL) {
+        if (isOperator(token)) {
+            push(stackOperator, token);  // Empilha o operador
+        } else {
+            push(stackBin, token);  // Empilha o operando
+        }
+        token = strtok(NULL, " ");
+    }
+
+    // Execução da operação
+    while (stackOperator->top != NULL) {
+        char *operador = pop(stackOperator);
+        char *operando2 = pop(stackBin);
+        char *operando1 = pop(stackBin);
+        
+        char *resultado = executarOperacao(operando1, operando2, operador);
+        push(stackBin, resultado);  // Empilha o resultado
+        free(operando1);
+        free(operando2);
+        free(resultado);
+    }
+
+    printf("Pilha: ");
     printStack(stackBin);
-    printStack(stackOperator);
-    //0000000101000110010 5,5
-    //0000000101000110010 10, 
-    push(stackBin, "0000000010100110010"); //10 resultado vai para o B
-    push(stackBin, "0000000101000110010"); //5 esse resultado vai para o A
+    // Mostrar o resultado final
+    char *resultadoFinal = pop(stackBin);
+    printarResultadoOrg(resultadoFinal);
+    free(resultadoFinal);
 
-    char *a = pop(stackBin);
-    char *b = pop(stackBin);
-
-    printf("a: ->");
-    printarResultadoOrg(a);
-    printf("b: ->");
-    printarResultadoOrg(b);
-
-    char *resultadoSoma = somaBinarios(a, b);
-    printf("Resultado soma: ");
-    printarResultadoOrg(resultadoSoma);
-    char *resultadoSub = subtrairBinarios(resultadoSoma, b);
-    printf("Resultado Sub: ");
-    printarResultadoOrg(resultadoSub);
-    // char *resultadoSub = subtrairBinarios(a, b);
-    // printf("Subtracao: ");
-    // printarResultadoOrg(resultadoSub);
-    char *resultadoMult = multiplicarBinario(a, b);
-    printf("Mult: ", resultadoMult);
-    printarResultadoOrg(resultadoMult);
-
+    // Libera a memória alocada
     free(stackBin);
-    free(a); 
-    free(b); 
-    free(resultadoSub);
-    free(resultadoSoma);
+    free(stackOperator);
+    free(resultadoFinal);
 
     return 0;
 }
