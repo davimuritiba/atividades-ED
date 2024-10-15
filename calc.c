@@ -18,7 +18,7 @@ void push(Stack *stack, char valor[]) {
 
 char* pop(Stack *stack) {
     if (stack->top == NULL) {
-        printf("A pilha está vazia\n");
+        printf("A pilha esta vazia\n");
         return NULL;
     }
 
@@ -32,7 +32,7 @@ char* pop(Stack *stack) {
 
 void printStack(Stack *stack) {
     if (stack->top == NULL) {
-        printf("A pilha está vazia\n");
+        printf("A pilha esta vazia\n");
         return;
     }
 
@@ -43,28 +43,25 @@ void printStack(Stack *stack) {
     }
 }
 
-//Função de binario para decimal completo
-int binParaDecimal(char *binario) {
-    int decimal = 0;
-    int len = strlen(binario);
-    for (int i = 0; i < len; i++) {
-        if (binario[i] == '1') {
-            decimal += pow(2, len - i - 1);
-        }
-    }
-    return decimal;
-}
-
 //Função de binario para decimal so para comparar o inteiro
-int binParaDecimalInteiro(char *binario) {
+int binParaDecimal(char *binario, int len) {
     int parteInteira = 0;
-    int len = 10;
     for (int i = 1; i < len; i++) {
         if (binario[i] == '1') {
             parteInteira += pow(2, len - i - 1);
         }
     }
     return parteInteira;
+}
+
+void printarResultadoOrg(char *resultado) {
+    printf("resultado final: |%c|", resultado[0]);
+    for (int i = 1; i <= 10; i++)
+        printf("%c", resultado[i]);
+    printf("|");
+    for (int i = 11; i <= 18; i++)  // a parte decimal
+        printf("%c", resultado[i]);
+    printf("|\n");
 }
 
 //Soma parte fracionaria do numero
@@ -82,7 +79,7 @@ char* somaBinariosDecimais(char *a, char *b, int *carry) {
         carryDecimal = soma / 2; // atualiza o carry para a parte inteira
     }
 
-    int resultInt = binParaDecimal(result);
+    int resultInt = binParaDecimal(result, 8);
     if(resultInt > 99){
         *carry = 1;  
         resultInt = resultInt % 100; // Mantém apenas as duas casas
@@ -123,8 +120,8 @@ char* somaBinarios(char *a, char *b) {
     
     char *resultado = malloc(tamanhoBits + 1);
     if(a[0] == '1' && b[0] == '0' || a[0] == '0' && b[0] == '1'){
-        int valorA = binParaDecimalInteiro(a + 1); // Desconsidera o sinal
-        int valorB = binParaDecimalInteiro(b + 1); // Desconsidera o sinal
+        int valorA = binParaDecimal(a + 1, 10); // Desconsidera o sinal
+        int valorB = binParaDecimal(b + 1, 10); // Desconsidera o sinal
 
         printf("valor de a: %d, valor de b: %d\n", valorA, valorB);
         if(a[0] == '1' && b[0] == '0'){
@@ -166,6 +163,26 @@ char* subtrairBinarios(char* a, char* b) {
     result[max_len] = '\0';
 
     int borrow = 0;
+
+    int aInteiro = binParaDecimal(a, 10), bInteiro = binParaDecimal(b, 10);
+    int aDecimal = binParaDecimal(a + 11, 8), bDecimal = binParaDecimal(b + 11, 8);
+
+    // Troca se b for maior que a na parte inteira
+    if (bInteiro > aInteiro) {
+        char *aux = malloc(max_len + 1);
+        strcpy(aux, a);
+        strcpy(a, b);
+        strcpy(b, aux);
+        free(aux);
+    }
+
+    if(bDecimal > aDecimal){
+        char *aux = malloc(max_len);
+        strncpy(aux, a + 11, 8);
+        strncpy(a + 11, b + 11, 8);
+        strncpy(b + 11, aux, 8);
+        free(aux);
+    }
 
     // Subtração da parte decimal (últimos 8 bits)
     for (int i = max_len - 1; i >= 11; i--) {
@@ -216,22 +233,24 @@ char* subtrairBinarios(char* a, char* b) {
     return result;
 }
 
-void printarResultadoOrg(char *resultado) {
-    printf("resultado final: |%c|", resultado[0]);
-    for (int i = 1; i <= 10; i++)
-        printf("%c", resultado[i]);
-    printf("|");
-    for (int i = 11; i <= 18; i++)  // a parte decimal
-        printf("%c", resultado[i]);
-    printf("|\n");
+char *funcaoRetirarBits(char *a, int quantidade){
+    int i = 1; 
+    while (i < quantidade && a[i] == '0')  {
+        i++;
+    }
+
+    // Move a parte restante da string para o início, se necessário
+    if (i > 1) {
+        memmove(a + 1, a + i, strlen(a) - i + 1);
+    }
+    return a;
 }
 
 // Função para multiplicar dois números binários inteiros
 char* multiplicaBinarioInteiro(char *a, char* b)
 {
-    int tamanho1 = strlen(a); // tamanho do primeiro número binário
-    int tamanho2 = strlen(b); // tamanho do segundo número binário
-    int tamanhoResultado = tamanho1 + tamanho2; // tamanho do resultado
+    int tamanho1 = strlen(a) - 8; // tamanho do primeiro número binário
+    int tamanhoResultado = tamanho1 * 2; // tamanho do resultado
 
     // Aloca espaço para o resultado
     char *result = (char*) malloc((tamanhoResultado + 1) * sizeof(char));
@@ -244,12 +263,12 @@ char* multiplicaBinarioInteiro(char *a, char* b)
     result[tamanhoResultado] = '\0'; // finaliza a string
 
     // Itera sobre os bits de 'a' de trás para frente
-    for(int i = tamanho1 - 1; i >= 0; i--)
+    for(int i = tamanho1 - 1; i >= 1; i--)
     {
         if (a[i] == '1') // verifica se o bit de 'a' é 1
         {
             int carry = 0; // inicializa o carry como 0
-            for(int j = tamanho2 - 1; j >= 0; j--)
+            for(int j = tamanho1 - 1; j >= 0; j--)
             {
                 int soma = (result[i + j + 1] - '0') + (b[j] - '0') + carry; // Soma bit atual de result, bit de b, e carry
                 result[i + j + 1] = (soma % 2) + '0';  // Adiciona o bit da soma
@@ -259,7 +278,79 @@ char* multiplicaBinarioInteiro(char *a, char* b)
         }
     }
 
+    funcaoRetirarBits(result, 12);
     return result; // Retorna o resultado
+}
+
+
+char *multiplicarBinarioDecimal(char *a, char* b){
+    int tamanho1 = strlen(a); // tamanho do primeiro número binário
+    int tamanhoResultado = tamanho1 * 2; // tamanho do resultado
+
+    // Aloca espaço para o resultado
+    char *result = (char*) malloc((tamanhoResultado + 1) * sizeof(char));
+
+    // Inicializa o resultado com '0'
+    for(int i = 0; i < tamanhoResultado; i++)
+    {
+        result[i] = '0';
+    }
+    result[tamanhoResultado] = '\0'; // finaliza a string
+
+    // Itera sobre os bits de 'a' de trás para frente
+    for(int i = tamanho1 - 1; i >= 1; i--)
+    {
+        if (a[i] == '1') // verifica se o bit de 'a' é 1
+        {
+            int carry = 0; // inicializa o carry como 0
+            for(int j = tamanho1 - 1; j >= 0; j--)
+            {
+                int soma = (result[i + j + 1] - '0') + (b[j] - '0') + carry; // Soma bit atual de result, bit de b, e carry
+                result[i + j + 1] = (soma % 2) + '0';  // Adiciona o bit da soma
+                carry = soma / 2;  // Calcula o carry
+            }
+            result[i] = ((result[i] - '0') + carry) + '0';  // Propaga o carry
+        }
+    }
+
+    printf("Resultado multiplicacao: %s\n", result);
+    int resultMult = binParaDecimal(result, 16);
+    printf("Result Mult em decimal: %d\n", resultMult);
+    if(resultMult > 99){
+        int carry = 1;  
+        resultMult = resultMult % 100; // Mantém apenas as duas casas
+        // Atualiza o resultado com o novo valor
+        for (int i = 0; i < 8; i++) {
+            result[i] = '0';
+        }
+        sprintf(result + 6, "%02d", resultMult); // Preenche com os últimos 2 dígitos
+
+        result = somaBinarios(result, "0000000000000000001");
+    } 
+
+    funcaoRetirarBits(result, 9);
+    return result; // Retorna o resultado
+}
+
+char *multiplicarBinario(char *a, char *b){
+    char *result = malloc(tamanhoBits + 1);
+
+    if(a[0] == '1' && b[0] == '0' || a[0] == '0' && b[0] == '1')
+        result[0] = '1';
+
+    char *parteDecimal = multiplicarBinarioDecimal(a + 11, b + 11);
+    char *parteInteira = multiplicaBinarioInteiro(a, b);
+
+    strcpy(result, parteInteira);
+    strcat(result, parteDecimal);
+    free(parteDecimal);
+    free(parteInteira);
+
+    return result;
+}
+
+int isOperator(char *token) {
+    return (strcmp(token, "+") == 0 || strcmp(token, "-") == 0 || strcmp(token, "*") == 0 || strcmp(token, "/"));
 }
 
 int main() {
@@ -267,9 +358,9 @@ int main() {
     initStack(stackBin);
     Stack *stackOperator = malloc(sizeof(Stack));
     initStack(stackOperator);
-
-    char *expressao[10000] = {"0000000101000110010 + 0000000101000110010 - 0000000101000110010 * 0000000101000110010"};
-
+    
+    printStack(stackBin);
+    printStack(stackOperator);
     //0000000101000110010 5,5
     //0000000101000110010 10, 
     push(stackBin, "0000000010100110010"); //10 resultado vai para o B
@@ -284,16 +375,23 @@ int main() {
     printarResultadoOrg(b);
 
     char *resultadoSoma = somaBinarios(a, b);
-    printf("Soma: ");
+    printf("Resultado soma: ");
     printarResultadoOrg(resultadoSoma);
-    char *resultadoSub = subtrairBinarios(a, b);
-    printf("Subtracao: ");
+    char *resultadoSub = subtrairBinarios(resultadoSoma, b);
+    printf("Resultado Sub: ");
     printarResultadoOrg(resultadoSub);
+    // char *resultadoSub = subtrairBinarios(a, b);
+    // printf("Subtracao: ");
+    // printarResultadoOrg(resultadoSub);
+    char *resultadoMult = multiplicarBinario(a, b);
+    printf("Mult: ", resultadoMult);
+    printarResultadoOrg(resultadoMult);
 
     free(stackBin);
     free(a); 
     free(b); 
-    // free(resultadoSoma);
+    free(resultadoSub);
+    free(resultadoSoma);
 
     return 0;
 }
