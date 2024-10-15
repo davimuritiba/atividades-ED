@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#include <ctype.h>
 
 #define tamanhoBits 19
 
@@ -19,10 +20,16 @@ void initStack(Stack *stack);
 void push(Stack *stack, char valor[]);
 char* pop(Stack *stack);
 void printStack(Stack *stack);
-void inverterBits(char *binario);
-int binParaDecimal(char *binario);
+int binParaDecimal(char *binario, int len);
 char* somaBinariosDecimais(char *a, char *b, int *carry);
 char* somaBinariosInteiros(char *a, char *b, int carry);
 char* somaBinarios(char *a, char *b);
 char* subtrairBinarios(char* a, char* b);
 void printarResultadoOrg(char *resultado);
+char* multiplicaBinarioInteiro(char *a, char* b);
+int binParaDecimalInteiro(char *binario);
+int binarioParaDecimalParteInteira(char *binario19Bits);
+int binarioParaInteiro(char *binario, int numBits);
+char *decimalParaBinarioInteiro(int valor);
+char* dividirBinariosInteiros(char* binario1, char* binario2);
+int isOperator(char *token);
