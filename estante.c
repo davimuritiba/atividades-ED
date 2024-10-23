@@ -8,9 +8,27 @@ typedef struct livro {
     int largura;
     int altura;
     int profundidade;
+    int volume;
     struct livro* prev;
     struct livro* next;
 } Livro;
+
+typedef struct Prateleira {
+    Livro *livros; 
+    int capacidadeLargura;  // Capacidade restante de largura
+    int capacidadeAltura;    // Capacidade restante de altura (empilhamento)
+} Prateleira;
+
+typedef struct Estante {
+    Prateleira prateleiras[6];  // Lista encadeada de prateleiras, caso precise de flexibilidade
+    struct Estante *prev;
+    struct Estante *next;
+} Estante;
+
+typedef struct Biblioteca {
+    Estante *estantes;
+    int numEstantes;  // Contador do número de estantes
+} Biblioteca;
 
 // Função para criar um novo livro
 Livro* criarLivro(int altura, int largura, int profundidade, char titulo[], char autor[]) {
@@ -95,18 +113,28 @@ Livro* abrirArquivo() {
 }
 
 // Função para imprimir todos os livros na lista
-void printarLista(Livro* livro) {
+void printarListaLivro(Livro* livro) {
     while (livro != NULL) {
-        printf("Titulo: %s\nAutor: %s\nLargura: %d\nAltura: %d\nProfundidade: %d\n",
-               livro->titulo, livro->autor, livro->largura, livro->altura, livro->profundidade);
+        printf("Titulo: %s\nAutor: %s\nLargura: %d\nAltura: %d\nProfundidade: %d\nVolume: %d\n",
+               livro->titulo, livro->autor, livro->largura, livro->altura, livro->profundidade, livro->volume);
         livro = livro->next;  // Avança para o próximo livro
+    }
+}
+
+void atribuirVolumeAosLivros(Livro *livro){
+    while(livro != NULL){
+        livro->volume = livro->largura * livro->altura * livro->profundidade;
+        livro = livro->next;
     }
 }
 
 int main() {
     Livro* listaLivros = abrirArquivo();
-    printarLista(listaLivros);
+    atribuirVolumeAosLivros(listaLivros); //Cria e atribui a lista duplamente encadeada de livros
+    printarListaLivro(listaLivros);
 
+
+    free(listaLivros);
     // Liberar memória (não implementado, mas seria ideal)
     return 0;
 }
