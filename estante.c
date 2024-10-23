@@ -1,34 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-typedef struct livro {
-    char titulo[30];
-    char autor[30];
-    int largura;
-    int altura;
-    int profundidade;
-    int volume;
-    struct livro* prev;
-    struct livro* next;
-} Livro;
-
-typedef struct Prateleira {
-    Livro *livros; 
-    int capacidadeLargura;  // Capacidade restante de largura
-    int capacidadeAltura;    // Capacidade restante de altura (empilhamento)
-} Prateleira;
-
-typedef struct Estante {
-    Prateleira prateleiras[6];  // Lista encadeada de prateleiras, caso precise de flexibilidade
-    struct Estante *prev;
-    struct Estante *next;
-} Estante;
-
-typedef struct Biblioteca {
-    Estante *estantes;
-    int numEstantes;  // Contador do número de estantes
-} Biblioteca;
+#include "estante.h"
 
 // Função para criar um novo livro
 Livro* criarLivro(int altura, int largura, int profundidade, char titulo[], char autor[]) {
@@ -121,6 +91,7 @@ void printarListaLivro(Livro* livro) {
     }
 }
 
+//Função para calcular e atribuir os volumes a listacompleta de livros
 void atribuirVolumeAosLivros(Livro *livro){
     while(livro != NULL){
         livro->volume = livro->largura * livro->altura * livro->profundidade;
@@ -128,13 +99,106 @@ void atribuirVolumeAosLivros(Livro *livro){
     }
 }
 
+//Função dispensavel, apenas para calcular a media e dividir a quantidade de livros
+double mediaVolume(Livro *livro){
+    double volume = 0;
+
+    while(livro != NULL){
+        volume += livro->volume;
+        livro = livro->next;
+    }
+
+    return volume;
+}
+
+//Função para calcular a quantidade de livros em uma lista
+int quantidadeListaLivros(Livro *livro){
+    int indice = 0;
+ 
+    while(livro != NULL){
+        indice++;
+        livro = livro->next;
+    }
+
+    return indice;
+}
+
+void separarListas(Livro *listaLivrosCompleta, Livro **livrosLeves, Livro **livrosMedios, Livro **livrosPesados) {
+    Livro *ultimoLeve = NULL, *ultimoMedio = NULL, *ultimoPesado = NULL;
+
+    while(listaLivrosCompleta != NULL) {
+        Livro *novoLivro = (Livro *)malloc(sizeof(Livro));
+        if (novoLivro == NULL) {
+            printf("Erro ao alocar memória para o livro.\n");
+            exit(1);
+        }
+        *novoLivro = *listaLivrosCompleta; // Copia os dados do livro
+
+        if(novoLivro->volume < 1500) {
+            if (*livrosLeves == NULL) {
+                *livrosLeves = novoLivro; // Primeiro livro na lista leve
+            } else {
+                ultimoLeve->next = novoLivro; // Adiciona na lista
+            }
+            ultimoLeve = novoLivro; // Atualiza o último leve
+        } else if(novoLivro->volume > 5200) {
+            if (*livrosPesados == NULL) {
+                *livrosPesados = novoLivro;
+            } else {
+                ultimoPesado->next = novoLivro;
+            }
+            ultimoPesado = novoLivro;
+        } else {
+            if (*livrosMedios == NULL) {
+                *livrosMedios = novoLivro;
+            } else {
+                ultimoMedio->next = novoLivro;
+            }
+            ultimoMedio = novoLivro;
+        }
+
+        listaLivrosCompleta = listaLivrosCompleta->next;
+    }
+
+    // Certifique-se de que a lista finaliza corretamente
+    if (ultimoLeve) ultimoLeve->next = NULL;
+    if (ultimoMedio) ultimoMedio->next = NULL;
+    if (ultimoPesado) ultimoPesado->next = NULL;
+}
+
+//Função para liberar as lista de livros
+void liberarListaLivros(Livro *livro) {
+    while (livro != NULL) {
+        Livro *temp = livro;
+        livro = livro->next;
+        free(temp);
+    }
+}
+
 int main() {
-    Livro* listaLivros = abrirArquivo();
-    atribuirVolumeAosLivros(listaLivros); //Cria e atribui a lista duplamente encadeada de livros
-    printarListaLivro(listaLivros);
+    Livro* listaLivrosCompleta = abrirArquivo();
+    atribuirVolumeAosLivros(listaLivrosCompleta); //Cria e atribui a lista duplamente encadeada de livros
+    // printarListaLivro(listaLivrosCompleta);
 
 
-    free(listaLivros);
-    // Liberar memória (não implementado, mas seria ideal)
+    double volume = mediaVolume(listaLivrosCompleta);
+    printf("media volume: %.2lf\n", volume);
+
+    Livro *livrosLeves = NULL;
+    Livro *livrosMedios = NULL;
+    Livro *livrosPesados = NULL;
+
+
+    separarListas(listaLivrosCompleta, &livrosLeves, &livrosMedios, &livrosPesados);
+    // printarListaLivro(livrosLeves);
+    // printarListaLivro(livrosMedios);
+    // printarListaLivro(livrosPesados);
+
+    // printf("Quantidade de livros na lista leve: %d\nQuantidade de livros na lista medios: %d\nQuantidade de livros na lista pesada: %d\n", quantidadeLista(livrosLeves), quantidadeLista(livrosMedios), quantidadeLista(livrosPesados));
+
+    liberarLista(listaLivrosCompleta);
+    liberarLista(livrosLeves);
+    liberarLista(livrosMedios);
+    liberarLista(livrosPesados);
     return 0;
 }
