@@ -49,7 +49,7 @@ Livro* atribuirDados(const char* linha) {
     int largura = 0, altura = 0, profundidade = 0;
 
     while (token != NULL) {
-        if (strncmp(token, "titulo=", 7) == 0) {
+        if (strncmp(token, "ticulo=", 7) == 0) {
             strcpy(titulo, token + 7);
         } else if (strncmp(token, "autor=", 6) == 0) {
             strcpy(autor, token + 6);
