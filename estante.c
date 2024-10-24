@@ -9,7 +9,32 @@ typedef struct livro{
     int largura;
     int altura;
     int profundidade;
+    struct Livro* prev;
+    struct Livro* next;
 }Livro;
+
+/* typedef struct lista{
+    Livro* livro;
+    struct Livro* prev;
+    struct Livro* next;
+}Lista; */
+
+
+Livro* criarLivro(int altura, int largura, int profundidade, char titulo[], char autor[]) {
+    Livro* novoLivro = (Livro *) malloc(sizeof(Livro));
+    if (novoLivro == NULL) {
+        printf("Erro ao alocar memória para o livro.\n");
+        return NULL;
+    }
+    novoLivro->altura = altura;
+    novoLivro->largura = largura;
+    novoLivro->profundidade = profundidade;
+    strcpy(novoLivro->titulo, titulo);
+    strcpy(novoLivro->autor, autor);
+    novoLivro->prev = NULL;
+    novoLivro->next = NULL;
+    return novoLivro;
+}
 
 void removerNovaLinha(char *linha) {
     size_t tamanho = strlen(linha);
@@ -42,6 +67,7 @@ void atribuirDados(Livro* livro, const char *linha){
         } else if (strncmp(token, " profundidade=", 14) == 0) {
             livro->profundidade = atoi(token + 14);  // Converte o valor de 'profundidade' para inteiro
         } 
+        criarLivro(livro->altura, livro->largura, livro->profundidade, livro->titulo, livro->autor);//TESTAR
         token = strtok(NULL, ",");
     }
 }
