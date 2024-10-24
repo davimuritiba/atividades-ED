@@ -271,7 +271,7 @@ void removerLivro(Biblioteca *biblioteca, int numEstante, int numPrateleira, cha
     Livro *prevLivro = NULL;
 
     while (livroAtual != NULL) {
-        if (strcmp(livroAtual->titulo, tituloLivro) == 0) {
+        if (strncmp(livroAtual->titulo, tituloLivro, strlen(tituloLivro)) == 0) {
             // Remover o livro da prateleira
             if (prevLivro == NULL){
                 prateleiraAtual->livros = livroAtual->next;
@@ -340,11 +340,11 @@ int main() {
     biblioteca->estantes = NULL;
     biblioteca->numEstantes = 0;
     distribuirLivrosNasEstantes(biblioteca, listaLivrosCompleta);
-    printarBiblioteca(biblioteca);
+    // printarBiblioteca(biblioteca);
 
-    printarPrateleira(biblioteca, 1, 2);
-
-    removerLivro(biblioteca, 1, 2, "hfohsxftps");
+    printarPrateleira(biblioteca, 1, 1);
+    removerLivro(biblioteca, 1, 1, "  hm bxjjd");
+    printarPrateleira(biblioteca, 1, 1);
 
     Livro *livrosEmprestados = NULL;
 
