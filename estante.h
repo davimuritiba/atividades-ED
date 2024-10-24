@@ -38,6 +38,7 @@ Livro* abrirArquivo();
 void printarListaLivro(Livro* livro);
 int quantidadeListaLivros(Livro *livro);
 void liberarLivros(Livro *livro);
+void liberarEstante(Estante *estante);
 Estante* criarEstante();
 Biblioteca* criarBiblioteca();
 void adicionarEstante(Biblioteca* biblioteca);
