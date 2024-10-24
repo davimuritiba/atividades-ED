@@ -17,14 +17,6 @@ Livro* criarLivro(int altura, int largura, int profundidade, char titulo[], char
     return novoLivro;
 }
 
-// Função para remover a nova linha de uma string
-void removerNovaLinha(char* linha) {
-    size_t tamanho = strlen(linha);
-    if (tamanho > 0 && (linha[tamanho - 1] == '\n' || linha[tamanho - 1] == '\r')) {
-        linha[tamanho - 1] = '\0';  // Remove o \n ou \r no final da linha
-    }
-}
-
 // Função para atribuir dados a um livro a partir de uma linha de texto
 Livro* atribuirDados(const char* linha) {
     char linhaCopia[256];
@@ -82,36 +74,6 @@ Livro* abrirArquivo() {
     return listaLivros;
 }
 
-// Função para imprimir todos os livros na lista
-void printarListaLivro(Livro* livro) {
-    while (livro != NULL) {
-        printf("Titulo: %s\nAutor: %s\nLargura: %d\nAltura: %d\nProfundidade: %d\nVolume: %d\n",
-               livro->titulo, livro->autor, livro->largura, livro->altura, livro->profundidade, livro->volume);
-        livro = livro->next;  // Avança para o próximo livro
-    }
-}
-
-//Função para calcular a quantidade de livros em uma lista
-int quantidadeListaLivros(Livro *livro){
-    int indice = 0;
- 
-    while(livro != NULL){
-        indice++;
-        livro = livro->next;
-    }
-
-    return indice;
-}
-
-//Função para liberar as lista de livros
-void liberarLivros(Livro *livro) {
-    while (livro != NULL) {
-        Livro *temp = livro;
-        livro = livro->next;
-        free(temp);
-    }
-}
-
 // Função para criar uma nova estante
 Estante* criarEstante() {
     Estante* novaEstante = (Estante*) malloc(sizeof(Estante));
@@ -145,18 +107,63 @@ Biblioteca* criarBiblioteca() {
     return novaBiblioteca;
 }
 
+// Função para remover a nova linha de uma string
+void removerNovaLinha(char* linha) {
+    size_t tamanho = strlen(linha);
+    if (tamanho > 0 && (linha[tamanho - 1] == '\n' || linha[tamanho - 1] == '\r')) {
+        linha[tamanho - 1] = '\0';  // Remove o \n ou \r no final da linha
+    }
+}
+
+// Função para imprimir todos os livros na lista
+void printarListaLivro(Livro* livro) {
+    while (livro != NULL) {
+        printf("Titulo: %s\nAutor: %s\nLargura: %d\nAltura: %d\nProfundidade: %d\nVolume: %d\n",
+               livro->titulo, livro->autor, livro->largura, livro->altura, livro->profundidade, livro->volume);
+        livro = livro->next;  // Avança para o próximo livro
+    }
+}
+
+//Função para calcular a quantidade de livros em uma lista
+int quantidadeListaLivros(Livro *livro){
+    int indice = 0;
+    while(livro != NULL){
+        indice++;
+        livro = livro->next;
+    }
+
+    return indice;
+}
+
+//Função para liberar as lista de livros
+void liberarLivros(Livro *livro) {
+    while (livro != NULL) {
+        Livro *temp = livro;
+        livro = livro->next;
+        free(temp);
+    }
+}
+
+void liberarEstante(Estante *estante){
+    while(estante != NULL){
+        Estante *temp = estante;
+        estante = estante->next;
+        free(temp);
+    }
+}
+
 //Função para adicionar uma estante nova á biblioteca
 void adicionarEstante(Biblioteca* biblioteca) {
     Estante* novaEstante = criarEstante();
     
-    if (novaEstante == NULL) {
+    if (novaEstante == NULL) 
         return;  // Erro na criação da estante
-    }
 
     if (biblioteca->estantes == NULL) {
         // Se a biblioteca estiver vazia, a nova estante será a primeira
         biblioteca->estantes = novaEstante;
-    } else {
+    } 
+    else {
         // Encontra a última estante
         Estante* atual = biblioteca->estantes;
         while (atual->next != NULL) {
@@ -254,7 +261,7 @@ int main() {
     printarBiblioteca(biblioteca);
 
     liberarLivros(listaLivrosCompleta);
-    liberarBiblioteca();
-    liberarEstante();
+    liberarEstante(estante);
+    free(biblioteca);
     return 0;
 }
