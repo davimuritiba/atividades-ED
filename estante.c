@@ -180,25 +180,20 @@ int main() {
     atribuirVolumeAosLivros(listaLivrosCompleta); //Cria e atribui a lista duplamente encadeada de livros
     // printarListaLivro(listaLivrosCompleta);
 
-
-    double volume = mediaVolume(listaLivrosCompleta);
-    printf("media volume: %.2lf\n", volume);
-
     Livro *livrosLeves = NULL;
     Livro *livrosMedios = NULL;
     Livro *livrosPesados = NULL;
-
 
     separarListas(listaLivrosCompleta, &livrosLeves, &livrosMedios, &livrosPesados);
     // printarListaLivro(livrosLeves);
     // printarListaLivro(livrosMedios);
     // printarListaLivro(livrosPesados);
 
-    // printf("Quantidade de livros na lista leve: %d\nQuantidade de livros na lista medios: %d\nQuantidade de livros na lista pesada: %d\n", quantidadeLista(livrosLeves), quantidadeLista(livrosMedios), quantidadeLista(livrosPesados));
+    printf("Quantidade de livros na lista leve: %d\nQuantidade de livros na lista medios: %d\nQuantidade de livros na lista pesada: %d\n", quantidadeListaLivros(livrosLeves), quantidadeListaLivros(livrosMedios), quantidadeListaLivros(livrosPesados));
 
-    liberarLista(listaLivrosCompleta);
-    liberarLista(livrosLeves);
-    liberarLista(livrosMedios);
-    liberarLista(livrosPesados);
+    liberarListaLivros(listaLivrosCompleta);
+    liberarListaLivros(livrosLeves);
+    liberarListaLivros(livrosMedios);
+    liberarListaLivros(livrosPesados);
     return 0;
 }
