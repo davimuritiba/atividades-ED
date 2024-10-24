@@ -99,18 +99,6 @@ void atribuirVolumeAosLivros(Livro *livro){
     }
 }
 
-//Função dispensavel, apenas para calcular a media e dividir a quantidade de livros
-double mediaVolume(Livro *livro){
-    double volume = 0;
-
-    while(livro != NULL){
-        volume += livro->volume;
-        livro = livro->next;
-    }
-
-    return volume;
-}
-
 //Função para calcular a quantidade de livros em uma lista
 int quantidadeListaLivros(Livro *livro){
     int indice = 0;
@@ -134,14 +122,14 @@ void separarListas(Livro *listaLivrosCompleta, Livro **livrosLeves, Livro **livr
         }
         *novoLivro = *listaLivrosCompleta; // Copia os dados do livro
 
-        if(novoLivro->volume < 1500) {
+        if(novoLivro->largura < 11) {
             if (*livrosLeves == NULL) {
                 *livrosLeves = novoLivro; // Primeiro livro na lista leve
             } else {
                 ultimoLeve->next = novoLivro; // Adiciona na lista
             }
             ultimoLeve = novoLivro; // Atualiza o último leve
-        } else if(novoLivro->volume > 5200) {
+        } else if(novoLivro->largura > 20) {
             if (*livrosPesados == NULL) {
                 *livrosPesados = novoLivro;
             } else {
@@ -175,25 +163,133 @@ void liberarListaLivros(Livro *livro) {
     }
 }
 
+// Função para criar uma nova estante
+Estante* criarEstante() {
+    Estante* novaEstante = (Estante*) malloc(sizeof(Estante));
+
+    if (novaEstante == NULL) {
+        printf("Erro ao alocar memória para a estante.\n");
+        exit(1);
+    }
+
+    // Primeira prateleira da estante
+    for(int i = 0; i < 6; i++){
+        novaEstante->prateleiras[i].livros = NULL;
+        novaEstante->prateleiras[i].capacidadeLargura;
+    }
+
+    novaEstante->next = NULL;
+    novaEstante->prev = NULL;
+    return novaEstante;
+}
+
+// Função para inicializar a biblioteca
+Biblioteca* criarBiblioteca() {
+    Biblioteca* novaBiblioteca = (Biblioteca*) malloc(sizeof(Biblioteca));
+    if (novaBiblioteca == NULL) {
+        printf("Erro ao alocar memória para a biblioteca.\n");
+        exit(1);
+    }
+
+    novaBiblioteca->estantes = criarEstante();  // Primeira estante
+    novaBiblioteca->numEstantes = 1;  // Começamos com 1 estante
+    return novaBiblioteca;
+}
+
+//Função para adicionar uma estante nova á biblioteca
+void adicionarEstante(Biblioteca* biblioteca) {
+    Estante* novaEstante = criarEstante();
+    
+    if (novaEstante == NULL) {
+        return;  // Erro na criação da estante
+    }
+
+    if (biblioteca->estantes == NULL) {
+        // Se a biblioteca estiver vazia, a nova estante será a primeira
+        biblioteca->estantes = novaEstante;
+    } else {
+        // Encontra a última estante
+        Estante* atual = biblioteca->estantes;
+        while (atual->next != NULL) {
+            atual = atual->next;
+        }
+        
+        // Conecta a nova estante no final da lista
+        atual->next = novaEstante;
+        novaEstante->prev = atual;
+    }
+
+    biblioteca->numEstantes++;  // Incrementa o número de estantes na biblioteca
+}
+
+void printarBiblioteca(Biblioteca *biblioteca) {
+    if (biblioteca == NULL || biblioteca->estantes == NULL) {
+        printf("A biblioteca está vazia.\n");
+        return;
+    }
+
+    Estante *estanteAtual = biblioteca->estantes;
+    int numEstante = 1;
+    int quantidadeLivros = 0;
+
+    while (estanteAtual != NULL) {
+        printf("Estante %d:\n", numEstante);
+
+        for (int i = 0; i < 6; i++) {
+            Prateleira prateleiraAtual = estanteAtual->prateleiras[i];
+            printf("  Prateleira %d (Capacidade restante de largura: %d cm):\n", i + 1, prateleiraAtual.capacidadeLargura);
+
+            Livro *livroAtual = prateleiraAtual.livros;
+            if (livroAtual == NULL) {
+                printf("    Nenhum livro nesta prateleira.\n");
+            } 
+            else {
+                while (livroAtual != NULL) {
+                    quantidadeLivros++;
+                    livroAtual = livroAtual->next;
+                }
+                printf("A quantidade de livros nessa prateleira eh: %d\n", quantidadeLivros);
+            }
+        }
+
+        estanteAtual = estanteAtual->next;
+        numEstante++;
+    }
+}
+
+double larguraMedia(Livro *livro){
+    double largura = 0;
+
+    while(livro != NULL){
+        largura += livro->largura;
+        livro = livro->next;
+    }
+
+    return largura / 1000;
+}
+
 int main() {
     Livro* listaLivrosCompleta = abrirArquivo();
     atribuirVolumeAosLivros(listaLivrosCompleta); //Cria e atribui a lista duplamente encadeada de livros
-    // printarListaLivro(listaLivrosCompleta);
-
-    Livro *livrosLeves = NULL;
+    Livro *livrosFinos = NULL;
     Livro *livrosMedios = NULL;
-    Livro *livrosPesados = NULL;
+    Livro *livrosGrossos = NULL;
+    separarListas(listaLivrosCompleta, &livrosFinos, &livrosMedios, &livrosGrossos);
 
-    separarListas(listaLivrosCompleta, &livrosLeves, &livrosMedios, &livrosPesados);
-    // printarListaLivro(livrosLeves);
-    // printarListaLivro(livrosMedios);
-    // printarListaLivro(livrosPesados);
+    // printf("Largura media: %.2lf\n", larguraMedia(listaLivrosCompleta));
 
-    printf("Quantidade de livros na lista leve: %d\nQuantidade de livros na lista medios: %d\nQuantidade de livros na lista pesada: %d\n", quantidadeListaLivros(livrosLeves), quantidadeListaLivros(livrosMedios), quantidadeListaLivros(livrosPesados));
+    Biblioteca *biblioteca = criarBiblioteca();
+    Estante *estante = biblioteca->estantes;
+
+    biblioteca->estantes = NULL;
+    biblioteca->numEstantes = 0;
+    adicionarEstante(biblioteca);
+    Livro* livroAtual = listaLivrosCompleta;
+    printarBiblioteca(biblioteca);
 
     liberarListaLivros(listaLivrosCompleta);
-    liberarListaLivros(livrosLeves);
+    liberarListaLivros(livrosFinos);
     liberarListaLivros(livrosMedios);
-    liberarListaLivros(livrosPesados);
+    liberarListaLivros(livrosGrossos);
     return 0;
 }
