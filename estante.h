@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define PESO_MAX 96153
+
 typedef struct livro {
     char titulo[30];
     char autor[30];
@@ -16,11 +18,10 @@ typedef struct livro {
 typedef struct Prateleira {
     Livro *livros; 
     int capacidadeLargura;  // Capacidade restante de largura
-    int capacidadeAltura;    // Capacidade restante de altura (empilhamento)
 } Prateleira;
 
 typedef struct Estante {
-    Prateleira prateleiras[6];  // Lista encadeada de prateleiras, caso precise de flexibilidade
+    Prateleira prateleiras[6];
     struct Estante *prev;
     struct Estante *next;
 } Estante;
@@ -35,7 +36,10 @@ void removerNovaLinha(char* linha);
 Livro* atribuirDados(const char* linha);
 Livro* abrirArquivo();
 void printarListaLivro(Livro* livro);
-void atribuirVolumeAosLivros(Livro *livro);
 int quantidadeListaLivros(Livro *livro);
-void separarListas(Livro *listaLivrosCompleta, Livro **livrosLeves, Livro **livrosMedios, Livro **livrosPesados);
-void liberarListaLivros(Livro *livro);
+void liberarLivros(Livro *livro);
+Estante* criarEstante();
+Biblioteca* criarBiblioteca();
+void adicionarEstante(Biblioteca* biblioteca);
+void printarBiblioteca(Biblioteca *biblioteca);
+void distribuirLivrosNasEstantes(Biblioteca* biblioteca, Livro* listaLivros);
