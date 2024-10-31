@@ -10,6 +10,7 @@ Livro* criarLivro(int altura, int largura, int profundidade, char titulo[], char
     novoLivro->altura = altura;
     novoLivro->largura = largura;
     novoLivro->profundidade = profundidade;
+    novoLivro->volume = novoLivro->profundidade * novoLivro->altura * novoLivro->profundidade;
     strcpy(novoLivro->titulo, titulo);
     strcpy(novoLivro->autor, autor);
     novoLivro->prev = NULL;
@@ -323,8 +324,8 @@ void printarPrateleira(Biblioteca *biblioteca, int numEstante, int numPrateleira
     else {
         printf("  Livros nesta prateleira:\n");
         while (livroAtual != NULL) {
-            printf("    - Titulo: %s| Autor: %s| Altura: %dcm| Largura: %dcm| Profundidade: %dcm\n", 
-                   livroAtual->titulo, livroAtual->autor, livroAtual->altura, livroAtual->largura, livroAtual->profundidade);
+            printf("    - Titulo: %s| Autor: %s| Altura: %dcm| Largura: %dcm| Profundidade: %dcm| Volume: %dcm\n", 
+                   livroAtual->titulo, livroAtual->autor, livroAtual->altura, livroAtual->largura, livroAtual->profundidade, livroAtual->volume);
             livroAtual = livroAtual->next;
         }
     }
@@ -343,12 +344,13 @@ int main() {
     // printarBiblioteca(biblioteca);
 
     printarPrateleira(biblioteca, 1, 1);
-    removerLivro(biblioteca, 1, 1, "  hm bxjjd");
-    printarPrateleira(biblioteca, 1, 1);
+    // removerLivro(biblioteca, 1, 1, "  hm bxjjd");
+    // printarPrateleira(biblioteca, 1, 1);
 
     Livro *livrosEmprestados = NULL;
 
     liberarLivros(listaLivrosCompleta);
+    liberarLivros(livrosEmprestados);
     liberarEstante(estante);
     free(biblioteca);
     return 0;
