@@ -1,5 +1,4 @@
 #include "estante.h"
-#include <stdbool.h>
 
 // Função para criar um novo livro
 Livro* criarLivro(int altura, int largura, int profundidade, char titulo[], char autor[]) {
