@@ -1,4 +1,5 @@
 #include "estante.h"
+#include <stdbool.h>
 
 // Função para criar um novo livro
 Livro* criarLivro(int altura, int largura, int profundidade, char titulo[], char autor[]) {
@@ -116,66 +117,6 @@ void removerNovaLinha(char* linha) {
     }
 }
 
-// Função para dividir a lista em duas metades
-void dividirLista(Livro* cabeca, Livro** frente, Livro** tras) {
-    Livro* rapido;
-    Livro* lento;
-    lento = cabeca;
-    rapido = cabeca->next;
-
-    while (rapido != NULL) {
-        rapido = rapido->next;
-        if (rapido != NULL) {
-            lento = lento->next;
-            rapido = rapido->next;
-        }
-    }
-    *frente = cabeca;
-    *tras = lento->next;
-    lento->next = NULL;
-    if (*tras != NULL) {
-        (*tras)->prev = NULL;
-    }
-}
-
-// Função para mesclar duas listas ordenadas
-Livro* mesclarListas(Livro* frente, Livro* tras) {
-    if (frente == NULL) return tras;
-    if (tras == NULL) return frente;
-
-    Livro* resultado = NULL;
-
-    // Escolhe o primeiro nó da lista mesclada
-    if (frente->largura >= tras->largura) {
-        resultado = frente;
-        resultado->next = mesclarListas(frente->next, tras);
-        resultado->next->prev = resultado; // Conecta corretamente o próximo
-        resultado->prev = NULL; // O primeiro nó não tem 'prev'
-    } else {
-        resultado = tras;
-        resultado->next = mesclarListas(frente, tras->next);
-        resultado->next->prev = resultado; // Conecta corretamente o próximo
-        resultado->prev = NULL; // O primeiro nó não tem 'prev'
-    }
-    return resultado;
-}
-
-
-// Função de ordenação usando Merge Sort
-void mergeSort(Livro** cabeca) {
-    Livro* frente;
-    Livro* tras;
-
-    if (*cabeca == NULL || (*cabeca)->next == NULL) {
-        return;
-    }
-    dividirLista(*cabeca, &frente, &tras);
-    mergeSort(&frente);
-    mergeSort(&tras);
-
-    *cabeca = mesclarListas(frente, tras);
-}
-
 // Função para imprimir todos os livros na lista
 void printarListaLivro(Livro* livro) {
     while (livro != NULL) {
@@ -274,42 +215,74 @@ void printarBiblioteca(Biblioteca *biblioteca) {
     }
 }
 
-void distribuirLivrosNasEstantes(Biblioteca* biblioteca, Livro* listaLivros) {
+void distribuirLivrosNasEstantesLargura(Biblioteca* biblioteca, Livro* listaLivros) {
     Estante* estanteAtual = biblioteca->estantes;
     int prateleiraAtual = 0;
-    
+
     if (estanteAtual == NULL) {
         adicionarEstante(biblioteca);  // Garante que exista ao menos uma estante
         estanteAtual = biblioteca->estantes;
     }
 
-    while (listaLivros != NULL) {
-        // Verifica se há espaço suficiente na prateleira atual
-        if (estanteAtual->prateleiras[prateleiraAtual].capacidadeLargura >= listaLivros->largura) {
-            // Adiciona o livro à prateleira atual
-            Livro* novoLivro = (Livro*) malloc(sizeof(Livro));
-            *novoLivro = *listaLivros;  // Copia os dados do livro
-            novoLivro->next = estanteAtual->prateleiras[prateleiraAtual].livros;
-            if (estanteAtual->prateleiras[prateleiraAtual].livros != NULL) {
-                estanteAtual->prateleiras[prateleiraAtual].livros->prev = novoLivro;
+    Livro* livroAtual = listaLivros;
+    while (livroAtual != NULL) {
+        Prateleira* prateleira = &estanteAtual->prateleiras[prateleiraAtual];
+        int capacidadeRestante = prateleira->capacidadeLargura;
+
+        // Encontra o melhor livro que caiba no espaço disponível da prateleira
+        Livro* melhorLivro = NULL;
+        Livro* anterior = NULL;
+        Livro* atual = livroAtual;
+        Livro* anteriorMelhor = NULL;
+        int menorDiferenca = capacidadeRestante + 1;
+
+        while (atual != NULL) {
+            int diferenca = capacidadeRestante - atual->largura;
+            if (diferenca >= 0 && diferenca < menorDiferenca) {
+                melhorLivro = atual;
+                anteriorMelhor = anterior;
+                menorDiferenca = diferenca;
+                if (diferenca == 0) break;
             }
-            estanteAtual->prateleiras[prateleiraAtual].livros = novoLivro;
-            estanteAtual->prateleiras[prateleiraAtual].capacidadeLargura -= listaLivros->largura;
+            anterior = atual;
+            atual = atual->next;
+        }
+
+        if (melhorLivro != NULL) {
+            // Adiciona o melhor livro encontrado na prateleira
+            Livro* novoLivro = (Livro*) malloc(sizeof(Livro));
+            *novoLivro = *melhorLivro;
+            novoLivro->next = prateleira->livros;
+            if (prateleira->livros != NULL) {
+                prateleira->livros->prev = novoLivro;
+            }
+            prateleira->livros = novoLivro;
+            prateleira->capacidadeLargura -= melhorLivro->largura;
+
+            // Remove o livro da lista original
+            if (anteriorMelhor != NULL) {
+                anteriorMelhor->next = melhorLivro->next;
+            } 
+            else {
+                livroAtual = melhorLivro->next;
+            }
+            if (melhorLivro->next != NULL) {
+                melhorLivro->next->prev = anteriorMelhor;
+            }
+            free(melhorLivro);
         } 
         else {
-            // Move para a próxima prateleira
-            prateleiraAtual++;
+            prateleiraAtual++; //vai para a proxima prateleira
             if (prateleiraAtual == 6) {
-                // Adiciona uma nova estante se necessário
                 adicionarEstante(biblioteca);
                 estanteAtual = estanteAtual->next;
                 prateleiraAtual = 0;
             }
-            continue;  // Tenta adicionar o livro à nova prateleira/estante
         }
-        listaLivros = listaLivros->next;  // Passa para o próximo livro
     }
 }
+
+
 
 void removerLivro(Biblioteca *biblioteca, int numEstante, int numPrateleira, char *tituloLivro){
     if (biblioteca == NULL || numEstante < 1 || numPrateleira < 1 || numEstante > 30 || numPrateleira > 6) {
@@ -362,12 +335,10 @@ void printarPrateleira(Biblioteca *biblioteca, int numEstante, int numPrateleira
     }
 
     Estante *estanteAtual = biblioteca->estantes;
-    
     // Navega até a estante específica
     for (int i = 1; i < numEstante && estanteAtual != NULL; i++) {
         estanteAtual = estanteAtual->next;
     }
-
     if (estanteAtual == NULL) {
         printf("Estante %d nao encontrada.\n", numEstante);
         return;
@@ -375,7 +346,6 @@ void printarPrateleira(Biblioteca *biblioteca, int numEstante, int numPrateleira
 
     Prateleira *prateleiraAtual = &estanteAtual->prateleiras[numPrateleira - 1];
     Livro *livroAtual = prateleiraAtual->livros;
-
     printf("Estante %d, Prateleira %d\n", numEstante, numPrateleira);
 
     if (livroAtual == NULL) {
@@ -398,15 +368,11 @@ int main() {
     Estante *estante = biblioteca->estantes;
     // printarListaLivro(listaLivrosCompleta);
 
-    mergeSort(&listaLivrosCompleta);
-    // printarListaLivro(listaLivrosCompleta);
-
     biblioteca->estantes = NULL;
     biblioteca->numEstantes = 0;
-    distribuirLivrosNasEstantes(biblioteca, listaLivrosCompleta);
-    // printarBiblioteca(biblioteca);
+    distribuirLivrosNasEstantesLargura(biblioteca, listaLivrosCompleta);
+    printarBiblioteca(biblioteca);
 
-    printarPrateleira(biblioteca, 1, 1);
     // removerLivro(biblioteca, 1, 1, "  hm bxjjd");
     // printarPrateleira(biblioteca, 1, 1);
 
