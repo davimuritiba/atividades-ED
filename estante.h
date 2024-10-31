@@ -5,16 +5,14 @@
 typedef struct livro {
     char titulo[30];
     char autor[30];
-    int largura;
-    int altura;
-    int profundidade;
+    int largura, altura, profundidade, volume;
     struct livro* prev;
     struct livro* next;
 } Livro;
 
 typedef struct Prateleira {
     Livro *livros; 
-    int capacidadeLargura;  // Capacidade restante de largura
+    int capacidadeLargura, capacidadeProfundidade, capacidadeAltura;  // Capacidade restante de largura
 } Prateleira;
 
 typedef struct Estante {
@@ -43,3 +41,5 @@ void printarBiblioteca(Biblioteca *biblioteca);
 void printarPrateleira(Biblioteca *biblioteca, int numEstante, int numPrateleira);
 void distribuirLivrosNasEstantes(Biblioteca* biblioteca, Livro* listaLivros);
 void removerLivro(Biblioteca *biblioteca, int numEstante, int numPrateleira, char *tituloLivro);
+void atribuirVolume(Livro *livro);
+void separarListas(Livro *listaLivrosCompleta, Livro **livrosLeves, Livro **livrosMedios, Livro **livrosPesados);
