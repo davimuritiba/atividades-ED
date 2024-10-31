@@ -10,7 +10,7 @@ Livro* criarLivro(int altura, int largura, int profundidade, char titulo[], char
     novoLivro->altura = altura;
     novoLivro->largura = largura;
     novoLivro->profundidade = profundidade;
-    novoLivro->volume = novoLivro->profundidade * novoLivro->altura * novoLivro->profundidade;
+    novoLivro->volume = novoLivro->profundidade * novoLivro->altura * novoLivro->largura;
     strcpy(novoLivro->titulo, titulo);
     strcpy(novoLivro->autor, autor);
     novoLivro->prev = NULL;
@@ -116,11 +116,71 @@ void removerNovaLinha(char* linha) {
     }
 }
 
+// Função para dividir a lista em duas metades
+void dividirLista(Livro* cabeca, Livro** frente, Livro** tras) {
+    Livro* rapido;
+    Livro* lento;
+    lento = cabeca;
+    rapido = cabeca->next;
+
+    while (rapido != NULL) {
+        rapido = rapido->next;
+        if (rapido != NULL) {
+            lento = lento->next;
+            rapido = rapido->next;
+        }
+    }
+    *frente = cabeca;
+    *tras = lento->next;
+    lento->next = NULL;
+    if (*tras != NULL) {
+        (*tras)->prev = NULL;
+    }
+}
+
+// Função para mesclar duas listas ordenadas
+Livro* mesclarListas(Livro* frente, Livro* tras) {
+    if (frente == NULL) return tras;
+    if (tras == NULL) return frente;
+
+    Livro* resultado = NULL;
+
+    // Escolhe o primeiro nó da lista mesclada
+    if (frente->largura >= tras->largura) {
+        resultado = frente;
+        resultado->next = mesclarListas(frente->next, tras);
+        resultado->next->prev = resultado; // Conecta corretamente o próximo
+        resultado->prev = NULL; // O primeiro nó não tem 'prev'
+    } else {
+        resultado = tras;
+        resultado->next = mesclarListas(frente, tras->next);
+        resultado->next->prev = resultado; // Conecta corretamente o próximo
+        resultado->prev = NULL; // O primeiro nó não tem 'prev'
+    }
+    return resultado;
+}
+
+
+// Função de ordenação usando Merge Sort
+void mergeSort(Livro** cabeca) {
+    Livro* frente;
+    Livro* tras;
+
+    if (*cabeca == NULL || (*cabeca)->next == NULL) {
+        return;
+    }
+    dividirLista(*cabeca, &frente, &tras);
+    mergeSort(&frente);
+    mergeSort(&tras);
+
+    *cabeca = mesclarListas(frente, tras);
+}
+
 // Função para imprimir todos os livros na lista
 void printarListaLivro(Livro* livro) {
     while (livro != NULL) {
-        printf("Titulo: %s\nAutor: %s\nLargura: %d\nAltura: %d\nProfundidade: %d\n",
-               livro->titulo, livro->autor, livro->largura, livro->altura, livro->profundidade);
+        printf("Titulo: %s\nAutor: %s\nLargura: %d\nAltura: %d\nProfundidade: %d\nVolume: %d\n",
+               livro->titulo, livro->autor, livro->largura, livro->altura, livro->profundidade, livro->volume);
         livro = livro->next;  // Avança para o próximo livro
     }
 }
@@ -336,6 +396,9 @@ int main() {
     Livro* listaLivrosCompleta = abrirArquivo();
     Biblioteca *biblioteca = criarBiblioteca();
     Estante *estante = biblioteca->estantes;
+    // printarListaLivro(listaLivrosCompleta);
+
+    mergeSort(&listaLivrosCompleta);
     // printarListaLivro(listaLivrosCompleta);
 
     biblioteca->estantes = NULL;
