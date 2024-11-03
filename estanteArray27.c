@@ -69,7 +69,7 @@ void atribuirDados(Livro *livro, const char *linha) {
             livro->largura = atoi(token + 8);
         } else if (strncmp(token, "altura=", 7) == 0) {
             livro->altura = atoi(token + 7);
-        } else if (strncmp(token, "profundidade=", 14) == 0) {
+        } else if (strncmp(token, " profundidade=", 14) == 0) {
             livro->profundidade = atoi(token + 14);
         }
         token = strtok(NULL, ",");
@@ -115,35 +115,55 @@ void criarBiblioteca(Biblioteca *biblioteca) {
 void distribuirLivrosNasEstantes(Biblioteca *biblioteca, Livro livros[], int numLivros) {
     int estanteAtual = 0;
     int prateleiraAtual = 0;
+    int i = 0; // Índice do livro na lista de livros
 
-    for (int i = 0; i < numLivros; i++) {
-        // Se ultrapassou o número de estantes, sai do loop
+    while (i < numLivros) {
+        // Se ultrapassar o número de estantes, sai do loop
         if (estanteAtual >= MAX_ESTANTES) break;
 
         Prateleira *prateleira = &biblioteca->estantes[estanteAtual].prateleiras[prateleiraAtual];
-                
-        // Verifica se o livro cabe na prateleira
-        if (prateleira->capacidadeLargura >= livros[i].largura && prateleira->numLivros < MAX_LIVROS) {
-            prateleira->livros[prateleira->numLivros++] = livros[i];
-            prateleira->capacidadeLargura -= livros[i].largura;
-        } 
-        else {
+        int capacidadeRestante = prateleira->capacidadeLargura;
+
+        // Procura pelo livro que melhor se encaixa na capacidade restante da prateleira
+        int melhorIndice = -1;
+        int menorDiferenca = capacidadeRestante + 1; // Inicia com valor maior que a capacidade
+
+        for (int j = i; j < numLivros; j++) {
+            int diferenca = capacidadeRestante - livros[j].largura;
+            if (diferenca >= 0 && diferenca < menorDiferenca) {
+                melhorIndice = j;
+                menorDiferenca = diferenca;
+                if (diferenca == 0) break; // Parada antecipada se encaixar perfeitamente
+            }
+        }
+
+        // Se encontrou um livro que cabe, adiciona à prateleira
+        if (melhorIndice != -1) {
+            prateleira->livros[prateleira->numLivros++] = livros[melhorIndice];
+            prateleira->capacidadeLargura -= livros[melhorIndice].largura;
+
+            // Remove o livro da lista (troca com o último livro considerado e reduz o total)
+            Livro temp = livros[melhorIndice];
+            livros[melhorIndice] = livros[numLivros - 1];
+            livros[numLivros - 1] = temp;
+            numLivros--; // Reduz o número de livros
+        } else {
+            // Nenhum livro cabe na prateleira atual, então passa para a próxima prateleira
             prateleiraAtual++;
             if (prateleiraAtual == MAX_PRATELEIRAS) {
                 prateleiraAtual = 0;
                 estanteAtual++;
-                if (estanteAtual == MAX_ESTANTES) break; // Verifica se não ultrapassou o número de estantes
+                if (estanteAtual == MAX_ESTANTES) break;
 
                 // Incrementa o número de estantes se uma nova estante for usada
                 biblioteca->numEstantes++;
             }
-            i--; // Reprocessa o livro na nova prateleira
         }
     }
 
     // Certifica-se de que o número de estantes é atualizado ao final da distribuição
     if (estanteAtual >= biblioteca->numEstantes) {
-        biblioteca->numEstantes = estanteAtual + 1; // Atualiza o número total de estantes usadas
+        biblioteca->numEstantes = estanteAtual + 1;
     }
 }
 
@@ -201,16 +221,52 @@ void printarListaLivros(Livro *listaLivros, int numLivros){
     }
 }
 
+
 int main() {
     Biblioteca biblioteca;
     criarBiblioteca(&biblioteca);
 
     Livro listaLivros[1000];
     int numLivros = abrirArquivo(listaLivros);
-    // printarListaLivros(listaLivros, numLivros);
-
     distribuirLivrosNasEstantes(&biblioteca, listaLivros, numLivros);
+    // printarListaLivros(listaLivros, numLivros);
+    printf("******************************************\n");
+    printf("*                                         *\n");
+    printf("*          BEM-VINDO A BIBLIOTECA         *\n");
+    printf("*                 DO MAGO                 *\n");
+    printf("*                                         *\n");
+    printf("******************************************\n\n");
+    printf("Operacoes disponiveis:\n1. Checar número de estantes\n2. Consultar\n3. Inserir livro\n4. Remover livro\n5. Emprestar livro\n 6.Encerrar Operacoes");
+    printf("Digite o número correspondente a operacao solicitada:\n");
+    int numeroOperacao;
+    scanf("%d", &numeroOperacao);
+    while(numeroOperacao != 6)
+        {
+            if(numeroOperacao == 1)
+                {
+                    printarBiblioteca(&biblioteca);
+                }
+            else if(numeroOperacao == 2)
+                {
+                    printarPrateleira(&biblioteca, 1, 1);
+                }
+            else if(numeroOperacao == 3)
+                {
 
-    printarBiblioteca(&biblioteca);
-    // printarPrateleira(&biblioteca, 1, 1);
+                }
+            else if(numeroOperacao == 4)
+                {
+
+                }
+            else if(numeroOperacao == 5)
+                {
+
+                }
+            else
+                {
+                    printf("Operacao invalida :/\n");
+                }
+        }
+    printf("Operacoes encerradas.");
+       
 }
