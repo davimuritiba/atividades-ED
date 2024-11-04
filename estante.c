@@ -509,7 +509,7 @@ int main() {
                 int estanteNum, prateleiraNum, altura, largura, profundidade;
                 char titulo[30], autor[30];
                 printf("Digite a altura, largura, profundidade, titulo e autor do livro:\n");
-                scanf("%d %d %d %d %d", &altura, &largura, &profundidade);
+                scanf("%d %d %d", &altura, &largura, &profundidade);
                 getchar(); // Limpar o buffer do '\n'
                 printf("Titulo: ");
                 fgets(titulo, 30, stdin);
