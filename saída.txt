@@ -1,0 +1,462 @@
+******************************************
+*          BEM-VINDO A BIBLIOTECA         *
+*                 DA ROBERTA              *
+******************************************
+
+Operacoes disponiveis:
+1. Checar numero de estantes
+2. Consultar Estante
+3. Inserir livro
+4. Remover livro
+5. Emprestar livro
+0. Encerrar operacoes
+Digite o numero correspondente a operacao solicitada:
+1
+Estante 1:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 4
+Estante 2:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 4
+Estante 3:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 4
+Estante 4:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 4
+Estante 5:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 4
+Estante 6:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 4
+Estante 7:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 4
+Estante 8:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 4
+Estante 9:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 4
+Estante 10:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 4
+Estante 11:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 4
+Estante 12:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 4
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 5
+Estante 13:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 5
+Estante 14:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 5
+Estante 15:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 5
+Estante 16:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 5
+Estante 17:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 5
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 6
+Estante 18:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 6
+Estante 19:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 6
+Estante 20:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 6
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 7
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 7
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 7
+Estante 21:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 7
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 7
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 7
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 7
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 7
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 8
+Estante 22:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 8
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 8
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 8
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 8
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 8
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 9
+Estante 23:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 9
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 9
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 10
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 10
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 10
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 11
+Estante 24:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 12
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 12
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 13
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 14
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 14
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 14
+Estante 25:
+  Prateleira 1
+    Quantidade de livros nesta prateleira: 19
+  Prateleira 2
+    Quantidade de livros nesta prateleira: 22
+  Prateleira 3
+    Quantidade de livros nesta prateleira: 29
+  Prateleira 4
+    Quantidade de livros nesta prateleira: 32
+  Prateleira 5
+    Quantidade de livros nesta prateleira: 53
+  Prateleira 6
+    Quantidade de livros nesta prateleira: 1
+Operacoes disponiveis:
+1. Checar numero de estantes
+2. Consultar Estante
+3. Inserir livro
+4. Remover livro
+5. Emprestar livro
+0. Encerrar operacoes
+Digite o numero correspondente a operacao solicitada:
+2
+Digite o numero da estante e da prateleira:
+26
+2
+Estante 26 nao encontrada.
+Operacoes disponiveis:
+1. Checar numero de estantes
+2. Consultar Estante
+3. Inserir livro
+4. Remover livro
+5. Emprestar livro
+0. Encerrar operacoes
+Digite o numero correspondente a operacao solicitada:
+2
+Digite o numero da estante e da prateleira:
+25
+2
+Estante 25, Prateleira 2
+  Livros nesta prateleira:
+    - Titulo: t ntbiigxu| Autor:   jbesi o| Altura: 12cm| Largura: 2cm| Profundidade: 4cm| Volume: 96cm
+    - Titulo:  vzg tn b| Autor: pu jfcdqjd| Altura: 27cm| Largura: 4cm| Profundidade: 14cm| Volume: 1512cm
+    - Titulo: mcdntmiv | Autor: oinjb vlmj| Altura: 21cm| Largura: 4cm| Profundidade: 27cm| Volume: 2268cm
+    - Titulo: ns jqgt gg| Autor: un h uxdtj| Altura: 27cm| Largura: 4cm| Profundidade: 10cm| Volume: 1080cm
+    - Titulo: zfl nph | Autor: x  dn zmdj| Altura: 16cm| Largura: 4cm| Profundidade: 3cm| Volume: 192cm
+    - Titulo: v amo vdgn| Autor: thila  e g| Altura: 22cm| Largura: 4cm| Profundidade: 4cm| Volume: 352cm
+    - Titulo:  bht tcd p| Autor: j qhb zvuq| Altura: 1cm| Largura: 4cm| Profundidade: 21cm| Volume: 84cm
+    - Titulo: hlqge  tb| Autor: g hfcoj  z| Altura: 21cm| Largura: 4cm| Profundidade: 13cm| Volume: 1092cm
+    - Titulo: hf voe sp| Autor: ttb d c xq| Altura: 4cm| Largura: 4cm| Profundidade: 27cm| Volume: 432cm
+    - Titulo:   jlnhjhj| Autor:  htcev n o| Altura: 15cm| Largura: 4cm| Profundidade: 2cm| Volume: 120cm
+    - Titulo: ejmglog xj| Autor: p cpxecfou| Altura: 8cm| Largura: 4cm| Profundidade: 8cm| Volume: 256cm
+    - Titulo: zzaxvoxmn | Autor: mvd lg iij| Altura: 18cm| Largura: 4cm| Profundidade: 4cm| Volume: 288cm
+    - Titulo: ed nc  om | Autor: oepss qzi | Altura: 23cm| Largura: 5cm| Profundidade: 17cm| Volume: 1955cm
+    - Titulo: eubses n v| Autor: otx  cn | Altura: 22cm| Largura: 5cm| Profundidade: 30cm| Volume: 3300cm
+    - Titulo: sizcp  hfu| Autor: s sszv od | Altura: 12cm| Largura: 5cm| Profundidade: 4cm| Volume: 240cm
+    - Titulo: umeehnis | Autor: lgguod gs| Altura: 15cm| Largura: 5cm| Profundidade: 19cm| Volume: 1425cm
+    - Titulo: atouxhc z | Autor: cifcb u fa| Altura: 5cm| Largura: 5cm| Profundidade: 20cm| Volume: 500cm
+    - Titulo:   en opejn| Autor: qjins qvix| Altura: 17cm| Largura: 5cm| Profundidade: 4cm| Volume: 340cm
+    - Titulo:  fihi uf| Autor: hjzx  v z| Altura: 12cm| Largura: 5cm| Profundidade: 25cm| Volume: 1500cm
+    - Titulo:  b  jhjgz | Autor: ngnb bnqs| Altura: 15cm| Largura: 5cm| Profundidade: 27cm| Volume: 2025cm
+    - Titulo:  todjubjhs| Autor: a fp qsmpn| Altura: 13cm| Largura: 5cm| Profundidade: 6cm| Volume: 390cm
+    - Titulo: nliq h  qc| Autor: lloaell dd| Altura: 18cm| Largura: 5cm| Profundidade: 4cm| Volume: 360cm
+Volume total da estante: 19807
+Operacoes disponiveis:
+1. Checar numero de estantes
+2. Consultar Estante
+3. Inserir livro
+4. Remover livro
+5. Emprestar livro
+0. Encerrar operacoes
+Digite o numero correspondente a operacao solicitada:
+3
+Digite a altura, largura, profundidade, titulo e autor do livro:
+5
+5
+5
+Titulo: Joao
+Autor: Joao
+Livro Joao inserido com sucesso na biblioteca.
+Operacoes disponiveis:
+1. Checar numero de estantes
+2. Consultar Estante
+3. Inserir livro
+4. Remover livro
+5. Emprestar livro
+0. Encerrar operacoes
+Digite o numero correspondente a operacao solicitada:
+2
+Digite o numero da estante e da prateleira:
+25
+6
+Estante 25, Prateleira 6
+  Livros nesta prateleira:
+    - Titulo: fjg fee  f| Autor: ai sgzall | Altura: 11cm| Largura: 1cm| Profundidade: 13cm| Volume: 143cm
+    - Titulo: Joao| Autor: Joao| Altura: 5cm| Largura: 5cm| Profundidade: 5cm| Volume: 125cm
+Volume total da estante: 268
+Operacoes disponiveis:
+1. Checar numero de estantes
+2. Consultar Estante
+3. Inserir livro
+4. Remover livro
+5. Emprestar livro
+0. Encerrar operacoes
+Digite o numero correspondente a operacao solicitada:
+4
+Digite o numero da estante e a prateleira
+25
+6
+Agora digite o titulo: Joao
+Livro "Joao" removido da estante 25, prateleira 6.
+Operacoes disponiveis:
+1. Checar numero de estantes
+2. Consultar Estante
+3. Inserir livro
+4. Remover livro
+5. Emprestar livro
+0. Encerrar operacoes
+Digite o numero correspondente a operacao solicitada:
+5
+Digite o titulo do livro que voce quer emprestar:
+fjg fee  f
+Digite o nome da pessoa que pegará o livro: Roberta
+Livro "fjg fee  f" emprestado com sucesso.
+Livro: 
+    - Titulo: fjg fee  f| Autor: ai sgzall | Altura: 11cm| Largura: 1cm| Profundidade: 13cm| Volume: 143cm| Emprestado para: Roberta
+Emprestado para: Roberta
+Operacoes disponiveis:
+1. Checar numero de estantes
+2. Consultar Estante
+3. Inserir livro
+4. Remover livro
+5. Emprestar livro
+0. Encerrar operacoes
+Digite o numero correspondente a operacao solicitada:
+0
+Operacoes encerradas.
