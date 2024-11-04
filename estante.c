@@ -118,24 +118,12 @@ void removerNovaLinha(char* linha) {
     }
 }
 
-// Função para imprimir todos os livros na lista
 void printarListaLivro(Livro* livro) {
     while (livro != NULL) {
-        printf("Titulo: %s\nAutor: %s\nLargura: %d\nAltura: %d\nProfundidade: %d\nVolume: %d\n",
-               livro->titulo, livro->autor, livro->largura, livro->altura, livro->profundidade, livro->volume);
-        livro = livro->next;  // Avança para o próximo livro
+        printf("    - Titulo: %s| Autor: %s| Altura: %dcm| Largura: %dcm| Profundidade: %dcm| Volume: %dcm\n", 
+                livro->titulo, livro->autor, livro->altura, livro->largura, livro->profundidade, livro->volume);
+            livro = livro->next;
     }
-}
-
-//Função para calcular a quantidade de livros em uma lista
-int quantidadeListaLivros(Livro *livro){
-    int indice = 0;
-    while(livro != NULL){
-        indice++;
-        livro = livro->next;
-    }
-
-    return indice;
 }
 
 //Função para liberar as lista de livros
@@ -216,7 +204,7 @@ void printarBiblioteca(Biblioteca *biblioteca) {
     }
 }
 
-void distribuirLivrosNasEstantesLargura(Biblioteca* biblioteca, Livro* listaLivros) {
+void distribuirLivrosNasEstantes(Biblioteca* biblioteca, Livro* listaLivros) {
     Estante* estanteAtual = biblioteca->estantes;
     int prateleiraAtual = 0;
 
@@ -283,8 +271,6 @@ void distribuirLivrosNasEstantesLargura(Biblioteca* biblioteca, Livro* listaLivr
     }
 }
 
-
-
 void removerLivro(Biblioteca *biblioteca, int numEstante, int numPrateleira, char *tituloLivro){
     if (biblioteca == NULL || numEstante < 1 || numPrateleira < 1 || numEstante > 30 || numPrateleira > 6) {
         printf("Estante ou prateleira inválida.\n");
@@ -297,7 +283,7 @@ void removerLivro(Biblioteca *biblioteca, int numEstante, int numPrateleira, cha
     }
 
     if (estanteAtual == NULL) {
-        printf("Estante não encontrada.\n");
+        printf("Estante nao encontrada.\n");
         return;
     }
 
@@ -326,7 +312,7 @@ void removerLivro(Biblioteca *biblioteca, int numEstante, int numPrateleira, cha
         livroAtual = livroAtual->next;
     }
 
-    printf("Livro \"%s\" nao encontrado na estante %d, prateleira %d.\n", tituloLivro, numEstante, numPrateleira);
+    printf("Livro '%s' nao encontrado na estante %d, prateleira %d.\n", tituloLivro, numEstante, numPrateleira);
 }
 
 void printarPrateleira(Biblioteca *biblioteca, int numEstante, int numPrateleira){
@@ -362,24 +348,212 @@ void printarPrateleira(Biblioteca *biblioteca, int numEstante, int numPrateleira
     }
 }
 
+int emprestarLivro(Biblioteca *biblioteca, Livro **listaEmprestados, const char *tituloLivro) {
+    if (biblioteca == NULL || tituloLivro == NULL) {
+        printf("Biblioteca ou título do livro inválidos.\n");
+        return -1;
+    }
+
+    Estante *estanteAtual = biblioteca->estantes;
+    while (estanteAtual != NULL) {
+        for (int i = 0; i < 6; i++) {
+            Prateleira *prateleiraAtual = &estanteAtual->prateleiras[i];
+            Livro *livroAtual = prateleiraAtual->livros;
+            Livro *prevLivro = NULL;
+
+            while (livroAtual != NULL) {
+                if (strncmp(livroAtual->titulo, tituloLivro, strlen(tituloLivro)) == 0) {
+                    // Remove o livro da prateleira
+                    if (prevLivro == NULL) {
+                        prateleiraAtual->livros = livroAtual->next;
+                    } else {
+                        prevLivro->next = livroAtual->next;
+                    }
+                    if (livroAtual->next != NULL) {
+                        livroAtual->next->prev = prevLivro;
+                    }
+
+                    // Adiciona o livro à lista de emprestados
+                    livroAtual->next = *listaEmprestados;
+                    if (*listaEmprestados != NULL) {
+                        (*listaEmprestados)->prev = livroAtual;
+                    }
+                    *listaEmprestados = livroAtual;
+
+                    printf("Livro \"%s\" emprestado com sucesso.\n", tituloLivro);
+                    return 0;
+                }
+                prevLivro = livroAtual;
+                livroAtual = livroAtual->next;
+            }
+        }
+        estanteAtual = estanteAtual->next;
+    }
+
+    printf("Livro \"%s\" nao encontrado na biblioteca.\n", tituloLivro);
+    return -1;
+}
+
+void inserirLivro(Biblioteca* biblioteca, Livro* novoLivro) {
+    // Verificar se a biblioteca tem estantes, se não, cria uma
+    if (biblioteca->numEstantes == 0) {
+        biblioteca->estantes = (Estante*)malloc(sizeof(Estante));
+        for (int i = 0; i < 6; i++) {
+            biblioteca->estantes->prateleiras[i].livros = NULL;
+        }
+        biblioteca->estantes->next = NULL;
+        biblioteca->numEstantes = 1;
+    }
+
+    // Encontrar a última estante
+    Estante* estanteAtual = biblioteca->estantes;
+    while (estanteAtual->next != NULL) {
+        estanteAtual = estanteAtual->next;
+    }
+
+    // Encontrar a última prateleira com espaço para o novo livro
+    int larguraOcupada = 0;
+    Prateleira* prateleiraSelecionada = NULL;
+
+    for (int i = 0; i < 6; i++) {
+        Prateleira* prateleira = &estanteAtual->prateleiras[i];
+        larguraOcupada = 0;
+        Livro* livroAtual = prateleira->livros;
+        
+        // Calcular a largura ocupada na prateleira atual
+        while (livroAtual != NULL) {
+            larguraOcupada += livroAtual->largura;
+            livroAtual = livroAtual->next;
+        }
+
+        // Verificar se o livro cabe na prateleira atual
+        if (larguraOcupada + novoLivro->largura <= 96) {
+            prateleiraSelecionada = prateleira;
+            break;
+        }
+    }
+
+    // Se não há prateleira com espaço, criar uma nova estante
+    if (prateleiraSelecionada == NULL) {
+        Estante* novaEstante = (Estante*)malloc(sizeof(Estante));
+        for (int i = 0; i < 6; i++) {
+            novaEstante->prateleiras[i].livros = NULL;
+        }
+        novaEstante->next = NULL;
+        
+        estanteAtual->next = novaEstante;
+        biblioteca->numEstantes++;
+
+        // A nova estante e primeira prateleira será o destino do novo livro
+        prateleiraSelecionada = &novaEstante->prateleiras[0];
+    }
+
+    // Inserir o novo livro no final da prateleira selecionada
+    Livro* ultimoLivro = prateleiraSelecionada->livros;
+    if (ultimoLivro == NULL) {
+        // A prateleira está vazia
+        prateleiraSelecionada->livros = novoLivro;
+    } else {
+        // Encontrar o final da lista de livros
+        while (ultimoLivro->next != NULL) {
+            ultimoLivro = ultimoLivro->next;
+        }
+        ultimoLivro->next = novoLivro;
+        novoLivro->prev = ultimoLivro;
+    }
+
+    printf("Livro %s inserido com sucesso na biblioteca.\n", novoLivro->titulo);
+}
 
 int main() {
-    Livro* listaLivrosCompleta = abrirArquivo();
+    Livro* listaLivros = abrirArquivo();
     Biblioteca *biblioteca = criarBiblioteca();
     Estante *estante = biblioteca->estantes;
-    // printarListaLivro(listaLivrosCompleta);
+    Livro *livrosEmprestados = NULL;
 
     biblioteca->estantes = NULL;
     biblioteca->numEstantes = 0;
-    distribuirLivrosNasEstantesLargura(biblioteca, listaLivrosCompleta);
-    printarBiblioteca(biblioteca);
+    distribuirLivrosNasEstantes(biblioteca, listaLivros);
 
-    // removerLivro(biblioteca, 1, 1, "  hm bxjjd");
-    // printarPrateleira(biblioteca, 1, 1);
+    printf("******************************************\n");
+    printf("*          BEM-VINDO A BIBLIOTECA         *\n");
+    printf("*                 DA ROBERTA              *\n");
+    printf("******************************************\n\n");
 
-    Livro *livrosEmprestados = NULL;
+    do{
+        int numeroOperacao = -1;
+        printf("Operacoes disponiveis:\n");
+        printf("1. Checar numero de estantes\n");
+        printf("2. Consultar Estante\n");
+        printf("3. Inserir livro\n");
+        printf("4. Remover livro\n");
+        printf("5. Emprestar livro\n");
+        printf("0. Encerrar operacoes\n");
+        printf("Digite o numero correspondente a operacao solicitada:\n");
+        scanf("%d", &numeroOperacao);
 
-    liberarLivros(listaLivrosCompleta);
+        switch (numeroOperacao) {
+            case 1: 
+                printarBiblioteca(biblioteca);
+                break;
+
+            case 2: {
+                int numEstante, numPrateleira;
+                printf("Digite o numero da estante e da prateleira:\n");
+                scanf("%d %d", &numEstante, &numPrateleira);
+                printarPrateleira(biblioteca, numEstante, numPrateleira);
+                break;
+            }
+
+            case 3: {
+                int estanteNum, prateleiraNum, altura, largura, profundidade;
+                char titulo[30], autor[30];
+                printf("Digite a altura, largura, profundidade, titulo e autor do livro:\n");
+                scanf("%d %d %d %d %d", &altura, &largura, &profundidade);
+                getchar(); // Limpar o buffer do '\n'
+                printf("Titulo: ");
+                fgets(titulo, 30, stdin);
+                printf("Autor: ");
+                fgets(autor, 30, stdin);
+                
+                // Remover a nova linha do final de `titulo` e `autor`
+                titulo[strcspn(titulo, "\n")] = '\0';
+                autor[strcspn(autor, "\n")] = '\0';
+                
+                Livro *novoLivro = criarLivro(altura, largura, profundidade, titulo, autor);
+                inserirLivro(biblioteca, novoLivro);
+                break;
+            }
+            case 4: {
+                int estante, prateleira;
+                char titulo[30];
+                printf("Digite o numero da estante e a prateleira\n");
+                scanf("%d %d", &estante, &prateleira);
+                getchar();
+                printf("Agora digite o titulo: ");
+                fgets(titulo, 30, stdin);
+                removerLivro(biblioteca, estante, prateleira, titulo);
+                break;
+            }
+            case 5: {
+                char titulo[30];
+                printf("Digite o titulo do livro que voce quer emprestar:\n");
+                scanf(" %s", titulo);
+                if(!emprestarLivro(biblioteca, &livrosEmprestados, titulo))
+                    printf("Livros Emprestados: \n");
+                    printarListaLivro(livrosEmprestados);  
+                break;
+            }
+            case 0: 
+                printf("Operacoes encerradas.\n"); 
+                return 0;
+            default: 
+                printf("Operacao invalida :/\n"); 
+                break;
+        }
+    } while (1);
+
+    liberarLivros(listaLivros);
     liberarLivros(livrosEmprestados);
     liberarEstante(estante);
     free(biblioteca);
