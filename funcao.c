@@ -7,33 +7,33 @@ void distribuirLivrosNasEstantes(Biblioteca* biblioteca, Livro* listaLivros) {
         estanteAtual = biblioteca->estantes;
     }
 
-    int areaPrateleira = 32 * 96;
-    int capacidadeRestante = areaPrateleira;
-    int volumeMaximo = 100000;
-    int volumeAtual = 0;
+    int areaPrateleira = 32 * 96; // Área total da prateleira
+    int capacidadeRestante = areaPrateleira; // Capacidade disponível da prateleira
+    int volumeMaximo = 100000; // Volume máximo da prateleira
+    int volumeAtual = 0; // Volume atual da prateleira
     Livro* livroAtual = listaLivros;
-    
+
     while (livroAtual != NULL) {
         Prateleira* prateleira = &estanteAtual->prateleiras[prateleiraAtual];
-        int areaLivro = livroAtual->largura * livroAtual->profundidade;
+        int areaLivro = livroAtual->largura * livroAtual->profundidade; // Cálculo da área do livro
 
-        // Verifica se o livro cabe na prateleira pelo espaço e pelo volume
+        // Verifica se o livro cabe na prateleira em termos de área e volume
         if (areaLivro <= capacidadeRestante && (volumeAtual + livroAtual->volume) <= volumeMaximo) {
-            prateleira->livros = livroAtual;
-            capacidadeRestante -= areaLivro;
-            volumeAtual += livroAtual->volume;
-            livroAtual = livroAtual->next;
+            prateleira->livros = livroAtual; // Adiciona o livro à prateleira
+            capacidadeRestante -= areaLivro; // Atualiza a capacidade restante
+            volumeAtual += livroAtual->volume; // Atualiza o volume atual
+            livroAtual = livroAtual->next; // Avança para o próximo livro
         } else {
-            // Vai para a próxima prateleira
+            // Se não couber, vai para a próxima prateleira
             prateleiraAtual++;
-            if (prateleiraAtual == 6) {
-                adicionarEstante(biblioteca);
-                estanteAtual = estanteAtual->next;
-                prateleiraAtual = 0;
+            if (prateleiraAtual == 6) { // Se todas as prateleiras da estante estão cheias
+                adicionarEstante(biblioteca); // Adiciona uma nova estante
+                estanteAtual = estanteAtual->next; // Move para a próxima estante
+                prateleiraAtual = 0; // Reinicia o índice da prateleira
             }
-            // Redefine a capacidade e o volume para a nova prateleira
-            capacidadeRestante = areaPrateleira;
-            volumeAtual = 0;
+            // Reinicia a capacidade e o volume para a nova prateleira
+            capacidadeRestante = areaPrateleira; 
+            volumeAtual = 0; 
         }
     }
 }
