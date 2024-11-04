@@ -88,6 +88,8 @@ Estante* criarEstante() {
     for(int i = 0; i < 6; i++){
         novaEstante->prateleiras[i].livros = NULL;
         novaEstante->prateleiras[i].capacidadeLargura = 96;  // Capacidade máxima de 96 cm
+        novaEstante->prateleiras[i].capacidadeProfundidade = 32;  // Capacidade máxima de 96 cm
+        novaEstante->prateleiras[i].capacidadeAltura = 31;  // Capacidade máxima de 96 cm
     }
 
     novaEstante->next = NULL;
