@@ -6,6 +6,7 @@ typedef struct livro {
     char titulo[30];
     char autor[30];
     int largura, altura, profundidade, volume;
+    char pessoaEmprestada[40];
     struct livro* prev;
     struct livro* next;
 } Livro;
@@ -40,5 +41,5 @@ void printarBiblioteca(Biblioteca *biblioteca);
 void printarPrateleira(Biblioteca *biblioteca, int numEstante, int numPrateleira);
 void distribuirLivrosNasEstantes(Biblioteca* biblioteca, Livro* listaLivros);
 void removerLivro(Biblioteca *biblioteca, int numEstante, int numPrateleira, char *tituloLivro);
-int emprestarLivro(Biblioteca *biblioteca, Livro **listaEmprestados, const char *tituloLivro);
+int emprestarLivro(Biblioteca *biblioteca, Livro **listaEmprestados, const char *tituloLivro, char *pessoa);
 void inserirLivro(Biblioteca* biblioteca, Livro* novoLivro);
