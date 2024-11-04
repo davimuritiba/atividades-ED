@@ -126,6 +126,14 @@ void printarListaLivro(Livro* livro) {
     }
 }
 
+void printarListaLivroEmprestado(Livro *livro){
+    while (livro != NULL) {
+        printf("    - Titulo: %s| Autor: %s| Altura: %dcm| Largura: %dcm| Profundidade: %dcm| Volume: %dcm| Emprestado para: %s\n", 
+                livro->titulo, livro->autor, livro->altura, livro->largura, livro->profundidade, livro->volume, livro->pessoaEmprestada);
+            livro = livro->next;
+    }
+}
+
 //Função para liberar as lista de livros
 void liberarLivros(Livro *livro) {
     while (livro != NULL) {
@@ -202,6 +210,45 @@ void printarBiblioteca(Biblioteca *biblioteca) {
         estanteAtual = estanteAtual->next;  // Avança para a próxima estante
         numEstante++;
     }
+}
+
+void distribuirLivrosEstantesProfun(Biblioteca *biblioteca, int indice) {
+    if (biblioteca == NULL || indice < 0) {
+        printf("Biblioteca inválida ou índice negativo.\n");
+        return;
+    }
+
+    Estante *estanteAtual = biblioteca->estantes;
+    int contador = 0;
+
+    // Percorrer a lista até encontrar a estante no índice especificado
+    while (estanteAtual != NULL && contador < indice) {
+        estanteAtual = estanteAtual->next;
+        contador++;
+    }
+
+    // Ajuste dos ponteiros para remover a estante da lista
+    if (estanteAtual->prev != NULL) {
+        estanteAtual->prev->next = estanteAtual->next;
+    } else {
+        // Caso seja a primeira estante
+        biblioteca->estantes = estanteAtual->next;
+    }
+
+    if (estanteAtual->next != NULL) {
+        estanteAtual->next->prev = estanteAtual->prev;
+    }
+
+    // Liberar a memória da estante e dos livros nela contidos
+    for (int i = 0; i < 6; i++) {
+        Livro *livroAtual = estanteAtual->prateleiras[i].livros;
+        while (livroAtual != NULL) {
+            Livro *proxLivro = livroAtual->next;
+            free(livroAtual);
+            livroAtual = proxLivro;
+        }
+    }
+    free(estanteAtual);
 }
 
 void distribuirLivrosNasEstantes(Biblioteca* biblioteca, Livro* listaLivros) {
@@ -321,6 +368,7 @@ void printarPrateleira(Biblioteca *biblioteca, int numEstante, int numPrateleira
         return;
     }
 
+    int volumeAtual = 0;
     Estante *estanteAtual = biblioteca->estantes;
     // Navega até a estante específica
     for (int i = 1; i < numEstante && estanteAtual != NULL; i++) {
@@ -343,12 +391,15 @@ void printarPrateleira(Biblioteca *biblioteca, int numEstante, int numPrateleira
         while (livroAtual != NULL) {
             printf("    - Titulo: %s| Autor: %s| Altura: %dcm| Largura: %dcm| Profundidade: %dcm| Volume: %dcm\n", 
                    livroAtual->titulo, livroAtual->autor, livroAtual->altura, livroAtual->largura, livroAtual->profundidade, livroAtual->volume);
+            volumeAtual += livroAtual->volume;
             livroAtual = livroAtual->next;
         }
     }
+
+    printf("Volume total da estante: %d\n", volumeAtual);
 }
 
-int emprestarLivro(Biblioteca *biblioteca, Livro **listaEmprestados, const char *tituloLivro) {
+int emprestarLivro(Biblioteca *biblioteca, Livro **listaEmprestados, const char *tituloLivro, char *pessoa) {
     if (biblioteca == NULL || tituloLivro == NULL) {
         printf("Biblioteca ou título do livro inválidos.\n");
         return -1;
@@ -379,6 +430,8 @@ int emprestarLivro(Biblioteca *biblioteca, Livro **listaEmprestados, const char 
                         (*listaEmprestados)->prev = livroAtual;
                     }
                     *listaEmprestados = livroAtual;
+                    strcpy((*listaEmprestados)->pessoaEmprestada, pessoa);
+                    
 
                     printf("Livro \"%s\" emprestado com sucesso.\n", tituloLivro);
                     return 0;
@@ -474,6 +527,8 @@ int main() {
     biblioteca->estantes = NULL;
     biblioteca->numEstantes = 0;
     distribuirLivrosNasEstantes(biblioteca, listaLivros);
+    distribuirLivrosEstantesProfun(biblioteca, 20);
+    distribuirLivrosEstantesProfun(biblioteca, 6);
 
     printf("******************************************\n");
     printf("*          BEM-VINDO A BIBLIOTECA         *\n");
@@ -536,15 +591,18 @@ int main() {
                 break;
             }
             case 5: {
-                char titulo[30];
+                char titulo[30], nome[30];
                 printf("Digite o titulo do livro que voce quer emprestar:\n");
                 getchar();
                 gets(titulo);
-                if(!emprestarLivro(biblioteca, &livrosEmprestados, titulo))
-                    printf("Livros Emprestados: \n");
-                    printarListaLivro(livrosEmprestados);  
+                printf("Digite o nome da pessoa que pegará o livro: ");
+                gets(nome);
+                if(!emprestarLivro(biblioteca, &livrosEmprestados, titulo, nome))
+                    printf("Livro: \n");
+                    printarListaLivroEmprestado(livrosEmprestados);  
+                    printf("Emprestado para: %s\n", nome);
                 break;
-            }
+                }
             case 0: 
                 printf("Operacoes encerradas.\n"); 
                 return 0;
