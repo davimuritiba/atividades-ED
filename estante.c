@@ -531,14 +531,15 @@ int main() {
                 scanf("%d %d", &estante, &prateleira);
                 getchar();
                 printf("Agora digite o titulo: ");
-                fgets(titulo, 30, stdin);
+                gets(titulo);
                 removerLivro(biblioteca, estante, prateleira, titulo);
                 break;
             }
             case 5: {
                 char titulo[30];
                 printf("Digite o titulo do livro que voce quer emprestar:\n");
-                scanf(" %s", titulo);
+                getchar();
+                gets(titulo);
                 if(!emprestarLivro(biblioteca, &livrosEmprestados, titulo))
                     printf("Livros Emprestados: \n");
                     printarListaLivro(livrosEmprestados);  
