@@ -11,3 +11,92 @@ Título:Peptide-Protein Interface Classification Using Convolutional Neural Netw
 Título:A Power Law Semantic Similarity from Gene Ontology;Autores:Eric Augusto Ito Fábio Fernandes da Rocha Vicente, Luiz Felipe Protasio Pereira, Fabricio Martins Lopes
 Título:Gene Networks Inference by Reinforcement Learning;Autores:Rodrigo Cesar Bonini, David Correa Martins-Jr
 Título:Exploring Identifiability in Hybrid Models of Cell Signaling Pathways;Autores:Ronaldo N. Sousa, Cristiano G. S. Campos, Willian Wang, Ronaldo F. Hashimoto, Hugo A. Armelin, Marcelo S. Reis
+Título:Embracing Data Irregularities in Multivariate Time Series with Recurrent and Graph Neural Networks;Autores: Marcel Rodrigues de Barros, Thiago Lizier Rissi, Eduardo Faria Cabrera, Eduardo Aoun Tannuri, Edson Satoshi Gomi, Rodrigo Augusto Barreira, Anna Helena Reali Costa
+Título:Regulation and Ethics of Facial Recognition Systems: An Analysis of Cases in the Court of Appeal in the State of São Paulo;Autores: Cristina Godoy B. de Oliveira, Otávio de Paula Albuquerque, Emily Liene Belotti, Isabella Ferreira Lopes, Rodrigo Brandão de A. Silva, Glauco Arbix
+Título:A Combinatorial Optimization Model and Polynomial Time Heuristic for a Problem of Finding Specific Structural Patterns in Networks;Autores: Igor M. Sampaio, Karla Roberta P. S. Lima
+Título:Efficient Density-Based Models for Multiple Machine Learning Solutions over Large Datasets;Autores: Natanael F. Dacioli Batista, Bruno Leonel Nunes, Murilo Coelho Naldi
+Título:Exploring Text Decoding Methods for Portuguese Legal Text Generation;Autores: Kenzo Sakiyama, Raphael Montanari, Roseval Malaquias Junior, Rodrigo Nogueira, Roseli A. F. Romero
+Título:Community Detection for Multi-label Classification;Autores: Elaine Cecília Gatto, Alan Demétrius Baria Valejo, Mauri Ferrandin, Ricardo Cerri
+Título:A Monte Carlo Algorithm for Time-Constrained General Game Playing;Autores: Victor Scherer Putrich, Anderson Rocha Tavares, Felipe Meneguzzi
+Título:α-MCMP: Trade-Offs Between Probability and Cost in SSPs with the MCMP Criterion;Autores: Gabriel Nunes Crispino, Valdinei Freire, Karina Valdivia Delgado
+Título:Specifying Preferences over Policies Using Branching Time Temporal Logic;Autores: Warlles Carlos Costa Machado, Viviane Bonadia dos Santos, Leliane Nunes de Barros, Maria Viviane de Menezes
+Título:Logic-Based Explanations for Linear Support Vector Classifiers with Reject Option;Autores: Francisco Mateus Rocha, Thiago Alves Rocha, Reginaldo Pereira Fernandes Ribeiro, Ajalmar Rêgo Rocha
+Título:The Multi-attribute Fairer Cover Problem;Autores: Ana Paula S. Dantas, Gabriel Bianchin de Oliveira, Helio Pedrini, Cid C. de Souza, Zanoni Dias
+Título:A Custom Bio-Inspired Algorithm for the Molecular Distance Geometry Problem;Autores: Sarah Ribeiro Lisboa Carneiro, Michael Ferreira de Souza, Douglas O. Cardoso, Luís Tarrataca, Laura S. Assis
+Título:Allocating Dynamic and Finite Resources to a Set of Known Tasks;Autores: João da Silva, Sarajane Peres, Daniel Cordeiro, Valdinei Freire
+Título:A Multi-algorithm Approach to the Optimization of Thermal Power Plants Operation;Autores: Gabriela T. Justino, Gabriela C. Freitas, Camilla B. Batista, Kleyton P. Cotta, Bruno Deon, Flávio L. Loução Jr., Rodrigo J. S. de Almeida, Carlos A. A. de Araújo Jr.
+Título:An Incremental MaxSAT-Based Model to Learn Interpretable and Balanced Classification Rules;Autores: Antônio Carlos Souza Ferreira Júnior, Thiago Alves Rocha
+Título:d-CC Integrals: Generalizing CC-Integrals by Restricted Dissimilarity Functions with Applications to Fuzzy-Rule Based Systems;Autores: Joelson Sartori, Giancarlo Lucca, Tiago Asmus, Helida Santos, Eduardo Borges, Benjamin Bedregal, Humberto Bustince, Graçaliz Pereira Dimuro
+Título:FeatGeNN: Improving Model Performance for Tabular Data with Correlation-Based Feature Extraction;Autores: Sammuel Ramos Silva, Rodrigo Silva
+Título:Hierarchical Time-Aware Approach for Video Summarization;Autores: Leonardo Vilela Cardoso, Gustavo Oliveira Rocha Gomes, Silvio Jamil Ferzoli Guimarães, Zenilton Kleber Gonçalves do Patrocínio Júnior
+Título:Analyzing College Student Dropout Risk Prediction in Real Data Using Walk-Forward Validation;Autores: Rodolfo Sanches Santos, Moacir Antonelli Ponti, Kamila Rios Rodrigues
+Título:The Artificial Intelligence as a Technological Resource in the Application of Tasks for the Development of Joint Attention in Children with Autism;Autores: Nathália Assis Valentim, Fabiano Azevedo Dorça, Valéria Peres Asnis, Nassim Chamel Elias
+Título:Machine Teaching: An Explainable Machine Learning Model for Individualized Education;Autores: Eduardo Vargas Ferreira, Ana Carolina Lorena
+Título:BLUEX: A Benchmark Based on Brazilian Leading Universities Entrance eXams;Autores: Thales Sales Almeida, Thiago Laitz, Giovana K. Bonás, Rodrigo Nogueira
+Título:Towards Generating P-Contrastive Explanations for Goal Selection in Extended-BDI Agents;Autores: Henrique Jasinski, Mariela Morveli-Espinoza, Cesar Augusto Tacla
+Título:Applying Theory of Mind to Multi-agent Systems: A Systematic Review;Autores: Michele Rocha, Heitor Henrique da Silva, Analúcia Schiaffino Morales, Stefan Sarkadi, Alison R. Panisson
+Título:A Spin-off Version of Jason for IoT and Embedded Multi-Agent Systems;Autores: Carlos Eduardo Pantoja, Vinicius Souza de Jesus, Nilson Mori Lazarin, José Viterbo
+Título:Hybrid Multilevel Explanation: A New Approach for Explaining Regression Models;Autores: Renato Miranda Filho, Gisele L. Pappa
+Título:Explainability of COVID-19 Classification Models Using Dimensionality Reduction of SHAP Values;Autores: Daniel Matheus Kuhn, Melina Silva de Loreto, Mariana Recamonde-Mendoza, João Luiz Dihl Comba, Viviane Pereira Moreira
+Título:An Explainable Model to Support the Decision About the Therapy Protocol for AML;Autores: Jade M. Almeida, Giovanna A. Castro, João A. Machado-Neto, Tiago A. Almeida
+Título:Bayes and Laplace Versus the World: A New Label Attack Approach in Federated Environments Based on Bayesian Neural Networks;Autores: Pedro H. Barros, Fabricio Murai, Heitor S. Ramos
+Título:MAT-Tree: A Tree-Based Method for Multiple Aspect Trajectory Clustering;Autores: Yuri Santos, Ricardo Giuliani, Vania Bogorny, Mateus Grellert, Jônata Tyska Carvalho
+Título:Transformer Model for Fault Detection from Brazilian Pre-salt Seismic Data;Autores: Letícia Bomfim, Oton Cunha, Michelle Kuroda, Alexandre Vidal, Helio Pedrini
+Título:Evaluating Recent Legal Rhetorical Role Labeling Approaches Supported by Transformer Encoders;Autores: Alexandre Gomes de Lima, José G. Moreno, Taoufiq Dkaki, Eduardo Henrique da S. Aranha, Mohand Boughanem
+Título:Dog Face Recognition Using Vision Transformer;Autores: Victor Hugo Braguim Canto, João Renato Ribeiro Manesco, Gustavo Botelho de Souza, Aparecido Nilceu Marana
+Título:Convolutional Neural Networks for the Molecular Detection of COVID-19;Autores: Anisio P. Santos Jr., Anage C. Mundim Filho, Robinson Sabino-Silva, Murillo G. Carneiro
+Título:Hierarchical Graph Convolutional Networks for Image Classification;Autores: João Pedro Oliveira Batisteli, Silvio Jamil Ferzoli Guimarães, Zenilton Kleber Gonçalves do Patrocínio Júnior
+Título:Interpreting Convolutional Neural Networks for Brain Tumor Classification: An Explainable Artificial Intelligence Approach;Autores: Dieine Estela Bernieri Schiavon, Carla Diniz Lopes Becker, Viviane Rodrigues Botelho, Thatiane Alves Pianoski
+Título:Enhancing Stock Market Predictions Through the Integration of Convolutional and Recursive LSTM Blocks: A Cross-market Analysis;Autores: Filipe Ramos, Guilherme Silva, Eduardo Luz, Pedro Silva
+Título:Ensemble Architectures and Efficient Fusion Techniques for Convolutional Neural Networks: An Analysis on Resource Optimization Strategies;Autores: Cícero L. Costa, Danielli A. Lima, Celia A. Zorzo Barcelos, Bruno A. N. Travençolo
+Título:Dog Face Recognition Using Deep Features Embeddings;Autores: João P. B. Andrade, Leonardo F. Costa, Lucas S. Fernandes, Paulo A. L. Rego, José G. R. Maia
+Título:Clinical Oncology Textual Notes Analysis Using Machine Learning and Deep Learning;Autores: Diego Pinheiro da Silva, William da Rosa Fröhlich, Marco Antonio Schwertner, Sandro José Rigo
+Título:EfficientDeepLab for Automated Trachea Segmentation on Medical Images;Autores: Arthur Guilherme Santos Fernandes, Geraldo Braz Junior, João Otávio Bandeira Diniz, Aristófanes Correa Silva, Caio Eduardo Falcõ Matos
+Título:Multi-label Classification of Pathologies in Chest Radiograph Images Using DenseNet;Autores: Alison Corrêa Mendes, Alexandre César Pinto Pessoa, Anselmo Cardoso de Paiva
+Título:Does Pre-training on Brain-Related Tasks Results in Better Deep-Learning-Based Brain Age Biomarkers?;Autores: Bruno M. Pacheco, Victor H. R. de Oliveira, Augusto B. F. Antunes, Saulo D. S. Pedro, Danilo Silva
+Título:Applying Reinforcement Learning for Multiple Functions in Swarm Intelligence;Autores: André A. V. Escorel Ribeiro, Rodrigo Cesar Lira, Mariana Macedo, Hugo Valadares Siqueira, Carmelo Bastos-Filho
+Título:Deep Reinforcement Learning for Voltage Control in Power Systems;Autores: Mauricio W. Barg, Barbara S. Rodrigues, Gabriela T. Justino, Kleyton Pontes Cotta, Hugo R. V. Portuita, Flávio L. Loução Jr., Iran Pereira Abreu, Antônio Carlos Pigossi Jr.
+Título:Performance Analysis of Generative Adversarial Networks and Diffusion Models for Face Aging;Autores: Bruno Kemmer, Rodolfo Simões, Victor Ivamoto, Clodoaldo Lima
+Título:Occluded Face In-painting Using Generative Adversarial Networks—A Review;Autores: Victor Ivamoto, Rodolfo Simões, Bruno Kemmer, Clodoaldo Lima
+Título:Classification of Facial Images to Assist in the Diagnosis of Autism Spectrum Disorder: A Study on the Effect of Face Detection and Landmark Identification Algorithms;Autores: Gabriel C. Michelassi, Henrique S. Bortoletti, Tuany D. Pinheiro, Thiago Nobayashi, Fabio R. D. de Barros, Rafael L. Testa, Andréia F. Silva, Mirian C. Revers, Joana Portolese, Helio Pedrini, Helena Brentani, Fatima L. S. Nunes, Ariane Machado-Lima
+Título:Constructive Machine Learning and Hierarchical Multi-label Classification for Molecules Design;Autores: Rodney Renato de Souza Silva, Ricardo Cerri
+Título:AutoMMLC: An Automated and Multi-objective Method for Multi-label Classification;Autores: Aline Marques Del Valle, Rafael Gomes Mantovani, Ricardo Cerri
+Título:Merging Traditional Feature Extraction and Deep Learning for Enhanced Hop Variety Classification: A Comparative Study Using the UFOP-HVD Dataset;Autores: Pedro Castro, Gabriel Fortuna, Pedro Silva, Andrea G. C. Bianchi, Gladston Moreira, Eduardo Luz
+Título:Feature Selection and Hyperparameter Fine-Tuning in Artificial Neural Networks for Wood Quality Classification;Autores: Mateus Roder, Leandro Aparecido Passos, João Paulo Papa, André Luis Debiaso Rossi
+Título:A Feature-Based Out-of-Distribution Detection Approach in Skin Lesion Classification;Autores: Thiago Carvalho, Marley Vellasco, José Franco Amaral, Karla Figueiredo
+Título:A Framework for Characterizing What Makes an Instance Hard to Classify;Autores: Maria Gabriela Valeriano, Pedro Yuri Arbs Paiva, Carlos Roberto Veiga Kiffer, Ana Carolina Lorena
+Título:Physicochemical Properties for Promoter Classification;Autores: Lauro Moraes, Eduardo Luz, Gladston Moreira
+Título:Critical Analysis of AI Indicators in Terms of Weighting and Aggregation Approaches;Autores: Renata Pelissari, Betania Campello, Guilherme Dean Pelegrina, Ricardo Suyama, Leonardo Tomazeli Duarte
+Título:Estimating Code Running Time Complexity with Machine Learning;Autores: Ricardo J. Pfitscher, Gabriel B. Rodenbusch, Anderson Dias, Paulo Vieira, Nuno M. M. D. Fouto
+Título:The Effect of Statistical Hypothesis Testing on Machine Learning Model Selection;Autores: Marcel Chacon Gonçalves, Rodrigo Silva
+Título:Multiobjective Evolutionary Algorithms Applied to the Optimization of Expanded Genetic Codes;Autores: Maísa de Carvalho Silva, Paulo Guilherme Pinheiro Pereira, Lariza Laura de Oliveira, Renato Tinós
+Título:Genetic Algorithms with Optimality Cuts to the Max-Cut Problem;Autores: Pablo Luiz Braga Soares, Carlos Victor Dantas Araújo
+Título:Assessment of Robust Multi-objective Evolutionary Algorithms on Robust and Noisy Environments;Autores: Mateus Clemente de Sousa, Ivan Reinaldo Meneghini, Frederico Gadelha Guimarães
+Título:Binary Flying Squirrel Optimizer for Feature Selection;Autores: Luiz Fernando Merli de Oliveira Sementille, Douglas Rodrigues, André Nunes de Souuza, João Paulo Papa
+Título:Fitness Landscape Analysis of TPOT Using Local Optima Network;Autores: Matheus Cândido Teixeira, Gisele Lobo Pappa
+Título:Optimization Strategies for BERT-Based Named Entity Recognition;Autores: Monique Monteiro, Cleber Zanchettin
+Título:FlexCon-CE: A Semi-supervised Method with an Ensemble-Based Adaptive Confidence;Autores: Arthur Medeiros, Arthur C. Gorgônio, Karliane Medeiros Ovidio Vale, Flavius L. Gorgônio, Anne Magály de Paula Canuto
+Título:Single Image Super-Resolution Based on Capsule Neural Networks;Autores: George Corrêa de Araújo, Artur Jordão, Helio Pedrini
+Título:Development of a Deep Learning Model for the Classification of Mosquito Larvae Images;Autores: Ramon Mayor Martins, Bruno Manarin Espíndola, Pedro Philippi Araujo, Christiane Gresse von Wangenheim, Carlos José de Carvalho Pinto, Gisele Caminha
+Título:A Simple and Low-Cost Method for Leaf Surface Dimension Estimation Based on Digital Images;Autores: Karla Gabriele Florentino da Silva, Jonas Magalhães Moreira, Gabriel Barreto Calixto, Luiz Maurílio da Silva Maciel, Márcio Assis Miranda, Leandro Elias Morais
+Título:Crop Row Line Detection with Auxiliary Segmentation Task;Autores: Igor Ferreira da Costa, Wouter Caarls
+Título:Multiple Object Tracking in Native Bee Hives: A Case Study with Jataí in the Field;Autores: Rodolfo R. V. Leocádio, Alan Kardek Rêgo Segundo, Gustavo Pessin
+Título:An Open Source Eye Gaze Tracker System to Perform Remote User Testing Evaluations;Autores: Marc G. Capdevila, Karine Aparecida P. Rodrigues, Camila F. Jardim, Renato M. Silva
+Título:Who Killed the Winograd Schema Challenge?;Autores: Hugo Neri, Fabio G. Cozman
+Título:Sabiá: Portuguese Large Language Models;Autores: Ramon Pires, Hugo Abonizio, Thales Sales Almeida, Rodrigo Nogueira
+Título:Disambiguation of Universal Dependencies Part-of-Speech Tags of Closed Class Words in Portuguese;Autores: Lucelene Lopes, Paulo Fernandes, Marcio L. Inacio, Magali S. Duran, Thiago A. S. Pardo
+Título:Bete: A Brazilian Portuguese Dataset for Named Entity Recognition and Relation Extraction in the Diabetes Healthcare Domain;Autores: Lucas Pavanelli, Yohan Bonescki Gumiel, Thiago Ferreira, Adriana Pagano, Eduardo Laber
+Título:LegalBert-pt: A Pretrained Language Model for the Brazilian Portuguese Legal Domain;Autores: Raquel Silveira, Caio Ponte, Vitor Almeida, Vládia Pinheiro, Vasco Furtado
+Título:A Framework for Controversial Political Topics Identification Using Twitter Data;Autores: Kenzo Sakiyama, Lucas de Souza Rodrigues, Bruno Magalhães Nogueira, Edson Takashi Matsubara, Roseli A. F. Romero
+Título:Leveraging Sign Language Processing with Formal SignWriting and Deep Learning Architectures;Autores: Fernando de Almeida Freitas, Sarajane Marques Peres, Otávio de Paula Albuquerque, Marcelo Fantinato
+Título:A Clustering Validation Index Based on Semantic Description;Autores: Roberto Douglas Guimarães de Aquino, Vitor Venceslau Curtis, Filipe Alves Neto Verri
+Título:Detecting Multiple Epidemic Sources in Network Epidemics Using Graph Neural Networks;Autores: Rodrigo Gonçalves Haddad, Daniel Ratton Figueiredo
+Título:Prediction of Cancer-Related miRNA Targets Using an Integrative Heterogeneous Graph Neural Network-Based Method;Autores: Emanoel Aurelio Vianna Fabiano, Mariana Recamonde-Mendoza
+Título:Time Series Forecasting of COVID-19 Cases in Brazil with GNN and Mobility Networks;Autores: Fernando Henrique Oliveira Duarte, Gladston J. P. Moreira, Eduardo J. S. Luz, Leonardo B. L. Santos, Vander L. S. Freitas
+Título:Federated Learning and Mel-Spectrograms for Physical Violence Detection in Audio;Autores: Victor E. de S. Silva, Tiago B. Lacerda, Péricles Miranda, André Câmara, Amerson Riley Cabral Chagas, Ana Paula C. Furtado
+Título:Police Report Similarity Search: A Case Study;Autores: José Alan Firmiano Araújo, Ticiana L. Coelho da Silva, Atslands Rego da Rocha, Vinicius Cezar Monteiro de Lira
+Título:Evaluating Contextualized Embeddings for Topic Modeling in Public Bidding Domain;Autores: Henrique R. Hott, Mariana O. Silva, Gabriel P. Oliveira, Michele A. Brandão, Anisio Lacerda, Gisele Pappa
+Título:A Tool for Measuring Energy Consumption in Data Stream Mining;Autores: Eric Kenzo Taniguchi Onuki, Andreia Malucelli, Jean Paul Barddal
+Título:Improved Fuzzy Decision System for Energy Bill Reduction in the Context of the Brazilian White Tariff Scenario;Autores: Raimunda Branco, Filipe Saraiva
+Título:Exploring Artificial Intelligence Methods for the Automatic Measurement of a New Biomarker Aiming at Glaucoma Diagnosis;Autores: Gabriel C. Fernandes, Fabio Lavinsky, Sandro José Rigo, Henrique C. Bohn
+Título:Investigation of Deep Active Self-learning Algorithms Applied to Named Entity Recognition;Autores: José Reinaldo Cunha Santos A. V. Silva Neto, Thiago de Paulo Faleiros
