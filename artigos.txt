@@ -310,9 +310,9 @@ Título:Modelagem e Simulação de Evacuações de Emergência em Estádios: Uma
 Título:Qual Eu Escolho? Rumo a um Checklist para Apoiar Recém-Chegados na Escolha de um Formalismo de Simulação;Autores: Luiza M. F. Cintra, Valdemar V. Graciano Neto
 Título:A three-tiered architectural model for Digital Twins in Education;Autores: Valéria Farinazzo Martins, João Eduardo Cosentino Bachmann, Alexandre Cardoso, Ismar Frango Silveira
 Título:Estudo de Simulação de Sistemas de Contenção de Águas no Rio Grande do Sul para Prevenção de Enchentes;Autores: Daniel Martins Leal, Gabriel Rezende, Rilbert Santos, Valdemar Vicente Graciano Neto
-Título: Use of the Dublin Core Standard to Express Open Metadata Related to Software Engineering Experiments;Autores: Filipe Amadeu Santana, André F. R. Cordeiro, Edson Oliveira Jr
-Título: Understanding Practices and Challenges of Developing Sustainable Research Software: A Pilot Interview;Autores: Daniela Feitosa, Christina von Flach, Joenio Costa
-Título: Understanding Sustainability and FAIRness of Research Software;Autores: Daniela Feitosa, Christina von Flach, Joenio Costa
+Título:Use of the Dublin Core Standard to Express Open Metadata Related to Software Engineering Experiments;Autores: Filipe Amadeu Santana, André F. R. Cordeiro, Edson Oliveira Jr
+Título:Understanding Practices and Challenges of Developing Sustainable Research Software: A Pilot Interview;Autores: Daniela Feitosa, Christina von Flach, Joenio Costa
+Título:Understanding Sustainability and FAIRness of Research Software;Autores: Daniela Feitosa, Christina von Flach, Joenio Costa
 Título:Identificação de Smells em Testes Fim-a-Fim Implementados em Cypress;Autores: Larissa Bicalho, João Eduardo Montandon, Marco Túlio Valente
 Título:Investigando o Uso da Inteligência Artificial em Projetos Python Hospedados no GitHub;Autores: Luiz Andre do Nascimento Ubaldo, Jailton Coelho
 Título:Troca de Bibliotecas em Sistemas com e sem Arquitetura Limpa: Uma Análise de Esforço;Autores: Vinicius T. Pimenta, Elder Cirilo, Ricardo Terra
