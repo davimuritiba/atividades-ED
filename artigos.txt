@@ -100,3 +100,4 @@ Título:A Tool for Measuring Energy Consumption in Data Stream Mining;Autores: E
 Título:Improved Fuzzy Decision System for Energy Bill Reduction in the Context of the Brazilian White Tariff Scenario;Autores: Raimunda Branco, Filipe Saraiva
 Título:Exploring Artificial Intelligence Methods for the Automatic Measurement of a New Biomarker Aiming at Glaucoma Diagnosis;Autores: Gabriel C. Fernandes, Fabio Lavinsky, Sandro José Rigo, Henrique C. Bohn
 Título:Investigation of Deep Active Self-learning Algorithms Applied to Named Entity Recognition;Autores: José Reinaldo Cunha Santos A. V. Silva Neto, Thiago de Paulo Faleiros
+Título:transcAnalysis: A Snakemake Pipeline for Differential Expression and Post-transcriptional Modification Analysis;Autores:Pedro H. A. Barros, Waldeyr M. C. Silva, Marcelo M. Brigido
