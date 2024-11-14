@@ -275,3 +275,17 @@ Título:Mapeamento Semântico entre Mecânicas de Jogos Sérios e Linhas do Pens
 Título:Assistive Technology for Distance Education in Metaverse-Based Environment: A Rapid Review;Autores: Adson Damasceno, Pamella Soares, Ismayle Santos, Jerffeson Souza, Francisco Oliveira
 Título:Solucione.me: um sistema responsivo baseado em gamificação para auxiliar o processo de ensino-aprendizagem, apoiado no ENADE;Autores: José Maria das Chagas Júnior, Sthenia dos Santos Albano Amora, Laura Camila Cardoso Rodrigues, Paulo Gabriel Gadelha Queiroz
 Título:Requisitos para utilização de Jogos Educacionais Digitais na Alfabetização e Letramento sob a perspectiva docente;Autores: Laís Freitas da Silva, Márcia Häfele Islabão Franco
+Título:Memoization of Mutable Objects;Autores: Caio Raposo, Fernando Magno Quintão Pereira
+Título:Compact Representations for Arrays in Lua;Autores: Roberto Ierusalimschy, Noemi Rodriguez
+Título:Converting Combinatory Logic to and from Concatenative Calculus;Autores: Daniel Kiyoshi Hashimoto Vouzella de Andrade, Hugo Musso Gualandi
+Título:Differential Testing using Random Well-Typed Haskell Programs;Autores: Samuel da Silva Feitosa, Rodrigo Geraldo Ribeiro
+Título:OFG-STM: Transactional Memory for GPUs based on Obstruction-Free STM algorithms;Autores: Tiago Perlin, Gerson Cavalheiro, André Rauber Du Bois
+Título:Cloud-based parallel computing across multiple clusters in Julia;Autores: Francisco H. de Carvalho Junior, João Marcelo Uchôa de Alencar, Claro Henrique Silva Sales
+Título:Semantic conflict detection via dynamic analysis;Autores: Amanda Moraes, Paulo Borba, Léuson Da Silva
+Título:Go x Java e gRPC x REST: Um estudo empírico;Autores: Luiz Otávio Soares, Ricardo Terra
+Título:Hok: Higher-Order GPU kernels in Elixir;Autores: André Rauber Du Bois, Tiago Perlin, Frederico Peixoto Antunes, Gerson Cavalheiro
+Título:An internal domain-specific language for expressing linear pipelines: a proof-of-concept with MPI in Rust;Autores: Leonardo Gibrowski Faé, Dalvan Griebler
+Título:Towards Random Elixir Code Generation;Autores: Bernardo Beltrame Facchi, Andrei de Almeida Sampaio Braga, André Rauber Du Bois, Samuel da Silva Feitosa
+Título:The expression problem in platform-aware programming;Autores: Francisco Heron de Carvalho Junior
+Título:Classifying C++ Solutions Based on Their Energy Profile;Autores: Marcelo Borges Nogueira, Sérgio Queiroz de Medeiros
+Título:A Snapshot of OpenMP Projects on GitHub;Autores: Cristian Carvalho Quevedo, Marcos Antonio de Oliveira Jr., André Rauber Du Bois, Gerson Geraldo H. Cavalheiro
