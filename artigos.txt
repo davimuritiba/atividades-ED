@@ -198,3 +198,18 @@ Título:Multilingual Crowd-Based Requirements Engineering Using Large Language M
 Título:Toward a Language-Agnostic Approach to Detect Test Smells;Autores: Publio Blenilio Tavares Silva, Carla Bezerra, Ivan Machado
 Título:Investigating the Onboarding Process for Interns in Software Development: An Initial Survey;Autores: Riordan Moraes, Allysson Allex Araújo, Luis Rivero, Davi Viana
 Título:Why is my community reacting like this? Understanding reactions in open-source communities;Autores: Jorge Luís Melgarejo, Awdren de Lima Fontão, Hudson Silva Borges
+Título:PoP-ARE: A Tool for Extracting Systems-of-Systems Non-Functional Requirements from Processes-of-Business Processes;Autores: Murilo Gustavo N. Costa, Sidny de Almeida Molina, Débora Maria Barroso Paiva, Maria Istela Cagnin
+Título:Um sistema web para auxiliar soluções na conformidade com a LGPD;Autores: Matheus Frej, Ivonildo Pereira, Waldemar Ferreira, Sergio Soares
+Título:SNUTS.js: Sniffing Nasty Unit Test Smells in Javascript;Autores: Jhonatan Oliveira, Luigi Mateus, Tássio Virgínio, Larissa Rocha
+Título:CRAFTPy: allowing people with visual impairments to create diagrams;Autores: Lucas Lopes Fraga, Rafael Tosta Santos, Larissa Rocha
+Título:AIssistDM: A Plugin to Assist Non-specialist Decision-Makers in Search-Based Software Engineering Tools;Autores: Willian M. Freire, Murilo Boccardo, Daniel Nouchi, Aline M. M. M. Amaral, Silvia R. Vergilio, Thiago Ferreira, Thelma E. Colanzi
+Título:Exception Miner: Multi-language Static Analysis Tool to Identify Exception Handling Anti-Patterns;Autores: Jairo Souza, Tales Alves, Robson Oliveira, Leopoldo Teixeira, Baldoino Fonseca
+Título:xib2swift: do legado Interface Builder para Swift;Autores: Vinicius Caputo, Ricardo Terra
+Título:METEOR: A Tool for Monitoring Behavior Preservation in Test Code Refactorings;Autores: Tiago Samuel Rodrigues Teixeira, Fábio Fagundes Silveira, Eduardo Martins Guerra
+Título:Helius: A Design Thinking Techniques Recommendation System in Software Development;Autores: Rafael Parizi, Lucas Hanauer, Sabrina Marczak, Tayana Conte
+Título:AutomTest 3.0: An automated test-case generation tool from User Story processing powered with LLMs;Autores: Joanderson Gonçalves Santos, Rita Suzana Pitangueira Maciel
+Título:Holter: Monitoring Continuous Integration Practices;Autores: Jadson Santos, Daniel Alencar da Costa, Uirá Kulesza
+Título:SECO-RCR: A Tool to Manage Requirements Change in Software Ecosystems;Autores: Eduardo dos Santos Gonçalves, Paulo Malcher, Laura O. Moraes, Davi Viana, Rodrigo Pereira dos Santos
+Título:Knowledge Islands: Visualizing Developers Knowledge Concentration;Autores: Otávio Cury, Guilherme Avelino
+Título:SP2Mic: Uma ferramenta para geração de código de microsserviços a partir de stored procedures;Autores: Ingrid G. T. Coutinho, Paulo Henrique M. Maia
+Título:UAX: Measuring the Usability of TypeScript APIs;Autores: Carlos Zimmerle, Kiev Gama
