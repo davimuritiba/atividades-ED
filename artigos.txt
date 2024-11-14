@@ -100,4 +100,19 @@ Título:A Tool for Measuring Energy Consumption in Data Stream Mining;Autores: E
 Título:Improved Fuzzy Decision System for Energy Bill Reduction in the Context of the Brazilian White Tariff Scenario;Autores: Raimunda Branco, Filipe Saraiva
 Título:Exploring Artificial Intelligence Methods for the Automatic Measurement of a New Biomarker Aiming at Glaucoma Diagnosis;Autores: Gabriel C. Fernandes, Fabio Lavinsky, Sandro José Rigo, Henrique C. Bohn
 Título:Investigation of Deep Active Self-learning Algorithms Applied to Named Entity Recognition;Autores: José Reinaldo Cunha Santos A. V. Silva Neto, Thiago de Paulo Faleiros
-Título:transcAnalysis: A Snakemake Pipeline for Differential Expression and Post-transcriptional Modification Analysis;Autores:Pedro H. A. Barros, Waldeyr M. C. Silva, Marcelo M. Brigido
+Título:transcAnalysis: A Snakemake Pipeline for Differential Expression and Post-transcriptional Modification Analysis;Autores: Pedro H. A. Barros, Waldeyr M. C. Silva, Marcelo M. Brigido
+Título:TVTAT - A Real Time Camera Imaging Testing Tool for Smart TVs: Preliminary Results;Autores: Carlos Alberto Hagge da Cunha Filho, Hugo Abreu Mendes, Adriano Rodrigues de Paula, Ravi Barreto Doria Figueiredo, Jessamine Maria de Lima Azevedo
+Título:Exploring Tools for Flaky Test Detection, Correction, and Mitigation: A Systematic Mapping Study;Autores: Pedro Anderson Costa Martins, Victor Anthony Alves, Iraneide Lima, Carla Bezerra, Ivan Machado
+Título:TSS Tool: Automation Tool Applied in the True Single SKU Setup Environment Preparation for Multiple Devices in Parallel;Autores: Carol Fernandes, Charles Araújo, Adriano Oliveira, Wellington Corrêa, Luan Ipê, Paulo Andrade
+Título:Mutation Testing to Support the Security Testing of Android Applications;Autores: Eduardo S. M. de Vasconcelos, Marcio E. Delamaro, Simone R. S. Souza
+Título:Property-based Testing for Machine Learning Models;Autores: Vinicius H. S. Durelli, Ricardo Monteiro, Rafael S. Durelli, Andre T. Endo, Fabiano C. Ferrari, Simone R. S. Souza
+Título:Benchmark review and case study of stress test for a gaming computer applied in CPU;Autores: Tamires Martins Rezende, Alfredo Enrique Macias Medri, Jacqueline Teixeira Santos, João Ider Silva Junior, Marcos Antonio Alves, Fabio de Carvalho Zottino
+Título:A Rapid Review on Advanced Software-in-the-Loop Methods for Automotive Software Verification;Autores: Larissa Pestana, Breno Miranda
+Título:TString: a tool to locate the target string’s screen based on automatic exploration;Autores: Lais Felipe, Breno Miranda, Maria Couto
+Título:Reports on using an ABB robot in Android mobile testing automation;Autores: Abda Albuquerque, Alice Castro, Heryck Barbosa
+Título:Reducing the Allocation of Software Testing Demand: A Study on the Pros and Cons using STELA Tool;Autores: Flavia Oliveira, Leonardo Tiago, Lennon Chaves
+Título:Enhancing Automated Tools: Reporting Bugs with Bug Builder;Autores: Lennon Chaves, Flavia Oliveira, Leonardo Tiago
+Título:Experiences with Google Approval Process: an automated approach to enhancing efficiency in Android releases;Autores: Ewerton Andrade, Janislley Sousa, Matheus Lopes, Davi Barbosa, Wesllen Lima, Jimmy Lacerda
+Título:Smart Test Execution of Android Compatibility Tests;Autores: Alice Castro, Heryck Barbosa, Abda Albuquerque, Roger Porty
+Título:Benefits and Challenges of a Physical Device Farm for Automated Software Testing: A Case Study of the STELA Tool Implementation;Autores: Lennon Chaves, Flavia Oliveira, Leonardo Tiago, Renata Castro
+Título:Reducing Rework in Automotive Software through Simulation-Guided Verification;Autores: Larissa Pestana, Breno Miranda
