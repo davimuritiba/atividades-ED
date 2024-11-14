@@ -213,3 +213,65 @@ Título:SECO-RCR: A Tool to Manage Requirements Change in Software Ecosystems;Au
 Título:Knowledge Islands: Visualizing Developers Knowledge Concentration;Autores: Otávio Cury, Guilherme Avelino
 Título:SP2Mic: Uma ferramenta para geração de código de microsserviços a partir de stored procedures;Autores: Ingrid G. T. Coutinho, Paulo Henrique M. Maia
 Título:UAX: Measuring the Usability of TypeScript APIs;Autores: Carlos Zimmerle, Kiev Gama
+Título:Exploring a meaningful learning intervention in a CS1 course;Autores: João Marcelo Borovina Josko
+Título:Uma proposta para avaliação do desempenho de aprendizagem de conceitos e práticas de Machine Learning em nível Create na Educação Básica;Autores: Marcelo Fernando Rauber, Christiane Gresse von Wangenheim
+Título:Componentes eletivos como uma alternativa para a inclusão do Pensamento Computacional nos currículos do ensino médio brasileiro;Autores: Kennedy F. Araújo, Tatiana da Silva
+Título:SIMULA-ENADE: Support System for University Preparation for the National Student Performance Examination;Autores: Marcella N. de Oliveira, Luan L. Silva, Sofia L. da Costa Paiva, Elisa T. de Albergaria
+Título:Avaliação do Pensamento Computacional em Graduandos de Cursos de Computação: uma Disciplina de Programação faz Diferença?;Autores: Álekiss Manço de Mélo, Sislan D. Nascimento Ferreira, Ana Liz Souto Oliveira, Wilkerson L. Andrade
+Título:Processo de Tradução de Instrumento Diagnóstico de Pensamento Computacional para Graduandos;Autores: Sislan D. Nascimento Ferreira, Álekiss Manço de Mélo, Ana Liz Souto Oliveira, Wilkerson L. Andrade
+Título:Aprendendo com os Erros dos Outros: Um relato sobre a adoção de Exemplos Errôneos como ferramenta de Aprendizagem de Casos de Uso;Autores: Williamson Silva, André L. M. Mendes, Renato Garcia, Matheus de Oliveira Ribeiro, Ricardo Vilela, Walter Nakamura, Gabriel M. Lunardi, Pedro Valle
+Título:Desenvolvimento de jogos digitais como auxílio na resolução de questões da OBMEP;Autores: Liviah Rodrigues de Oliveira, Josias Neubert Savóis
+Título:Explorando a aceitação do CollabProg como um Facilitador de Metodologias Ativas no Ensino de Programação;Autores: Ivanilse Calderon, Williamson Silva, Eduardo Feitosa
+Título:Utilização das tecnologias digitais e metodologias ativas para o desenvolvimento da tomada de decisão no Ensino Superior;Autores: Liliane Maria Ramalho de Castro Siqueira, José Aires de Castro Filho, Juliana Silva Arruda
+Título:Leveraging Communication Analysis to Identify Key Challenges in an Innovation Course in computer science;Autores: Múcio J. Alves de Andrade, Cristiano C. de Araújo, Geber L. Ramalho
+Título:Uma análise da integração da metodologia ativa Coding Dojo a uma plataforma de ensino-aprendizagem de algoritmos;Autores: Jovennilton Soares de Sousa, Djefferson Maranhão, Paulo Victor Borges, Carlos de Salles Soares Neto
+Título:Recomendação Híbrida de Objetos de Aprendizagem a partir da Predição de Necessidades Personalizadas de Estudantes;Autores: Lucca Alexandre Schrammel, Lisandra Manzoni Fontoura
+Título:Abordagem STEAM: lixo eletrônico e atividades interativas para fomentar igualdade e equidade de gênero nas áreas STEM;Autores: Giseli Duardo Maciano, Sabrina Bourscheid Sassi, Maria Fernanda Abalem Franca Nunes Costa, Eunice Pereira dos Santos Nunes, Cristiano Maciel
+Título:Aprimorando a experiência de aprendizado em ambientes online massivos: o papel dos sistemas de recomendação;Autores: Wilson M. Sanches, Fabiana Z. Ferreira, Paulo J. D. O. Evald, André P. Vargas, Jean L. Bez, Silvia S. da C. Botelho
+Título:Potencialidades do uso de metodologias ativas em disciplinas de computação: Uma Revisão Sistemática de Literatura;Autores: Carla B. Diogo, Cássia B. Diogo, Viviane A. dos Santos
+Título:Avaliação de um modelo de Sistema de Recomendação que integra Metodologias Ativas e Mineração de Dados Educacionais para mitigar a evasão na Educação a Distância;Autores: Tiago Luís de Andrade, Caroline Medeiros Martins de Almeida, Jorge Luís Victória Barbosa, Sandro José Rigo
+Título:Bora Programar;Autores: Laura Quevedo Jurgina, Leomar Soares da Rosa Júnior, Rafael Piccin Torchelsen
+Título:Requisitos em Ação: Uma Arquitetura Pedagógica para o Ensino de Engenharia de Requisitos de Software;Autores: Thalia S. Santana, Taciana N. Kudo, Renato F. Bulcão-Neto
+Título:Utilizando o framework 5W2H para compreender o processo de ensino e aprendizagem de programação;Autores: Ceres G. B. Morais, Jessica N. de F. L. Araujo, Rommel W. de Lima
+Título:Potencializando o desenvolvimento de software em uma instituição federal de ensino através de um Banco de Projetos fundamentado em metodologias ágeis;Autores: Diego dos Santos Comis, Samuel Müller Forrati, Aliane Loureiro Krassmann, Anderson Daniel Stochero, Elder de Macedo Rodrigues, João Pablo Silva da Silva
+Título:Development of Visualization Metaphors for Monitoring Student Engagement in Distance Learning Environments;Autores: Pamella L. S. de Oliveira, Rodrigo L. Rodrigues, Alexandre M. A. Maciel
+Título:Atividade de Matemática gamificada com pixel art;Autores: Elaine de S. Teodosio, Arnaldo B. Vila Nova
+Título:Educational Software and Security Vulnerabilities: an experimental study;Autores: Diego Rossi, Lucas Bressan, Fernanda Campos, André Oliveira, Victor Ströele
+Título:Guia Prático para a Otimização da Gestão de Projetos Universitários na área de TI;Autores: Marta Maria Guedes da Silva Neta, Tarciana Dias da Silva, Cleyton Mario de Oliveira Rodrigues
+Título:Validating the process for labeling Moodle activities according to Complex thinking theory;Autores: Gustavo P. Oliveira, Marcia A. Fernandes, Jaqueline Maissiat
+Título:SABIDO: Uma plataforma que auxilia no processo de alfabetização nos anos inicias do Ensino Fundamental;Autores: Vitória Luísa da Silva, Maria Claudete Schorr
+Título:Ensino e Aprendizagem através de Makerspaces: uma Revisão Sistemática da Literatura;Autores: Cassiano Henrique de Albuquerque, Patrícia Smith Cavalcante
+Título:AgroCATIVO: Plataforma de Ensino com Métodos Educacionais para Aprendizagem no Agronegócio;Autores: Anastácio B. Loguercio, Vinícius do N. Lampert, Érico M. Hoff do Amaral
+Título:Ensino de Programação Orientada a Objetos Para Iniciantes: Uma Metodologia para Programação Criativa;Autores: Wilian DÁvila, Lucia Giraffa
+Título:LOMc: Uma Extensão ao LOM para a Descrição de Recursos Educacionais Baseada no Desenvolvimento de Competências;Autores: Jessica de S. Santana, Edeyson de A. Gomes, Laís do N. Salvador, Luma da R. Seixas
+Título:Investigando o Uso de Testes para Apoiar a Resolução de Problemas de Programação;Autores: André Almeida, Eliane Araújo, Jorge Figueiredo
+Título:Avaliação da Eficácia do Uso Pedagógico de Projetos OSS;Autores: Erinaldo Santos Oliveira, Christina von Flach
+Título:Uma Unidade Instrucional para Apoio ao Ensino de Integração Contínua em Cursos de Graduação em Tecnologia da Informação;Autores: Osmar de Oliveira Braz Junior, Richard Henrique de Souza, Jean C. R. Hauck
+Título:Analyzing the Effectiveness of an Educational Process for Teaching Programming Through Educational Robotics in a Brazilian Technical and Vocational High School;Autores: Isabelle M. L. Souza, Lívia M. R. Sampaio, Wilkerson L. Andrade
+Título:Aplicando Design Sprint em Sala de Aula Invertida: Um Estudo de Caso;Autores: Rodrigo S. Souza, Natasha M. C. Valentim, Catarina Costa
+Título:Ensino de programação para alunos nos anos escolares entre Ensino Fundamental II e Ensino médio: Um Mapeamento Sistemático;Autores: Erlon P. Bié, Eduardo Souto, David Braga, Elaine Oliveira, Leandro Carvalho
+Título:Ensino Introdutório de Programação: Um estudo rumo ao uso das Arquiteturas Pedagógicas;Autores: Francisco Xavier da Silva, Crediné Silva de Menezes, Alberto Nogueira de Castro Junior
+Título:Proposta Inicial de um Conjunto de Heurísticas para Avaliação de Sistemas Educacionais Gamificados;Autores: Otávio Felipe dos Santos Frezato, Thiago Adriano Coleti, Pedro Henrique Dias Valle
+Título:CodeGraph: Uma Ferramenta de Identificação e Visualização de Trilhas de Aprendizagem no Ensino de Programação;Autores: Ilmara Monteverde Martins Ramos, Bruno Freitas Gadelha, David Brito Ramos, David Braga Fernandes de Oliveira, Rafael Ferreira Mello, Elaine Harada Teixeira de Oliveira
+Título:Um Portal Inteligente para o Debate de Teses;Autores: Jeferson Moreli, Pedro David Netto Silveira, Crediné Silva de Menezes
+Título:Interoperabilidade em LMSs: Uma Revisão Bibliométrica do Estado da Arte;Autores: Jackson Raniel F. da Silva, Raphael A. Dourado, Sônia R. Fortes, Vinícius C. Garcia
+Título:Introducing programming logic consistently through gamification;Autores: João Marcelo Borovina Josko, Francisco de Assis Zampirolli
+Título:Um Mapeamento Sistemático da Literatura sobre Ambientes Digitais para o Treinamento de Profissionais da Educação;Autores: Anderson Mine Fernandes, Eduardo Filgueiras Damasceno, Natasha Malveira Costa Valentim
+Título:Aplicação de jogos educativos baseados em realidade aumentada como estratégia de auxílio na alfabetização de crianças com Síndrome de Down;Autores: Allan Kássio Beckman Soares da Cruz, Marcos A. S. de Aquino Junior, Gerson de O. Costa Neto, Carlos de Salles Soares Neto, Mario Meireles Teixeira, Pamela Torres Maia Beckman da Cruz, Kleydson Beckman Barbosa, Claudiny Priscila Lopes Brito
+Título:Avaliação de um Sistema de Chatbot no Ensino de Enfermagem;Autores: Carlos Cesar Custódio, Eduardo Filgueiras Damasceno
+Título:Metaverso para educação em desenvolvimento sustentável;Autores: Luís Antônio Licks Missel Machado, Teresinha Letícia da Silva, Liane Margarida Rockenbach Tarouco, Fabrício Herpich
+Título:Um estudo sobre o uso de Worked Examples e Gamificação para apoiar o ensino de Engenharia de Software;Autores: Simone de França Tonhão, Marcelo Y. Shigenaga, Williamson Silva, Thelma E. Colanzi, Igor F. Steinmacher
+Título:Robotim: Um Jogo Educacional Multidisciplinar com Análise de Dados em Tempo Real;Autores: Lucas R. E. de Oliveira, Andrea Maria P. Valli, Maria Claudia S. Boeres, Lucia Catabriga
+Título:Jogo Sério para Estímulo Sensorial de Crianças com Transtorno do Espectro Autista;Autores: Gabriel Brunelli Pereira, André Bonetto Trindade, Marlow Rodrigo Becker Dickel, Marcelo da Silva Hounsell
+Título:Kahoot! no Ensino Superior: um Estudo sobre Aplicações, Limitações e Estratégias de Utilização;Autores: Ítalo Casemiro, Bruno Costa
+Título:Vidas Secas: Jogo Sério Para Ensino De Literatura;Autores: Carlos R. Record Jr, Eduardo P. Petenasi, Carlos Eduardo Ribeiro, José R. Merlin, Daniela F. Guilhermino Trindade
+Título:Avaliação da Usabilidade de Ferramentas Educacionais Gamificadas: um Mapeamento Sistemático da Literatura;Autores: Adalberto N. Menezes, Rodrigo D. Seabra
+Título:Embracing Representation: Integrating Canoeing and Female Swimming Adapted Sports in a Digital Game Platform;Autores: Daniel Espindola da Silva, André Luiz Brandão, Karla Vittori
+Título:Motivation no Jutsu: Exploring the Power of Badge Aesthetics in Gamified Learning;Autores: Luiz Rodrigues, Armando M. Toda, Paula T. Palomino, Ana C. T. Klock, Anderson Avila-Santos
+Título:Avaliação de um aplicativo educacional por usuários da terceira idade: um estudo de caso com o Duolingo;Autores: Ronan L. R. Ferreira, Ana C. Gonçalves, Ariane C. B. Silva, Diego Antunes, Isabela B. Barcelos, Lucca S. P. Lacerda, Cristiane N. Nobre, Lucila Ishitani
+Título:Jogos Sérios como Subsídio Tecnológico na Educação de Crianças com Transtorno do Espectro Autista;Autores: Suzerlly V. L. Pires, Carlo M. R. da Silva, Bruno J. T. Fernandes, Franciely A. Souza, Sara R. A. Leal, Ticia C. F. Cavalcance, Wylliams B. Santos, Rogério P. de Araújo
+Título:Desenvolvimento de um Jogo de RPG Digital para Fortalecer a Alfabetização no Ensino Fundamental II;Autores: Victor Barcelos Gontijo de Carvalho, Jonatan Henrique da Silva, Gabriel de Freitas Paixão, Hugo Rodrigo Gomes de Castro, Ana Carolina Gondim Inocêncio, Marcos Wagner de Souza Ribeiro, Pedro Moises de Sousa
+Título:Mapeamento Semântico entre Mecânicas de Jogos Sérios e Linhas do Pensamento Computacional;Autores: André Luis Macedo Caruso, Simone André da Costa Cavalheiro, Marílton Sanchotene de Aguiar
+Título:Assistive Technology for Distance Education in Metaverse-Based Environment: A Rapid Review;Autores: Adson Damasceno, Pamella Soares, Ismayle Santos, Jerffeson Souza, Francisco Oliveira
+Título:Solucione.me: um sistema responsivo baseado em gamificação para auxiliar o processo de ensino-aprendizagem, apoiado no ENADE;Autores: José Maria das Chagas Júnior, Sthenia dos Santos Albano Amora, Laura Camila Cardoso Rodrigues, Paulo Gabriel Gadelha Queiroz
+Título:Requisitos para utilização de Jogos Educacionais Digitais na Alfabetização e Letramento sob a perspectiva docente;Autores: Laís Freitas da Silva, Márcia Häfele Islabão Franco
