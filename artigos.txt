@@ -157,3 +157,44 @@ Título:Eyes on Code Smells: Analyzing Developers’ Responses During Code Snipp
 Título:Detecting Code Smells in JavaScript: An Annotated Dataset for Software Quality Analysis;Autores: Diego S. Sarafim, Karina V. Delgado, Daniel Cordeiro
 Título:A self-adaptive IoT architecture to support intelligent environments;Autores: Mateus G. do Nascimento, José Maria N. David, Mario A. R. Dantas, Regina Braga, Victor Ströele
 Título:On the Employment of Machine Learning for Recommending Refactorings: A Systematic Literature Review;Autores: Guisella Angulo Armijo, Daniel San Martín Santibañez, Rafael Durelli, Valter Vieira de Camargo
+Título:Agile Minds, Innovative Solutions, and Industry-Academia Collaboration: Lean R&D Meets Problem-Based Learning in Software Engineering Education;Autores: Lucas Romao, Marcos Kalinowski, Clarissa Barbosa, Allysson Allex Araújo, Simone D. J. Barbosa, Helio Lopes
+Título:A educação em desenvolvimento de software seguro é necessária na indústria de software? Respostas de profissionais de um hub de tecnologia no Brasil;Autores: José Claudino Santos Neto, Carla Silva, Jéssyka Vilela, Mariana Peixoto
+Título:Assisting Novice Developers Learning in Flutter Through Cognitive-Driven Development;Autores: Ronivaldo Ferreira, Victor Hugo Santiago C. Pinto, Cleidson R. B. de Souza, Gustavo Pinto
+Título:Curricularization of Extension through the Development of Computational Solutions Supporting the Sustainable Development Goals;Autores: Heloise Acco Tives, Gabriel Ancini, Edna Dias Canedo, Andreia Marini
+Título:Current DevOps Teaching Techniques: A Systematic Literature Review;Autores: Pedro S. C. Garcia, José Ferreira, Matheus Gonçalves, Tiago Carneiro, Eduardo Figueiredo, Igor M. Pereira
+Título:Contributing to open-source projects in refactoring code smells: A practical experience in teaching Software Maintenance;Autores: Carla Bezerra, Victor Anthony Alves, Antônio Hugo Lobo, João Paulo Queiroz, Lara Lima, Paulo Meirelles
+Título:An undergraduate Software Engineering practice course: bridging the academia-industry gap;Autores: Sofia Larissa da Costa Paiva, Adriana Silveira de Souza, Juliano Lopes de Oliveira, Mariana Soller Ramada, Murilo Lopes da Luz
+Título:Teaching Software Engineering: An Overview of Current Approaches and Practices in the Last Decade of SBES;Autores: Ana Clementino, Erick Lima, Luann Lima, André Guedes, Dorgival Netto, Jarbele Coutinho
+Título:Aproximando Indústria e Academia para Lapidação de Talentos em Desenvolvimento de Software no Sertão do Ceará: Um Estudo de Caso sobre o mandacaru.dev;Autores: Alexandre Feitosa, Artelino Tavares, Henrique Martins, Emanuel Pessôa, Marlon Paiva, Emerson B. Tomaz, Allysson Allex Araújo
+Título:From Theory to Interpreting the Practice: Exploring the Role-play to Teach DevOps;Autores: Lucas Lima Mota, Rodrigo Pereira dos Santos, Awdren Fontão, Allysson Allex Araújo
+Título:Definição e Avaliação de uma Abordagem Gamificada para o Ensino de Teste de Software;Autores: Eduardo Henrique Nascimento, Roberta Coelho, Charles Madeira, Kláudio Medeiros, Lucas Silva, Carlos Oliveira Neto
+Título:A decade of evolution in project leaders onboarding process at a global software company: a case study;Autores: Rayfran Rocha Lima, Caroline da Encarnacao Fernandes, Elcione Lima, Renata Gabriella Castro, Ana Carolina Oran
+Título:Teaching Software Engineering with Project-Based Learning: A Four Years Experience Report;Autores: Lina Garcés, Brauner Oliveira
+Título:It’s not all about gender: A Multi-dimensional Course Perspective on Diversity and Inclusion in Software Engineering Education;Autores: Kiev Gama, Reydne Santos
+Título:IT Talent Shortage: Strategies to Mitigate a Blackout;Autores: Ana Carolina Moises de Souza, Sheila Reinehr, Andreia Malucelli, Tayana Conte, Sabrina Marczak, Letizia Jaccheri, Fabio Binder, Tanara Lauschner, Daniela Cruzes
+Título:Processo para Incorporação do Conceito de Dívida Técnica de Requisitos em Projetos Acadêmicos;Autores: Fernando Guilhermino, Maria Lencastre, Jaelson Castro
+Título:Beyond Code: the Development of soft skills through Training in Software Engineering;Autores: Victória Cavalcante, Catarina Costa, Daricélio Soares
+Título:Fostering Collaboration through Design Thinking: A Study among Software Engineering Students;Autores: Dariane Abich, Rafael Parizi, Sabrina Marczak
+Título:Empowering Undergraduates in Empirical Research Methods: an Experience Report;Autores: Jéssyka Vilela, Carla Silva
+Título:IPA of Communication Experience of Women Leaders in Collaborative Meetings in Software Engineering Teams;Autores: Camila Sarmento, Tiago Massoni, Carlos Dantas, Narallynne Araújo, Rayana Rocha
+Título:Integrating STPA with Safety Requirements Modeling;Autores: Moniky Ribeiro, Jaelson Castro, Ricardo Argenton
+Título:Towards differential fuzzing to reduce manual efforts to identify equivalent mutants: A preliminary study;Autores: Bruno E. R. Garcia, Marcio E. Delamaro, Simone R. S. Souza
+Título:Evaluating the Capability of LLMs in Identifying Compilation Errors in Configurable Systems;Autores: Lucas Albuquerque, Rohit Gheyi, Márcio Ribeiro
+Título:Detecting Test Smells in Python Test Code Generated by LLM: An Empirical Study with GitHub Copilot;Autores: Victor Anthony Alves, Cristiano Santos, Carla Bezerra, Ivan Machado
+Título:A Prompt Engineering-based Process to Build Proto-personas during Lean Inception;Autores: Raul Leão, Fernando Ayach, Vitor Lameirão, Awdren Fontão
+Título:Design Systems and Component Packages as an Interface for Accessibility;Autores: Sofia Diniz, Kiev Gama
+Título:Mining repositories to analyze the lifecycle of frameworks and libraries;Autores: Ronaldo Rubens Gesse Júnior, Higor Amario de Souza
+Título:Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift;Autores: Elaine Cruz Farias, Carlos Zimmerle, Kiev Gama
+Título:Towards Blockchain Developer Experience (BcDEx): Exploring Dimensions of Developer Experience in Blockchain-oriented Software Engineering;Autores: Pamella Soares, Allysson Allex Araújo, Raphael Saraiva, Jerffeson Souza
+Título:Terraform and AWS CDK: A Comparative Analysis of Infrastructure Management Tools;Autores: João Frois, Lucas Padrão, Johnatan Oliveira, Laerte Xavier, Cleiton Tavares
+Título:Unveiling Product Manager’s journey in software development: preliminary findings;Autores: Lucas Reis, Luis Rivero, Davi Viana
+Título:A New Integration Approach to support the Development of Build-time Micro Frontend Architecture Applications;Autores: Fernando Rodrigues de Moraes, Frank José Affonso
+Título:Generation of test datasets using LLM - Quality Assurance Perspective;Autores: Jose Leandro Sousa, Cristian Souza, Raiza Hanada, Diogo Nascimento, Eliane Collins
+Título:On the Identification of Self-Admitted Technical Debt with Large Language Models;Autores: Pedro Lambert, Lucila Ishitani, Laerte Xavier
+Título:Beyond Continuous Improvement: Unraveling the invisible challenges of implementing organizational change in a Software Industry Company;Autores: Rayfran Rocha Lima, Ana Carolina Oran, César França
+Título:Understanding the Relationship of Conflict, Psychological safety, and Success in Software Development Projects;Autores: Wladimir Farias, Brenda Silva, Maria Lencastre, Roberta Fagundes
+Título:Evaluating Large Language Models in Detecting Test Smells;Autores: Keila Lucas, Rohit Gheyi, Elvys Soares, Márcio Ribeiro, Ivan Machado
+Título:Multilingual Crowd-Based Requirements Engineering Using Large Language Models;Autores: Arthur Pilone, Paulo Meirelles, Fabio Kon, Walid Maalej
+Título:Toward a Language-Agnostic Approach to Detect Test Smells;Autores: Publio Blenilio Tavares Silva, Carla Bezerra, Ivan Machado
+Título:Investigating the Onboarding Process for Interns in Software Development: An Initial Survey;Autores: Riordan Moraes, Allysson Allex Araújo, Luis Rivero, Davi Viana
+Título:Why is my community reacting like this? Understanding reactions in open-source communities;Autores: Jorge Luís Melgarejo, Awdren de Lima Fontão, Hudson Silva Borges
