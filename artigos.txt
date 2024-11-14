@@ -313,3 +313,24 @@ Título:Estudo de Simulação de Sistemas de Contenção de Águas no Rio Grande
 Título: Use of the Dublin Core Standard to Express Open Metadata Related to Software Engineering Experiments;Autores: Filipe Amadeu Santana, André F. R. Cordeiro, Edson Oliveira Jr
 Título: Understanding Practices and Challenges of Developing Sustainable Research Software: A Pilot Interview;Autores: Daniela Feitosa, Christina von Flach, Joenio Costa
 Título: Understanding Sustainability and FAIRness of Research Software;Autores: Daniela Feitosa, Christina von Flach, Joenio Costa
+Título:Identificação de Smells em Testes Fim-a-Fim Implementados em Cypress;Autores: Larissa Bicalho, João Eduardo Montandon, Marco Túlio Valente
+Título:Investigando o Uso da Inteligência Artificial em Projetos Python Hospedados no GitHub;Autores: Luiz Andre do Nascimento Ubaldo, Jailton Coelho
+Título:Troca de Bibliotecas em Sistemas com e sem Arquitetura Limpa: Uma Análise de Esforço;Autores: Vinicius T. Pimenta, Elder Cirilo, Ricardo Terra
+Título:Atoms of Confusion in the Android Open Source Project: A Prevalence Study;Autores: Davi Tabosa, Windson Viana, Lincoln Rocha
+Título:Evaluating Test Quality in GitHub Repositories: A Comparative Analysis of CI/CD Practices Using GitHub Actions;Autores: Edson Campolina Silva, Rodolfo Rodrigues, Johnatan Oliveira, Danilo Boechat, Cleiton Tavares
+Título:Towards a Product Line for Electronic Shelf Labels Domain;Autores: Leonardo Venâncio Teixeira, André Luiz de Oliveira, Fredy João Valente, Fabiano Ferrari, Valter Vieira de Camargo
+Título:Analisando a Qualidade do Código em Plataformas de Cursos Online Abertos e Massivos;Autores: Otávio Vinícius Rocha, Aline Brito, Cleiton Tavares, Laerte Xavier, Simone Assis
+Título:Análise da Influência da Aprendizagem Baseada em Projeto na Qualidade de Código de Jogos Digitais;Autores: Pedro H. Belo, Laerte Xavier
+Título:Exploring the Impact of DevOps and Agile Practices from the Perspective of Source Code Analysis;Autores: Jalles Daniel Barros, Luiz Carlos Oliveira, Johnatan Oliveira, Juliana Padilha
+Título:GASH – The GitHub Actions Smell Hunter;Autores: Matheus B. Freitas, Lincoln S. Rocha
+Título:Understanding Group Maintainership Model in the Linux Kernel Development;Autores: Eduardo Pinheiro, Paulo Meirelles
+Título:What Developers Ask to ChatGPT in GitHub Pull Requests? an Exploratory Study;Autores: Julyanara R. Silva, Carlos Eduardo C. Dantas, Marcelo A. Maia
+Título:An Industry View about Legacy Systems;Autores: Andréa Sabedra Bordin, Luiza Carolina Miranda Garcia
+Título:The Importance of Attributes in Predicting the Lifetime of Human and Automated Pull Requests;Autores: Leandro Ferrarezi Valiante, Mairieli Wessel, Manoel Limeira de Lima Júnior
+Título:Avaliação de Usabilidade do CoderBot como Recurso Pedagógico no Ensino de Programação;Autores: Andre L. M. Miranda, Renato Garcia, Ana Carolina Oran, Gilleanes T. A. Guedes, Brenda S. Santana, Davi G. Silva, Pedro H. D. Valle, Williamson Silva
+Título:Uma técnica para apoiar profissionais de testes na condução de testes metamórficos em chatbots;Autores: Gabriel Santos, Williamson Silva, Pedro Henrique Dias Valle
+Título:Uma Revisão Sistemática da Literatura sobre Chatbots na Educação: Desenvolvimento e Aplicações;Autores: Judson Henrique Alvarenga, Igor Dalepiane, Lucas Fell, Maicon Bernardino
+Título:Evidências preliminares sobre como um chatbot é desenvolvido em uma organização de software;Autores: John Silva Fonseca, Silvana Morita Melo, Pedro Henrique Dias Valle, Leo Natan Paschoal
+Título:Heurísticas para a Avaliação de Acessibilidade em Chatbots;Autores: Augusto Castilho de Medeiros, Pedro Henrique Dias Valle, André Luiz de Oliveira
+Título:Bart: Uma Técnica de Elicitação de Requisitos para Sistemas Multiagentes;Autores: Willian Samuel Gerstberger, Williamson Alison Freitas Silva, Gilleanes Thorwald Araujo Guedes
+Título:Inovação através do Uso de Bots no Tribunal de Justiça do Amazonas: Um Relato de Experiência;Autores: Amadeu Anderlin Neto
