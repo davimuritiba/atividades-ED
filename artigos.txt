@@ -116,3 +116,13 @@ Título:Experiences with Google Approval Process: an automated approach to enhan
 Título:Smart Test Execution of Android Compatibility Tests;Autores: Alice Castro, Heryck Barbosa, Abda Albuquerque, Roger Porty
 Título:Benefits and Challenges of a Physical Device Farm for Automated Software Testing: A Case Study of the STELA Tool Implementation;Autores: Lennon Chaves, Flavia Oliveira, Leonardo Tiago, Renata Castro
 Título:Reducing Rework in Automotive Software through Simulation-Guided Verification;Autores: Larissa Pestana, Breno Miranda
+Título:ADPS: Providing asynchronous PubSub communication in an adaptive and scalable way in Edge-Fog-Cloud architectures for healthcare data traffic;Autores: Guilherme Pohlmann, Gabriel Souto Fischer, Rodrigo da Rosa Righi, Cristiano André da Costa, Alex Roehrs
+Título:Evaluating the performance of NSGA-II and NSGA-III on Product Line Architecture Design;Autores: Lucas Wolschick, Paulo Cesar Gonçalves, João Choma Neto, Willian Marques Freire, Aline Maria Malachini Miotto Amaral, Thelma Elita Colanzi
+Título:Large Language Model-based suggestion of objective functions for search-based Product Line Architecture design;Autores: Willian M. Freire, Murilo Boccardo, Daniel Nouchi, Aline M. M. M. Amaral, Silvia R. Vergilio, Thiago Ferreira, Thelma E. Colanzi
+Título:Guidelines for Data Engineering Documentation in a DevDocOps Approach;Autores: Stephany Mendes Oliveira, Daniel Lucrédio
+Título:Unleashing the Future of Smart Homes: A Revelation of Cutting-Edge Distributed Architecture;Autores: Joselito Jr, Luana Martins, Dhyego Tavares, Denivan Campos, Frederico Durão, Cássio Prazeres, Maycon Peixoto, Gustavo B. Figueiredo, Ivan Machado, Eduardo Almeida
+Título:Issue Labeling Dynamics in Open-Source Projects: A Comprehensive Analysis;Autores: Joselito Jr, Lidia P. G. Nascimento, Alcemir Santos, Ivan Machado
+Título:A Catalog of Interoperability Solutions for Ambient Assisted Living;Autores: Paulo Duarte, Rainara Carvalho, Windson Viana
+Título:Investigating Developer Experience in Software Reuse;Autores: Rodrigo Feitosa Gonçalves, Cláudia Maria Lima Werner, Claudio Miceli de Farias
+Título:TriCache: Providing three-tier caching for time series data in serverless healthcare services;Autores: Adriano Zavareze Righi, Gabriel Souto Fischer, Rodrigo da Rosa Righi, Cristiano André da Costa, Alex Roehrs
+Título:Establishing a Blockchain-based Architecture for Fake News Detection;Autores: Valdemar Vicente Graciano-Neto, Jacson Rodrigues Barbosa, Eliomar Araújo de Lima, Luiza Martins de Freitas Cintra, Samuel Venzi, Mohamad Kassab
