@@ -126,3 +126,34 @@ Título:A Catalog of Interoperability Solutions for Ambient Assisted Living;Auto
 Título:Investigating Developer Experience in Software Reuse;Autores: Rodrigo Feitosa Gonçalves, Cláudia Maria Lima Werner, Claudio Miceli de Farias
 Título:TriCache: Providing three-tier caching for time series data in serverless healthcare services;Autores: Adriano Zavareze Righi, Gabriel Souto Fischer, Rodrigo da Rosa Righi, Cristiano André da Costa, Alex Roehrs
 Título:Establishing a Blockchain-based Architecture for Fake News Detection;Autores: Valdemar Vicente Graciano-Neto, Jacson Rodrigues Barbosa, Eliomar Araújo de Lima, Luiza Martins de Freitas Cintra, Samuel Venzi, Mohamad Kassab
+Título:Robotic-supported Data Loss Detection in Android Applications;Autores: Davi Freitas, Breno Miranda, Juliano Iyoda
+Título:Code smell severity classification at class and method level with a single manually labeled imbalanced dataset;Autores: Fábio do Rosario Santos, Julio Cesar Duarte, Ricardo Choren
+Título:Towards Effective Collaboration between Software Engineers and Data Scientists developing Machine Learning-Enabled Systems;Autores: Gabriel Busquim, Allysson Allex Araújo, Maria Julia Lima, Marcos Kalinowski
+Título:Investigating Accountability in Business-intensive Systems-of-Systems;Autores: Felipe Cordeiro, Aline Vasconcelos, Rodrigo Pereira dos Santos, Patricia Lago
+Título:Unveiling the Landscape of System Thinking Modeling Tools Use in Software Engineering;Autores: Júlia de Souza Borges, Thiago Felippe Neitzke Lahass, Amanda Brito Apolinário, Paulo Sérgio dos Santos Júnior, Monalessa P. Barcellos
+Título:Revisiting Aristotle vs. Ringelmann: The influence of biases on measuring productivity in Open Source software development;Autores: Christian Gut, Alfredo Goldman
+Título:A Comparison Between Hierarchical and Non-Hierarchical Software Clustering;Autores: Léo C. R. Antunes, Márcio de O. Barros
+Título:How do Agile Organizations Manage Risks: An Analysis of the State of Practice in Brazil;Autores: Fernando Vedoin Garcia, Jean Carlo Rossa Hauck, Adriano Borgatto
+Título:Addressing the Synchronization Challenge in Cypress End-to-End Tests;Autores: Thiago Santos de Moura, Everton L. G. Alves, Regina Letícia Santos Felipe, Cláudio de Souza Baptista, Ismael Raimundo da Silva Neto, Hugo Feitosa de Figueirêdo
+Título:Investigating Benefits and Limitations of Migrating to a Micro-Frontends Architecture;Autores: Fabio Antunes, Maria Julia Dias de Lima, Marco Antônio Pereira Araújo, Davide Taibi, Marcos Kalinowski
+Título:Challenges and Solutions of Free and Open Source Software Documentation: A Systematic Mapping Study;Autores: Giniele Pinho, Aguiar Jeová Caçula, Lucas Costa, Igor Wiese, Allysson Allex Araújo
+Título:Views on Agile Leadership for Software Teams: A Case Study with Leaders and Non-Leaders;Autores: Narallynne Araújo, Tiago Massoni, Lucas Gren
+Título:Assessing Python Style Guides: An Eye-Tracking Study with Novice Developers;Autores: Pablo Roberto, Rohit Gheyi, José Aldo Silva da Costa, Márcio Ribeiro
+Título:Applying Design Science Research to Develop a Process Reference Model for IT Workforce Outsourcing: Preliminary Findings;Autores: Carlos Simões, Gleison Santos
+Título:Guiding the Way: Facilitating Requirements Elicitation with Selection Universe Approach;Autores: Maria Alcimar Costa Meireles, Juliana Magalhães, Nasthya Barauna, Sabrina Rocha, Jose Carlos Maldonado, Tayana Conte
+Título:Categorizing IoT Software Systems Security Vulnerabilities Through Literature Studies;Autores: Clinton Hudson Moreira Pessoa, Guilherme Horta Travassos
+Título:Explorando a detecção de conflitos semânticos nas integrações de código em múltiplos métodos;Autores: Toni Maciel, Paulo Borba, Léuson Da Silva, Thaís Burity
+Título:The Skill Gap in Software Industry: A Mapping Study;Autores: Wellynton Diniz, Marcela Valença, César França, Alessandro Santos, Mariana Pincovsky
+Título:Iterative Deepening URL-Based Search: Enhancing GUI Testing for Web Applications;Autores: Thiago Santos de Moura, Regina Letícia Santos Felipe, Everton L. G. Alves, Pedro Henrique S. C. Gregório, Cláudio de Souza Baptista, Hugo Feitosa de Figueirêdo
+Título:How does Technical Debt Evolve within Pull Requests? An Empirical Study with Apache Projects;Autores: Felipe E. de O. Calixto, Eliane C. Araújo, Everton L. G. Alves
+Título:Industrial Practices of Requirements Engineering for ML-Enabled Systems in Brazil;Autores: Antonio Pedro Santos Alves, Marcos Kalinowski, Daniel Mendez, Hugo Villamizar, Kelly Azevedo, Tatiana Escovedo, Helio Lopes
+Título:Rumo a uma Taxonomia de Observabilidade para Aplicações Baseadas em Microsserviços;Autores: Francisco A. A. Gomes, Paulo A. L. Rego, Fernando A. M. Trinta
+Título:Refinando a Precisão da Detecção de Conflitos: Uma Análise do CSDiff com Abordagem Focalizada;Autores: Felipe Araujo, Paulo Borba, Guilherme Cavalcanti
+Título:Avaliação de Métodos para Elicitação e Especificação de Requisitos de Usabilidade com Histórias de Usuário: Um Experimento Controlado;Autores: Clara Lima Fonseca, Luciana A. M. Zaina, Anna Beatriz Marques
+Título:Exploring the Role of Job Satisfaction and Work-Life Balance: A Study on the Mental Health Among Software Engineers;Autores: Maria Eulália Aires, Lucas Migge, Kiev Gama, Aline Lacerda
+Título:Comparative Analysis of Large Language Model Tools for Automated Test Data Generation from BDD;Autores: Isela Mendoza, Fernando Silva Filho, Gustavo Medeiros, Aline Paes, Vânia O. Neves
+Título:Promise+: expandindo a base de dados de requisitos de software Promise_exp;Autores: Bruno Silva, Rodrigo Nascimento, Luis Rivero, Geraldo Braz, Rodrigo Pereira dos Santos, Luiz E. G. Martins, Davi Viana
+Título:Eyes on Code Smells: Analyzing Developers’ Responses During Code Snippet Analysis;Autores: Vinícius Martins, Pedro Lopes Verardo Ramos, Breno Braga Neves, Maria Vitoria Lima, Johny Arriel, João Victor Godinho, Joanne Ribeiro, Alessandro Garcia, Juliana Alves Pereira
+Título:Detecting Code Smells in JavaScript: An Annotated Dataset for Software Quality Analysis;Autores: Diego S. Sarafim, Karina V. Delgado, Daniel Cordeiro
+Título:A self-adaptive IoT architecture to support intelligent environments;Autores: Mateus G. do Nascimento, José Maria N. David, Mario A. R. Dantas, Regina Braga, Victor Ströele
+Título:On the Employment of Machine Learning for Recommending Refactorings: A Systematic Literature Review;Autores: Guisella Angulo Armijo, Daniel San Martín Santibañez, Rafael Durelli, Valter Vieira de Camargo
