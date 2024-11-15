@@ -2,10 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct lista_artigos{
+typedef struct autor {
+    char *nome;
+    struct autor *next;
+} Autor;
+
+typedef struct lista_artigos {
     char *titulo;
-    char autores;
+    Autor *autores;  
     struct lista_artigos *prev;
     struct lista_artigos *next;
-} listaArtigos;
+} listaArtigo;
 
+listaArtigo *criarArtigo(char *titulo, Autor *autores);
+listaArtigo *atribuirDados(const char* linha);
+listaArtigo* abrirArquivo();
+Autor *criarAutor(char *nome);
+void removerNovaLinha(char* linha);
+void imprimirListaArtigos(listaArtigo *lista);
