@@ -88,6 +88,15 @@ listaArtigo *atribuirDados(const char* linha) {
     return criarArtigo(titulo, autores);
 }
 
+// Função para converter uma string para minúsculas
+char *toLowerCase(const char *str) {
+    char *lowerStr = strdup(str);
+    for (int i = 0; lowerStr[i]; i++) {
+        lowerStr[i] = tolower(lowerStr[i]);
+    }
+    return lowerStr;
+}
+
 void imprimirListaArtigos(listaArtigo *lista) {
     while (lista != NULL) {
         printf("Titulo: %s\n", lista->titulo);
@@ -107,9 +116,39 @@ void imprimirListaArtigos(listaArtigo *lista) {
     }
 }
 
+listaArtigo* buscarPorPalavraChave(listaArtigo *lista, const char *palavraChave) {
+    listaArtigo *resultado = NULL, *ultimoResultado = NULL;
+    char *palavraChaveLower = toLowerCase(palavraChave);
+
+    while (lista != NULL) {
+        char *tituloLower = toLowerCase(lista->titulo);
+        if (strstr(tituloLower, palavraChaveLower) != NULL) {
+            listaArtigo *novoArtigo = criarArtigo(lista->titulo, lista->autores);
+            if (!resultado) {
+                resultado = novoArtigo;
+            } else {
+                ultimoResultado->next = novoArtigo;
+                novoArtigo->prev = ultimoResultado;
+            }
+            ultimoResultado = novoArtigo;
+        }
+        free(tituloLower);  // Libera a memória alocada para o título em minúsculas
+        lista = lista->next;
+    }
+
+    free(palavraChaveLower);  // Libera a memória alocada para a palavra-chave em minúsculas
+    return resultado;
+}
+
 int main() {
-    listaArtigo *listaCompleta = abrirArquivo(); 
-    imprimirListaArtigos(listaCompleta);
+    listaArtigo *listaCompleta = abrirArquivo();
+    // imprimirListaArtigos(listaCompleta);
+
+    char *palavraChave = "Graph";  
+    listaArtigo *resultados = buscarPorPalavraChave(listaCompleta, palavraChave);
+
+    printf("Artigos encontrados com a palavra-chave '%s':\n", palavraChave);
+    imprimirListaArtigos(resultados);
 
     return 0;
 }
