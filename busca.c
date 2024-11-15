@@ -1,56 +1,115 @@
 #include "busca.h"
 
-listaArtigos *criarArtigo(char *titulo){
-
+listaArtigo *criarArtigo(char *titulo, Autor *autores) {
+    listaArtigo *novoArtigo = (listaArtigo*)malloc(sizeof(listaArtigo));
+    novoArtigo->titulo = strdup(titulo);  // Use strdup para alocar memória
+    novoArtigo->autores = autores;
+    novoArtigo->prev = NULL;
+    novoArtigo->next = NULL;
+    return novoArtigo;
 }
 
-listaArtigos *atribuirDados(const char* linha) {
-    char linhaCopia[256];
+Autor *criarAutor(char *nome) {
+    Autor *novoAutor = (Autor *)malloc(sizeof(Autor));
+    novoAutor->nome = strdup(nome);  // Aloca memória e copia o nome
+    novoAutor->next = NULL;
+    return novoAutor;
+}
+
+void removerNovaLinha(char* linha) {
+    char* pos;
+    if ((pos = strchr(linha, '\n')) != NULL) {
+        *pos = '\0';
+    }
+}
+
+listaArtigo* abrirArquivo() {
+    FILE *arquivo = fopen("artigos.txt", "r");
+    if (!arquivo) {
+        perror("Erro ao abrir o arquivo");
+        return NULL;
+    }
+
+    listaArtigo *inicio = NULL, *ultimo = NULL;
+    char linha[1024];
+
+    while (fgets(linha, sizeof(linha), arquivo)) {
+        removerNovaLinha(linha);
+        listaArtigo *novoArtigo = atribuirDados(linha);
+
+        if (novoArtigo) {
+            if (!inicio) {
+                inicio = novoArtigo;
+            } else {
+                ultimo->next = novoArtigo;
+                novoArtigo->prev = ultimo;
+            }
+            ultimo = novoArtigo;
+        }
+    }
+
+    fclose(arquivo);
+    return inicio;
+}
+
+listaArtigo *atribuirDados(const char* linha) {
+    char linhaCopia[1024];
     strncpy(linhaCopia, linha, sizeof(linhaCopia) - 1);
-    linhaCopia[sizeof(linhaCopia) - 1] = '\0';  // Garantir que a string está terminada com \0
+    linhaCopia[sizeof(linhaCopia) - 1] = '\0';
 
-    removerNovaLinha(linhaCopia);  // Remove \r\n
-    char* token = strtok(linhaCopia, ";");   
-    char titulo[30] = "", autor[30] = "";
-    int largura = 0, altura = 0, profundidade = 0;
+    char *titulo = NULL;
+    Autor *autores = NULL, *ultimoAutor = NULL;
 
+    char *token = strtok(linhaCopia, ";");
     while (token != NULL) {
-        if (strncmp(token, "Título:", 7) == 0) {
-            strcpy(titulo, token + 7);
-        } else if (strncmp(token, "autor=", 6) == 0) {
-            strcpy(autor, token + 6);
+        if (strncmp(token, "Titulo:", 7) == 0) {
+            titulo = strdup(token + 7);
+        } else if (strncmp(token, "Autores:", 8) == 0) {
+            char *autorToken = strtok(token + 8, ",");
+            while (autorToken != NULL) {
+                Autor *novoAutor = criarAutor(autorToken);
+                if (!autores) {
+                    autores = novoAutor;
+                } else {
+                    ultimoAutor->next = novoAutor;
+                }
+                ultimoAutor = novoAutor;
+                autorToken = strtok(NULL, ",");
+            }
         }
         token = strtok(NULL, ";");
+    }
+
+    if (!titulo) {
+        printf("Erro: Título não encontrado.\n");
+        return NULL;
     }
 
     return criarArtigo(titulo, autores);
 }
 
-// Função para abrir o arquivo e carregar os livros em uma lista duplamente encadeada
-listaArtigos* abrirArquivo() {
-    FILE* fp = fopen("artigos.txt", "rt");
-    if (fp == NULL) {
-        printf("Erro ao abrir o arquivo.\n");
-        exit(1);
-    }
-
-    listaArtigos *listaArtigos = NULL; 
-    listaArtigos *ultimoArtigo = NULL;
-
-    char linha[256];
-
-    while (fgets(linha, sizeof(linha), fp) != NULL) {
-        listaArtigos* novoArtigo = atribuirDados(linha);
-
-        if (listaArtigos == NULL) {
-            listaArtigos = novoLivro;  // Primeiro livro na lista
-        } else {
-            ultimoArtigo->next = novoLivro;  // Conecta o novo livro na lista
-            novoLivro->prev = ultimoArtigo;
+void imprimirListaArtigos(listaArtigo *lista) {
+    while (lista != NULL) {
+        printf("Titulo: %s\n", lista->titulo);
+        printf("Autores: ");
+        
+        Autor *autorAtual = lista->autores;
+        while (autorAtual != NULL) {
+            printf("%s", autorAtual->nome);
+            if (autorAtual->next != NULL) {
+                printf(", ");
+            }
+            autorAtual = autorAtual->next;
         }
-        listaArtigos = novoLivro;  // Atualiza o último livro
+        
+        printf("\n\n");  // Adiciona uma linha em branco entre os artigos
+        lista = lista->next;
     }
+}
 
-    fclose(fp);
-    return listaArtigos;
+int main() {
+    listaArtigo *listaCompleta = abrirArquivo(); 
+    imprimirListaArtigos(listaCompleta);
+
+    return 0;
 }
