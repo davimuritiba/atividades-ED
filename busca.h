@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 typedef struct autor {
     char *nome;
@@ -17,6 +18,8 @@ typedef struct lista_artigos {
 listaArtigo *criarArtigo(char *titulo, Autor *autores);
 listaArtigo *atribuirDados(const char* linha);
 listaArtigo* abrirArquivo();
+listaArtigo* buscarPorPalavraChave(listaArtigo *lista, const char *palavraChave);
 Autor *criarAutor(char *nome);
 void removerNovaLinha(char* linha);
 void imprimirListaArtigos(listaArtigo *lista);
+char *toLowerCase(const char *str);
