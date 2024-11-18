@@ -19,9 +19,8 @@ Autor *criarAutor(char *nome) {
 
 void removerNovaLinha(char* linha) {
     char* pos;
-    if ((pos = strchr(linha, '\n')) != NULL) {
-        *pos = '\0';
-    }
+    if ((pos = strchr(linha, '\r')) != NULL) *pos = '\0';  // Remove '\r' (Windows)
+    if ((pos = strchr(linha, '\n')) != NULL) *pos = '\0';  // Remove '\n' (Linux/macOS)
 }
 
 listaArtigo* abrirArquivo() {
@@ -34,7 +33,7 @@ listaArtigo* abrirArquivo() {
     listaArtigo *inicio = NULL, *ultimo = NULL;
     char linha[1024];
 
-    while (fgets(linha, sizeof(linha), arquivo)) {
+    while(fgets(linha, sizeof(linha), arquivo)) {
         removerNovaLinha(linha);
         listaArtigo *novoArtigo = atribuirDados(linha);
 
@@ -53,53 +52,58 @@ listaArtigo* abrirArquivo() {
     return inicio;
 }
 
-listaArtigo *atribuirDados(const char* linha) {
-    char linhaCopia[1024];
-    strncpy(linhaCopia, linha, sizeof(linhaCopia) - 1);
-    linhaCopia[sizeof(linhaCopia) - 1] = '\0';
-
+listaArtigo *atribuirDados(const char *linha) {
     char *titulo = NULL;
     Autor *autores = NULL, *ultimoAutor = NULL;
     char *link = NULL;
 
-    char *token = strtok(linhaCopia, ";");
-    while (token != NULL) {
-        printf("Token: %s\n", token);  // Adiciona print para depuração
-        if (strncmp(token, "Titulo:", 7) == 0) {
-            titulo = strdup(token + 7);
-        } else if (strncmp(token, "Autores:", 8) == 0) {
-            char *autorToken = strtok(token + 8, ",");
-            while (autorToken != NULL) {
-                Autor *novoAutor = criarAutor(autorToken);
-                if (!autores) {
-                    autores = novoAutor;
-                } else {
-                    ultimoAutor->next = novoAutor;
-                }
-                ultimoAutor = novoAutor;
-                autorToken = strtok(NULL, ",");
-            }
-        } else if (strncmp(token, "Link:", 5) == 0) {
-            link = strdup(token + 5);
-            printf("Link encontrado: %s\n", link);  // Adiciona print para verificar o link
-        }
-        token = strtok(NULL, ";");
+    // Duplica a linha para ser manipulada
+    char *linhaCopia = strdup(linha);
+
+    // Procura por "Titulo:", "Autores:" e "Link:"
+    char *tituloPos = strstr(linhaCopia, "Titulo:");
+    char *autoresPos = strstr(linhaCopia, "Autores:");
+    char *linkPos = strstr(linhaCopia, "Link:");
+
+    if (tituloPos) {
+        titulo = strdup(tituloPos + 7);  // Avança 7 caracteres para pular "Titulo:"
+        char *end = strchr(titulo, ';'); // Encontra o próximo delimitador
+        if (end) *end = '\0';           // Finaliza a string
     }
 
-    if (!titulo) {
-        printf("titulo nao encontrado.\n");
-        return NULL;
+    if (autoresPos) {
+        char *autoresInicio = autoresPos + 8;  // Avança 8 caracteres para "Autores:"
+        char *autoresFim = strchr(autoresInicio, ';'); // Encontra o delimitador
+        if (autoresFim) *autoresFim = '\0';    // Finaliza a string
+        char *autorToken = strtok(autoresInicio, ",");
+        while (autorToken) {
+            Autor *novoAutor = criarAutor(autorToken);
+            if (!autores) {
+                autores = novoAutor;
+            } else {
+                ultimoAutor->next = novoAutor;
+            }
+            ultimoAutor = novoAutor;
+            autorToken = strtok(NULL, ",");
+        }
     }
+
+    if (linkPos) {
+        link = strdup(linkPos + 5);  // Avança 5 caracteres para "Link:"
+        char *end = strchr(link, '\0');  // Garante o final da string
+        if (end && *(end - 1) == '\n') *(end - 1) = '\0';  // Remove quebra de linha
+    }
+
+    free(linhaCopia);
 
     if (!link) {
-        printf("link nao encontrado.\n");
+        printf("Link nao encontrado.\n");
         return NULL;
     }
 
     return criarArtigo(titulo, autores, link);
 }
 
-// Função para converter uma string para minúsculas
 char *toLowerCase(const char *str) {
     char *lowerStr = strdup(str);
     for (int i = 0; lowerStr[i]; i++) {
@@ -122,7 +126,7 @@ void imprimirListaArtigos(listaArtigo *lista) {
             autorAtual = autorAtual->next;
         }
         
-        printf("Link: %s\n", lista->link);  // Imprime o link
+        printf("\nLink: %s", lista->link);  // Imprime o link
         printf("\n\n");  // Adiciona uma linha em branco entre os artigos
         lista = lista->next;
     }
@@ -154,7 +158,8 @@ listaArtigo* buscarPorPalavraChave(listaArtigo *lista, const char *palavraChave)
 
 // Função para verificar se uma palavra é uma stop word
 int retirarPalavras(const char *word) {
-    const char *stopWords[] = {"o", "a", "de", "e", "do", "da", "em", "um", "uma", "os", "as", "dos", "das", "no", "na", "nos", "nas", "por", "com", "para", "como", "que", "se", "ao", "à", "aos", "às", "quais", "qual", "quando", "onde", "porque", "quando", "onde"};
+    const char *stopWords[] = {"o", "a", "de", "e", "do", "da", "em", "um", "uma", "os", "as", "dos", "das", "no", "na", "nos", "nas", "por", "com", "para", "como", "que", "se", "ao", "à", "aos", 
+                                "às", "quais", "qual", "quando", "onde", "porque", "quando", "onde", "?", ",", ".", "!"};
     int numStopWords = sizeof(stopWords) / sizeof(stopWords[0]);
     for (int i = 0; i < numStopWords; i++) {
         if (strcmp(word, stopWords[i]) == 0) {
