@@ -10,12 +10,13 @@ typedef struct autor {
 
 typedef struct lista_artigos {
     char *titulo;
-    Autor *autores;  
+    Autor *autores;
+    char *link;
     struct lista_artigos *prev;
     struct lista_artigos *next;
 } listaArtigo;
 
-listaArtigo *criarArtigo(char *titulo, Autor *autores);
+listaArtigo *criarArtigo(char *titulo, Autor *autores, char *link);
 listaArtigo *atribuirDados(const char* linha);
 listaArtigo* abrirArquivo();
 listaArtigo* buscarPorPalavraChave(listaArtigo *lista, const char *palavraChave);
