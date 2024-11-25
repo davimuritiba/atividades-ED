@@ -166,80 +166,70 @@ Fracao calcular_expressao(char *expressao) {
     return pilha_fracoes[topo_fracoes];
 }
 
-Fracao calcular_expressao2(char *expressao) {
-    Fracao pilha_fracoes[256];
-    char pilha_operadores[256];
-    int topo_fracoes = -1, topo_operadores = -1;
+int precedencia2(char operador) {
+    switch (operador) {
+        case '^': return 3; // Exponenciação
+        case '*':
+        case '/': return 2; // Multiplicação e divisão
+        case '+':
+        case '-': return 1; // Adição e subtração
+        default: return 0;  // Operador desconhecido
+    }
+}
 
-    // Arrays temporários para armazenar a expressão em pós-fixada
-    char posfixada[256][256];
-    int idx_posfixada = 0;
+// Função para aplicar a precedência dos operadores
+Fracao calcular_expressao2(char* expressao) {
+    Fracao pilha_operandos[100]; // Pilha para operandos (frações)
+    char pilha_operadores[100];  // Pilha para operadores
+    int topo_operandos = -1;
+    int topo_operadores = -1;
 
-    char *token = strtok(expressao, " ");
-    while (token != NULL) {
-        if (strchr("+-*/^", token[0]) && strlen(token) == 1) {
-            // Processar operadores e respeitar precedência
-            while (topo_operadores >= 0 && 
-                   precedencia(pilha_operadores[topo_operadores]) >= precedencia(token[0])) {
-                posfixada[idx_posfixada][0] = pilha_operadores[topo_operadores--];
-                posfixada[idx_posfixada][1] = '\0'; // Garantir string
-                idx_posfixada++;
-            }
-            pilha_operadores[++topo_operadores] = token[0];
-        } else {
-            // Adicionar fração diretamente à expressão pós-fixada
-            strcpy(posfixada[idx_posfixada++], token);
+    // Função auxiliar para processar cada caractere da expressão
+    for (int i = 0; i < strlen(expressao); i++) {
+        char c = expressao[i];
+        
+        if (c >= '0' && c <= '9') {
+            // Extrair número da fração
+            int numerador = c - '0';
+            i++;
+            while (expressao[i] == '/') i++;  // Ignorar o '/' entre numerador e denominador
+            int denominador = expressao[i] - '0';
+
+            // Empilhar a fração
+            Fracao f = {numerador, denominador};
+            pilha_operandos[++topo_operandos] = f;
         }
+        else if (c == '+' || c == '-' || c == '*' || c == '/') {
+            // Verificar precedência dos operadores
+            while (topo_operadores != -1 && (c == '+' || c == '-') && (pilha_operadores[topo_operadores] == '*' || pilha_operadores[topo_operadores] == '/')) {
+                // Desempilhar e calcular
+                char operador = pilha_operadores[topo_operadores--];
+                Fracao op2 = pilha_operandos[topo_operandos--];
+                Fracao op1 = pilha_operandos[topo_operandos--];
 
-        token = strtok(NULL, " ");
-    }
-
-    // Descarregar operadores restantes
-    while (topo_operadores >= 0) {
-        posfixada[idx_posfixada][0] = pilha_operadores[topo_operadores--];
-        posfixada[idx_posfixada][1] = '\0';
-        idx_posfixada++;
-    }
-
-    // Avaliar a expressão pós-fixada
-    for (int i = 0; i < idx_posfixada; i++) {
-        if (strchr("+-*/^", posfixada[i][0]) && strlen(posfixada[i]) == 1) {
-            char operador = posfixada[i][0];
-            Fracao f2 = pilha_fracoes[topo_fracoes--];
-            Fracao f1 = pilha_fracoes[topo_fracoes--];
-            Fracao resultado;
-
-            switch (operador) {
-                case '+':
-                    resultado = soma_subtracao(f1, f2, '+');
-                    break;
-                case '-':
-                    resultado = soma_subtracao(f1, f2, '-');
-                    break;
-                case '*':
-                    resultado = multiplicar(f1, f2);
-                    break;
-                case '/':
-                    resultado = dividir(f1, f2);
-                    break;
-                case '^':
-                    resultado = exponenciar(f1, f2);
-                    break;
-                default:
-                    printf("Operador inválido: %c\n", operador);
-                    exit(1);
+                if (operador == '*') pilha_operandos[++topo_operandos] = multiplicar(op1, op2);
+                else if (operador == '/') pilha_operandos[++topo_operandos] = dividir(op1, op2);
+                else if (operador == '+') pilha_operandos[++topo_operandos] = soma_subtracao(op1, op2, '+');
+                else if (operador == '-') pilha_operandos[++topo_operandos] = soma_subtracao(op1, op2, '-');
             }
-
-            pilha_fracoes[++topo_fracoes] = resultado;
-        } else {
-            // Adicionar fração à pilha
-            Fracao atual;
-            sscanf(posfixada[i], "%d/%d", &atual.numerador, &atual.denominador);
-            pilha_fracoes[++topo_fracoes] = atual;
+            // Empilhar o operador atual
+            pilha_operadores[++topo_operadores] = c;
         }
     }
 
-    return pilha_fracoes[topo_fracoes];
+    // Processar os operadores restantes
+    while (topo_operadores != -1) {
+        char operador = pilha_operadores[topo_operadores--];
+        Fracao op2 = pilha_operandos[topo_operandos--];
+        Fracao op1 = pilha_operandos[topo_operandos--];
+
+        if (operador == '*') pilha_operandos[++topo_operandos] = multiplicar(op1, op2);
+        else if (operador == '/') pilha_operandos[++topo_operandos] = dividir(op1, op2);
+        else if (operador == '+') pilha_operandos[++topo_operandos] = soma_subtracao(op1, op2, '+');
+        else if (operador == '-') pilha_operandos[++topo_operandos] = soma_subtracao(op1, op2, '-');
+    }
+
+    return pilha_operandos[topo_operandos];
 }
 
 // Função para imprimir o resultado
@@ -262,13 +252,15 @@ int main() {
         printf("Digite a expressao de fracoes: ");
         fgets(expressao, sizeof(expressao), stdin);
         expressao[strcspn(expressao, "\n")] = 0;
+        char expressao2[256];
 
-        if (strcmp(expressao, "0") == 0) {
+        strcpy(expressao2, expressao);
+
+        if (strcmp(expressao, "0") == 0) 
             break;
-        }
 
         Fracao resultado = calcular_expressao(expressao);
-        Fracao resultado2 = calcular_expressao2(expressao);
+        Fracao resultado2 = calcular_expressao2(expressao2);
         printf("Resultado com expressao matematica normal: \n");
         imprimir_resultado(resultado);  
         printf("----------------------------------------\n");
