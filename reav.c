@@ -263,10 +263,6 @@ int main() {
         Fracao resultado2 = calcular_expressao2(expressao2);
         printf("Resultado com expressao matematica normal: \n");
         imprimir_resultado(resultado);  
-        printf("----------------------------------------\n");
-        printf("Resultado com expressao matematica com precedencia: \n");
-        imprimir_resultado(resultado2);
-
     } while (1);
 
     printf("Programa encerrado.\n");
